@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<resources>
+
+
+    <resource>
+        <class-name class="Test">
+            <node>
+            <url>/hello</url>
+            <method>hello</method>
+                <support>post</support>
+                <support>get</support>
+            </node>
+            <node>
+                <url>/hi</url>
+                <method>hi</method>
+                <support>delete</support>
+
+
+
+            </node>
+
+
+        </class-name>
+
+    </resource>
+
+    <resource>
+
+        <class-name class="com.zzc.test.Controller.UserController">
+
+            <node>
+                <url>/user/:uid/note/:noteid</url>
+                <method>get</method>
+                <support>get</support>
+            </node>
+        </class-name>
+    </resource>
+</resources>
+
