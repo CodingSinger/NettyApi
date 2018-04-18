@@ -2,6 +2,9 @@ package com.zzc.nettyapi.argument;
 
 import com.zzc.nettyapi.apiutil.ApiMethod;
 
+import java.lang.reflect.Method;
+import java.lang.reflect.Parameter;
+
 /**
  * @author zhengzechao
  * @date 2018/4/18
@@ -10,13 +13,22 @@ import com.zzc.nettyapi.apiutil.ApiMethod;
 public class HandleMethodArgumentParser {
 
 
-    public void parse(ApiMethod apiMethod){
-
-
-
-
-
+    public HandleMethodArgumentParser() {
     }
 
 
+    public MethodParameter[] parse(Method apiMethod){
+
+        Parameter[] parameters = apiMethod.getParameters();
+        MethodParameter[] methodParameters = new MethodParameter[parameters.length];
+
+        for (int i = 0; i < parameters.length; i++) {
+
+            methodParameters[i] = new MethodParameter(parameters[i],i);
+
+        }
+
+        return methodParameters;
+
+    }
 }

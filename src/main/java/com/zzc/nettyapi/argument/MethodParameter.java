@@ -2,6 +2,7 @@ package com.zzc.nettyapi.argument;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
+import java.lang.reflect.Parameter;
 
 /**
  * @author zhengzechao
@@ -11,16 +12,54 @@ import java.lang.reflect.Method;
 public class MethodParameter {
 
 
-    //参数的注解
-    public Annotation[] annotations;
-
-    //参数所属方法
-    public Method method;
-
-    //参数类型
+    public MethodParameter(Parameter parameter,int index) {
+        this.parameter = parameter;
+        this.index = index;
 
 
+    }
+
+    private Parameter parameter;
+
+   //所属方法
+
+    private Method method;
 
 
+    //下标
 
+
+    private int index;
+
+
+    public Class getType(){
+        return parameter.getType();
+    }
+
+    public String name(){
+        return parameter.getName();
+    }
+    public Annotation[] getAnnotations(){
+        return parameter.getDeclaredAnnotations();
+    }
+
+    public void setParameter(Parameter parameter) {
+        this.parameter = parameter;
+    }
+
+    public Method getMethod() {
+        return method;
+    }
+
+    public void setMethod(Method method) {
+        this.method = method;
+    }
+
+    public int getIndex() {
+        return index;
+    }
+
+    public void setIndex(int index) {
+        this.index = index;
+    }
 }

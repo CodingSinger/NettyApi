@@ -71,10 +71,13 @@ public class TestRegistry {
     public void test(Object ... args) throws Exception {
         System.out.println();
 
+
     }
 
     @Test
     public void name6() throws Exception {
+        String[] s = new String[10];
+        System.out.println(s.getClass());
         Object o = 1;
         System.out.println(o instanceof Number);
 

@@ -1,5 +1,7 @@
 package com.zzc.nettyapi.apiutil;
 
+import com.zzc.nettyapi.argument.MethodParameter;
+
 import java.io.Serializable;
 import java.lang.reflect.Method;
 import java.util.HashSet;
@@ -28,6 +30,18 @@ public class ApiMethod implements Serializable {
 
     private String[] parameterNames ;
     private Class[] parameterTypes ;
+
+
+
+    private MethodParameter[] parameters;
+
+    public MethodParameter[] getParameters() {
+        return parameters;
+    }
+
+    public void setParameters(MethodParameter[] parameters) {
+        this.parameters = parameters;
+    }
 
     public Class[] getParameterTypes() {
         return parameterTypes;

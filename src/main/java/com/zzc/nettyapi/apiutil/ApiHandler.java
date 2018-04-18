@@ -2,8 +2,12 @@ package com.zzc.nettyapi.apiutil;
 
 import com.alibaba.fastjson.JSONObject;
 import com.zzc.nettyapi.Exception.HttpMethodNoSupportException;
+import com.zzc.nettyapi.argument.HandleMethodArgumentParser;
+import com.zzc.nettyapi.argument.MethodParameter;
 import com.zzc.nettyapi.conversion.SimpleConversion;
 import com.zzc.nettyapi.nettyservice.NettyServerBootStrap;
+import com.zzc.nettyapi.request.HttpRequestParser;
+import com.zzc.nettyapi.request.RequestDetail;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.http.HttpRequest;
 import org.slf4j.Logger;
@@ -29,8 +33,17 @@ public class ApiHandler {
      *     使用CAS操作的线程安全队列 高并发下建议使用Synchronized同步,因为CAS在高并发下会导致CAS操作失败过多而循环，而导致CPU工作大
 
      */
-    private ConcurrentLinkedQueue<RequestDetail> requestCache = new ConcurrentLinkedQueue<RequestDetail>();
+//    private ConcurrentLinkedQueue<RequestDetail> requestCache = new ConcurrentLinkedQueue<RequestDetail>();
     private Logger logger = LoggerFactory.getLogger(ApiHandler.class);
+
+
+    /*参数包装器*/
+    private HandleMethodArgumentParser argumentParser = new HandleMethodArgumentParser();
+
+    /*请求解析器*/
+
+    private HttpRequestParser requestParser = new HttpRequestParser();
+
 
     public byte[] handle(ChannelHandlerContext ctx, Object msg) {
 
@@ -38,17 +51,17 @@ public class ApiHandler {
         //将本次请求进行包装
 
 
-        RequestDetail request = requestCache.poll();
-        //为空则重新new
-        if (request == null) {
-            request = new RequestDetail(ctx, httpRequest);
+        RequestDetail request = new RequestDetail(ctx,httpRequest);
+        /**
+         * TODO: 去掉request缓存模块或者增加相同资源的request缓存模块
+         */
 
-        } else {
-            request.reset(ctx, httpRequest, true);
-        }
-//        ApiMethod api = ApiRegistry.urlRegistrys.get(request.getUrl());
 
-        ApiMethod api = request.getApi();
+        requestParser.parse(request);
+
+        ApiMethod api = ApiRegistry.urlRegistrys.get(request.getUrl());
+
+
         if (api == null) {
             return encode(new Result(Constants.NOT_FOUND, null));
         }
@@ -80,15 +93,15 @@ public class ApiHandler {
             /**
              * TODO:可以尝试另开线程进行提交到缓存 避免线程争用影响服务器响应时间
              */
-
-            Executor executor = NettyServerBootStrap.getExecutor();
-            final RecycleTask recycleTask = new RecycleTask(request, requestCache);
-            if (executor == null) {
-                recycleTask.run();
-            } else {
-                executor.execute(recycleTask);
-
-            }
+//
+//            Executor executor = NettyServerBootStrap.getExecutor();
+//            final RecycleTask recycleTask = new RecycleTask(request, requestCache);
+//            if (executor == null) {
+//                recycleTask.run();
+//            } else {
+//                executor.execute(recycleTask);
+//
+//            }
 
         }
 
@@ -107,7 +120,7 @@ public class ApiHandler {
             throw new HttpMethodNoSupportException(api.getUrl()+" don't support this http method");
         }else{
 
-            List<Object> list = request.getParametersLine();
+            List<String> list = request.getParametersLine();
 
             Method method = api.getMethod();
 
@@ -155,11 +168,18 @@ public class ApiHandler {
                     .findFirst()
                     .get();
 
+
+
             apiMethod.setParameterNames(Stream.of(method.getParameters()).map(Parameter::getName).toArray(String[]::new));
             apiMethod.setParameterTypes(method.getParameterTypes());
             Object instance = clzz.newInstance();
             apiMethod.setMethod(method);
             apiMethod.setHandler(instance);
+            MethodParameter[] methodParameters = argumentParser.parse(method);
+            apiMethod.setParameters(methodParameters);
+
+
+
         } catch (Exception e) {
             logger.error(e.getMessage());
             e.printStackTrace();
