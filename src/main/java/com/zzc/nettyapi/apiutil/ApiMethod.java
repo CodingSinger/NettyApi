@@ -7,6 +7,11 @@ import java.util.LinkedList;
 import java.util.Set;
 
 /**
+ *
+ *
+ *
+ *
+ * 存储方法元数据(方法名，类名，方法参数类型，方法参数名字，方法对应的uri的正则等)
  * @author zhengzechao
  * @date 2018/3/30
  */
@@ -19,23 +24,25 @@ public class ApiMethod implements Serializable {
     private Object handler;//处理对象
     private String methodName; //方法名
     private String regex;
-    private LinkedList<String> parameterNames = new LinkedList<>();
+//    private LinkedList<String> parameterNames = new LinkedList<>();
+
+    private String[] parameterNames ;
     private Class[] parameterTypes ;
 
     public Class[] getParameterTypes() {
         return parameterTypes;
     }
 
-    public void setParameterTypes(Class[] parameterTypes) {
-        this.parameterTypes = parameterTypes;
-    }
-
-    public LinkedList<String> getParameterNames() {
+    public String[] getParameterNames() {
         return parameterNames;
     }
 
-    public void setParameterNames(LinkedList<String> parameterNames) {
+    public void setParameterNames(String[] parameterNames) {
         this.parameterNames = parameterNames;
+    }
+
+    public void setParameterTypes(Class[] parameterTypes) {
+        this.parameterTypes = parameterTypes;
     }
 
     public String getRegex() {
@@ -95,7 +102,7 @@ public class ApiMethod implements Serializable {
             }
             stringBuilder.append("/");
             if (strings[i].startsWith(":")) {
-                parameterNames.add(strings[i].substring(1));
+//                parameterNames.add(strings[i].substring(1));
                 stringBuilder.append("([^/]+)");
             } else {
                 stringBuilder.append(strings[i]);

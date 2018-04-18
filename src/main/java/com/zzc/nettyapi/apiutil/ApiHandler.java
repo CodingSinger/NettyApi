@@ -12,12 +12,11 @@ import org.slf4j.LoggerFactory;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Set;
+import java.lang.reflect.Parameter;
+import java.util.*;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.Executor;
+import java.util.stream.Stream;
 
 /**
  * @author zhengzechao
@@ -39,9 +38,6 @@ public class ApiHandler {
         //将本次请求进行包装
 
 
-        /**
-         * TODO:RequetsCache应该是个映射关系的容器 能根据请求url得到相应的RequestDetail
-         */
         RequestDetail request = requestCache.poll();
         //为空则重新new
         if (request == null) {
@@ -50,7 +46,9 @@ public class ApiHandler {
         } else {
             request.reset(ctx, httpRequest, true);
         }
-        ApiMethod api = ApiRegistry.urlRegistrys.get(request.getUrl());
+//        ApiMethod api = ApiRegistry.urlRegistrys.get(request.getUrl());
+
+        ApiMethod api = request.getApi();
         if (api == null) {
             return encode(new Result(Constants.NOT_FOUND, null));
         }
@@ -120,8 +118,11 @@ public class ApiHandler {
 
             for (int i = 0; i < parameterTypes.length; i++) {
                 /**
-                 * TODO: 转化器应该根据原始类型和目标类型进行匹配获得
+                 * TODO: 转化器应该根据原始类型和目标类型进行匹配，并且还需要对输入参数进行验证是否有效性
+                 *
                  */
+
+
                 args[i] = new SimpleConversion().convert(parameterTypes[i], (String) list.get(i));
 
             }
@@ -143,8 +144,18 @@ public class ApiHandler {
     private void loadMethodAndClass(ApiMethod apiMethod) {
 
         try {
+
+
+
+
+
             Class clzz = Class.forName(apiMethod.getClassName());
-            Method method = Arrays.stream(clzz.getDeclaredMethods()).filter((t)->t.getName().equals(apiMethod.getMethodName())).findFirst().get();
+            Method method = Arrays.stream(clzz.getDeclaredMethods())
+                    .filter((t)->t.getName().equals(apiMethod.getMethodName()))
+                    .findFirst()
+                    .get();
+
+            apiMethod.setParameterNames(Stream.of(method.getParameters()).map(Parameter::getName).toArray(String[]::new));
             apiMethod.setParameterTypes(method.getParameterTypes());
             Object instance = clzz.newInstance();
             apiMethod.setMethod(method);

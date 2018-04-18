@@ -8,6 +8,7 @@ import org.junit.Test;
 import java.lang.reflect.Method;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.stream.Stream;
 
 /**
  * @author zhengzechao
@@ -70,6 +71,18 @@ public class TestRegistry {
     public void test(Object ... args) throws Exception {
         System.out.println();
 
+    }
+
+    @Test
+    public void name6() throws Exception {
+        Object o = 1;
+        System.out.println(o instanceof Number);
+
+    }
+
+    @Test
+    public void name7() throws Exception {
+        System.out.println(Stream.of(1,2,3).map(Math::incrementExact));
     }
 
     public static void main(String[] args) {

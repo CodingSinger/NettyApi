@@ -30,6 +30,7 @@ public class RequestDetail implements Recyclable{
     private ChannelHandlerContext context;
     private List<Object> parametersLine;
     private HttpRequest httpRequest;
+    private ApiMethod api;
 
     public RequestDetail(ChannelHandlerContext context,HttpRequest request) {
         this.httpRequest = request;
@@ -70,6 +71,7 @@ public class RequestDetail implements Recyclable{
             Pattern pattern = Pattern.compile("^" + m.getRegex() + "$");
             Matcher matcher = pattern.matcher(uri);
             if (matcher.find()) {
+                this.api = m;
                 this.url = m.getUrl();
                 if (matcher.groupCount() > 0) {
                     for (int i = 0; i < matcher.groupCount(); i++) {
@@ -79,6 +81,21 @@ public class RequestDetail implements Recyclable{
                     }
                 }
                 break;
+            }
+        }
+
+    }
+
+    public void reParseParameter(){
+        String uri = httpRequest.uri();
+        ApiMethod m = this.api;
+        Pattern pattern = Pattern.compile("^" + m.getRegex() + "$");
+        Matcher matcher = pattern.matcher(uri);
+        if (matcher.groupCount() > 0) {
+            for (int i = 0; i < matcher.groupCount(); i++) {
+//                        this.paramters.put(m.getParameterNames().get(i),matcher.group(i+1));
+
+                this.parametersLine.add(matcher.group(i+1));
             }
         }
 
@@ -99,10 +116,21 @@ public class RequestDetail implements Recyclable{
     @Override
     public void reset(){
         this.parametersLine = null;
+        this.api = null;
+
+        this.url = null;
         reset(null,null,false);
+
 
     }
 
+    public ApiMethod getApi() {
+        return api;
+    }
+
+    public void setApi(ApiMethod api) {
+        this.api = api;
+    }
 
     public List<Object> getParametersLine() {
         return parametersLine;
