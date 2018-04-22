@@ -1,7 +1,5 @@
 package com.zzc.nettyapi.argument;
 
-import com.zzc.nettyapi.apiutil.ApiMethod;
-
 import java.lang.reflect.Method;
 import java.lang.reflect.Parameter;
 

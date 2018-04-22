@@ -1,4 +1,3 @@
-import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.zzc.nettyapi.apiutil.ApiRegistry;
 import com.zzc.nettyapi.apiutil.Result;
@@ -78,9 +77,25 @@ public class TestRegistry {
     public void name6() throws Exception {
         String[] s = new String[10];
         System.out.println(s.getClass());
+        try {
+            int i = 1/0;
+        } catch (Exception e) {
+            throw e;
+
+        }
         Object o = 1;
         System.out.println(o instanceof Number);
 
+    }
+
+
+    @Test
+
+    public void name8(){
+
+        Integer i = new Integer(2);
+        Integer i2 = 2;
+        System.out.println(i == i2);
     }
 
     @Test

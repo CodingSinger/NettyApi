@@ -6,6 +6,7 @@ import java.io.Serializable;
 import java.lang.reflect.Method;
 import java.util.HashSet;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -26,9 +27,9 @@ public class ApiMethod implements Serializable {
     private Object handler;//处理对象
     private String methodName; //方法名
     private String regex;
-//    private LinkedList<String> parameterNames = new LinkedList<>();
+    private List<String> parameterNames = new LinkedList<>();
 
-    private String[] parameterNames ;
+//    private String[] parameterNames ;
     private Class[] parameterTypes ;
 
 
@@ -47,11 +48,11 @@ public class ApiMethod implements Serializable {
         return parameterTypes;
     }
 
-    public String[] getParameterNames() {
+    public List<String> getParameterNames() {
         return parameterNames;
     }
 
-    public void setParameterNames(String[] parameterNames) {
+    public void setParameterNames(List<String> parameterNames) {
         this.parameterNames = parameterNames;
     }
 
@@ -116,7 +117,6 @@ public class ApiMethod implements Serializable {
             }
             stringBuilder.append("/");
             if (strings[i].startsWith(":")) {
-//                parameterNames.add(strings[i].substring(1));
                 stringBuilder.append("([^/]+)");
             } else {
                 stringBuilder.append(strings[i]);

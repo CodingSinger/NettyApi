@@ -1,8 +1,6 @@
 package com.zzc.nettyapi.nettyservice;
 
-import com.sun.xml.internal.ws.api.pipe.PipelineAssembler;
 import io.netty.channel.Channel;
-import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.ChannelPipeline;
 import io.netty.handler.codec.http.HttpServerCodec;

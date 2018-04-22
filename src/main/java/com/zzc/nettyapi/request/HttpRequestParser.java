@@ -1,5 +1,7 @@
 package com.zzc.nettyapi.request;
 
+import com.google.common.collect.Lists;
+import com.google.common.collect.Maps;
 import com.zzc.nettyapi.apiutil.ApiMethod;
 import com.zzc.nettyapi.apiutil.ApiRegistry;
 import io.netty.handler.codec.http.HttpRequest;
@@ -25,23 +27,20 @@ public class HttpRequestParser {
 
     private static final Logger log = LoggerFactory.getLogger(HttpRequestParser.class);
 
-    public void parse(RequestDetail requestDetail){
+    public void parse(RequestDetail requestDetail) {
 
         HttpRequest request = requestDetail.getHttpRequest();
 
 
-        parseRequest(requestDetail,request);
-        parseParameterByMethod(requestDetail,request);
-
+        parseRequest(requestDetail, request);
+        parseParameterByMethod(requestDetail, request);
 
 
     }
 
 
-
-
     /*根据request路径解析请求 包括url参数以及路径参数和请求体参数*/
-    private void parseRequest(RequestDetail request,HttpRequest httpRequest) {
+    private void parseRequest(RequestDetail request, HttpRequest httpRequest) {
         request.setParametersLine(new LinkedList<>());
         StringBuilder builder = new StringBuilder();
         request.setHttpVersion(httpRequest.protocolVersion());
@@ -67,7 +66,7 @@ public class HttpRequestParser {
         for (ApiMethod m : list) {
 
             Pattern pattern = Pattern.compile("^" + m.getRegex() + "$");
-            Matcher matcher = pattern.matcher(uri.substring(0,uri.indexOf("?")));
+            Matcher matcher = pattern.matcher(uri.substring(0, uri.indexOf("?")));
 
             if (matcher.find()) {
                 request.setApi(m);
@@ -75,15 +74,23 @@ public class HttpRequestParser {
                 //解析路径参数 需要截断"?"之后的
                 if (matcher.groupCount() > 0) {
 
+
+                    /**
+                     * 将数据放到Map的映射关系
+                     */
                     final List<String> parametersLine = request.getParametersLine();
+                    List<String> key = m.getParameterNames();
+                    HashMap<String, List<String>> parameterMap = Maps.newHashMap();
                     for (int i = 0; i < matcher.groupCount(); i++) {
-
-
-
-                        parametersLine.add(matcher.group(i + 1));
+                        String value = matcher.group(i + 1);
+                        parametersLine.add(value);
+                        List<String> values = Lists.newArrayList();
+                        values.add(value);
+                        parameterMap.put(key.get(i), values);
 
 
                     }
+                    request.setParamters(parameterMap);
                 }
                 break;
             }
@@ -91,7 +98,14 @@ public class HttpRequestParser {
 
     }
 
-    public void parseParameterByMethod(RequestDetail request,HttpRequest httpRequest) {
+    public void parseParameterByMethod(RequestDetail request, HttpRequest httpRequest) {
+
+
+        Map<String, List<String>> parameterMap = request.getParamters();
+
+        if (Objects.isNull(parameterMap)) {
+            parameterMap = Maps.newHashMap();
+        }
 
 
         String method = request.getMethod();
@@ -100,15 +114,15 @@ public class HttpRequestParser {
 
             QueryStringDecoder queryDecoder = new QueryStringDecoder(httpRequest.uri(), Charset.forName("UTF-8"));
             Map<String, List<String>> stringListMap = queryDecoder.parameters();
-            request.setParamters(stringListMap);
+
+            parameterMap.putAll(stringListMap);
 
         } else if ("POST".equals(method)) {
 
-            HashMap<String,List<String>> parameters = new HashMap<>();
 
             String contentType = httpRequest.headers().get("Content-Type");
 
-            if(Constant.FORM.equals(contentType)){
+            if (Constant.FORM.equals(contentType)) {
 
                 try {
                     HttpPostRequestDecoder decoder = new HttpPostRequestDecoder(httpRequest);
@@ -118,26 +132,23 @@ public class HttpRequestParser {
                         if (data.getHttpDataType() == InterfaceHttpData.HttpDataType.Attribute) {
                             Attribute attribute = (Attribute) data;
                             List<String> list = Arrays.asList(attribute.getValue());
-                            parameters.put(attribute.getName(),list);
+                            parameterMap.put(attribute.getName(), list);
 
 
                         }
                     }
                 } catch (IOException e) {
 
-                    log.error("post request parse error,{}"+e.getMessage());
+                    log.error("post request parse error,{}" + e.getMessage());
                 }
 
-            }else if(Constant.APPLICATION_JSON.equals(contentType)){
+            } else if (Constant.APPLICATION_JSON.equals(contentType)) {
 
 
-
-            }else if(Constant.MULTIPART.equals(contentType)){
-
+            } else if (Constant.MULTIPART.equals(contentType)) {
 
 
             }
-
 
 
         }

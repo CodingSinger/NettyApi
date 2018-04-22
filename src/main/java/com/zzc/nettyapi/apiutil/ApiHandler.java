@@ -4,8 +4,6 @@ import com.alibaba.fastjson.JSONObject;
 import com.zzc.nettyapi.Exception.HttpMethodNoSupportException;
 import com.zzc.nettyapi.argument.HandleMethodArgumentParser;
 import com.zzc.nettyapi.argument.MethodParameter;
-import com.zzc.nettyapi.conversion.SimpleConversion;
-import com.zzc.nettyapi.nettyservice.NettyServerBootStrap;
 import com.zzc.nettyapi.request.HttpRequestParser;
 import com.zzc.nettyapi.request.RequestDetail;
 import io.netty.channel.ChannelHandlerContext;
@@ -13,13 +11,13 @@ import io.netty.handler.codec.http.HttpRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Parameter;
-import java.util.*;
-import java.util.concurrent.ConcurrentLinkedQueue;
-import java.util.concurrent.Executor;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 /**
@@ -113,6 +111,7 @@ public class ApiHandler {
 
         String methodName = request.getMethod();
 
+        Method method = api.getMethod();
         Set<String> supportMethods = api.getSupportMethods();
 
         boolean supported   = supportMethods.stream().anyMatch(methodName::equals);
@@ -122,21 +121,20 @@ public class ApiHandler {
 
             List<String> list = request.getParametersLine();
 
-            Method method = api.getMethod();
-
-            Class[] parameterTypes = method.getParameterTypes();
-
-            Object[] args = new Object[parameterTypes.length];
+            MethodParameter[] methodParameters = api.getParameters();
+            Object[] args = new Object[methodParameters.length];
 
 
-            for (int i = 0; i < parameterTypes.length; i++) {
+            for (int i = 0; i < methodParameters.length; i++) {
                 /**
                  * TODO: 转化器应该根据原始类型和目标类型进行匹配，并且还需要对输入参数进行验证是否有效性
                  *
                  */
 
+//                args[i] =
 
-                args[i] = new SimpleConversion().convert(parameterTypes[i], (String) list.get(i));
+
+//                args[i] = new SimpleConversion().convert(methodParameters[i], (String) list.get(i));
 
             }
 
@@ -170,7 +168,7 @@ public class ApiHandler {
 
 
 
-            apiMethod.setParameterNames(Stream.of(method.getParameters()).map(Parameter::getName).toArray(String[]::new));
+            apiMethod.setParameterNames(Stream.of(method.getParameters()).map(Parameter::getName).collect(Collectors.toList()));
             apiMethod.setParameterTypes(method.getParameterTypes());
             Object instance = clzz.newInstance();
             apiMethod.setMethod(method);
