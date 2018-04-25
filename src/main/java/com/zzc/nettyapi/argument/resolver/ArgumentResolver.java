@@ -1,10 +1,18 @@
 package com.zzc.nettyapi.argument.resolver;
 
+import com.google.common.collect.Lists;
+import com.google.common.collect.Maps;
+import com.sun.deploy.util.ArrayUtil;
 import com.zzc.nettyapi.Exception.ConvertException;
 import com.zzc.nettyapi.argument.MethodParameter;
+import com.zzc.nettyapi.argument.binder.DataBinderFactory;
 import com.zzc.nettyapi.request.RequestDetail;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.util.Map;
+import java.util.List;
+import java.util.Objects;
 
 
 /**
@@ -22,10 +30,34 @@ import org.slf4j.LoggerFactory;
  */
 public abstract class ArgumentResolver {
 
-
     private static final Logger log = LoggerFactory.getLogger(ArgumentResolver.class);
 //    public void resolver();
 
+    protected DataBinderFactory binderFactory;
+
+
+
+    /**
+     *  参数解析器
+     *
+     */
+    public static List<ArgumentResolver> argumentResolvers = Lists.newLinkedList();
+
+    public static Map<MethodParameter,ArgumentResolver> cachedArgumentResolver ;
+    public ArgumentResolver(DataBinderFactory binderFactory) {
+        this.binderFactory = binderFactory;
+
+    }
+
+    static{
+        initArgumentResplver();
+        cachedArgumentResolver = Maps.newConcurrentMap();
+    }
+
+    public ArgumentResolver() {
+
+
+    }
 
     /**
      * TODO :分为简单类和自定义类来做
@@ -41,59 +73,56 @@ public abstract class ArgumentResolver {
      }
      */
 
-
-    private ArgumentResolver next;
-
-
-    public void setNext(ArgumentResolver next) {
-        this.next = next;
-    }
-
-
     /**
      * 查看能解析该方法参数的解析器
      * @param methodParameter
      * @return
      */
     abstract boolean supportsParameter(MethodParameter methodParameter);
-
-
     /**
      *
      * 将客户请求中传递的合适的参数解析到MethodParameter中去,其中对简单类型包括类型转换，对Pojo类型包括参数转换和属性注入
      * @param requestDetail
      * @return
      */
-    abstract Object resolve(MethodParameter methodParameter,RequestDetail requestDetail) throws ConvertException;
+    abstract Object resolve(MethodParameter methodParameter,RequestDetail requestDetail) throws Exception;
 
 
-    /**
-     *
-     * 找到支持该参数的解析器 并且解析
-     * @param methodParameter
-     * @return
-     */
-    public Object handleResolver(MethodParameter methodParameter,RequestDetail detail) throws ConvertException {
+    public static void initArgumentResplver(){
+        DataBinderFactory binderFactory = new DataBinderFactory();
+        SimpleValueArgumentResolver simpleValueArgumentResolver = new SimpleValueArgumentResolver(binderFactory);
+        argumentResolvers.add(simpleValueArgumentResolver);
+
+        argumentResolvers.add(new ModelAttributeArgumentResolver(binderFactory));
+
+    }
 
 
+    public static Boolean supportMethodParameter(List<ArgumentResolver> argumentResolvers, MethodParameter methodParameter) {
 
-        Object obj = null;
-        if (this.supportsParameter(methodParameter)){
-            obj = this.resolve(methodParameter,detail);
-        }else{
+        ArgumentResolver cachedResolver = cachedArgumentResolver.get(methodParameter);
 
-            /**
-             * if next is not null
-             */
-            if (next != null){
-                obj = next.handleResolver(methodParameter,detail);
+        if (Objects.nonNull(cachedResolver)){
 
-            }else{
-                log.info("No suitable argument resolver found!");
+            for (ArgumentResolver argumentResolver : argumentResolvers) {
+                if (argumentResolver.supportsParameter(methodParameter)){
+                    cachedArgumentResolver.put(methodParameter,argumentResolver);
+                    return true;
+                }
             }
-        }
-        return obj;
 
+        }
+
+
+
+        return cachedResolver != null;
+
+    }
+
+    public static Object resolveMethodParameter(MethodParameter methodParameter,RequestDetail requestDetail) throws Exception {
+        ArgumentResolver argumentResolver = cachedArgumentResolver.get(methodParameter);
+
+        return argumentResolver.resolve(methodParameter,requestDetail);
 
     }
 }

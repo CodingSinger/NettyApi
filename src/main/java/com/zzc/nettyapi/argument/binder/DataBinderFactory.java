@@ -1,8 +1,10 @@
 package com.zzc.nettyapi.argument.binder;
 
 import com.google.common.collect.Maps;
+import com.zzc.nettyapi.Factory;
 import com.zzc.nettyapi.argument.MethodParameter;
 import com.zzc.nettyapi.argument.resolver.ArgumentResolver;
+import com.zzc.nettyapi.argument.resolver.SimpleValueArgumentResolver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -20,15 +22,30 @@ public class DataBinderFactory {
 
     private static final Logger log = LoggerFactory.getLogger(DataBinderFactory.class);
 
-    private final HashMap<ArgumentResolver,DataBinder> dataBinderEntry ;
+    private static HashMap<Class,DataBinder> dataBinderEntry ;
 
     public DataBinderFactory() {
         dataBinderEntry = Maps.newHashMap();
+
+
     }
 
-    public DataBinder getDataFactory(ArgumentResolver resolver, MethodParameter parameter){
+    private void initEntry() {
+        /**
+         * TODO         将所有的ArgumentResolver类型收集起来,和对应的DataBinder的也收集起来。包括之前的ArugumentResolver在初始化
+         *              时也可以通过收集起来的Resolver进行添加
+         *
+         */
+        dataBinderEntry.put(SimpleValueArgumentResolver.class,new SimpleRequestDataBinder());
+        dataBinderEntry.put(ModelAttributeDataBinder.class,new ModelAttributeDataBinder());
+    }
+
+    
+
+    public DataBinder getFactoryData(ArgumentResolver resolver, MethodParameter parameter){
         //根据参数类型和resolver来获取对应的DataBinder
-        DataBinder dataBinder = dataBinderEntry.get(resolver);
+        DataBinder dataBinder = dataBinderEntry.get(resolver.getClass());
+
 
         if(Objects.nonNull(dataBinder)){
 

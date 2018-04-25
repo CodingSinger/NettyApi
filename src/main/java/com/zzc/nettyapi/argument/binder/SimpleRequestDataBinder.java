@@ -20,8 +20,8 @@ public class SimpleRequestDataBinder implements DataBinder {
     private SimpleConversion conversion;
 
 
-    public SimpleRequestDataBinder(SimpleConversion conversion) {
-        this.conversion = conversion;
+    public SimpleRequestDataBinder() {
+        this.conversion = new SimpleConversion();
     }
 
     @Override

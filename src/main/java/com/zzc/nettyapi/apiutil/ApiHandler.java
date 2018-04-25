@@ -1,9 +1,11 @@
 package com.zzc.nettyapi.apiutil;
 
 import com.alibaba.fastjson.JSONObject;
+import com.google.common.collect.Lists;
 import com.zzc.nettyapi.Exception.HttpMethodNoSupportException;
 import com.zzc.nettyapi.argument.HandleMethodArgumentParser;
 import com.zzc.nettyapi.argument.MethodParameter;
+import com.zzc.nettyapi.argument.resolver.ArgumentResolver;
 import com.zzc.nettyapi.request.HttpRequestParser;
 import com.zzc.nettyapi.request.RequestDetail;
 import io.netty.channel.ChannelHandlerContext;
@@ -28,8 +30,7 @@ public class ApiHandler {
 
 
     /**
-     *     使用CAS操作的线程安全队列 高并发下建议使用Synchronized同步,因为CAS在高并发下会导致CAS操作失败过多而循环，而导致CPU工作大
-
+     * 使用CAS操作的线程安全队列 高并发下建议使用Synchronized同步,因为CAS在高并发下会导致CAS操作失败过多而循环，而导致CPU工作大
      */
 //    private ConcurrentLinkedQueue<RequestDetail> requestCache = new ConcurrentLinkedQueue<RequestDetail>();
     private Logger logger = LoggerFactory.getLogger(ApiHandler.class);
@@ -43,13 +44,21 @@ public class ApiHandler {
     private HttpRequestParser requestParser = new HttpRequestParser();
 
 
+
+    public ApiHandler() {
+
+
+    }
+
+
+
     public byte[] handle(ChannelHandlerContext ctx, Object msg) {
 
         final HttpRequest httpRequest = (HttpRequest) msg;
         //将本次请求进行包装
 
 
-        RequestDetail request = new RequestDetail(ctx,httpRequest);
+        RequestDetail request = new RequestDetail(ctx, httpRequest);
         /**
          * TODO: 去掉request缓存模块或者增加相同资源的request缓存模块
          */
@@ -85,13 +94,13 @@ public class ApiHandler {
         } catch (InvocationTargetException e) {
             logger.error(e.getMessage());
         } catch (HttpMethodNoSupportException e) {
-            result = new Result(Constants.METHOD_NOT_SUPPORT,null);
+            result = new Result(Constants.METHOD_NOT_SUPPORT, null);
             logger.error(e.getMessage());
         } finally {
             /**
              * TODO:可以尝试另开线程进行提交到缓存 避免线程争用影响服务器响应时间
              */
-//
+///
 //            Executor executor = NettyServerBootStrap.getExecutor();
 //            final RecycleTask recycleTask = new RecycleTask(request, requestCache);
 //            if (executor == null) {
@@ -114,10 +123,10 @@ public class ApiHandler {
         Method method = api.getMethod();
         Set<String> supportMethods = api.getSupportMethods();
 
-        boolean supported   = supportMethods.stream().anyMatch(methodName::equals);
-        if(!supported){
-            throw new HttpMethodNoSupportException(api.getUrl()+" don't support this http method");
-        }else{
+        boolean supported = supportMethods.stream().anyMatch(methodName::equals);
+        if (!supported) {
+            throw new HttpMethodNoSupportException(api.getUrl() + " don't support this http method");
+        } else {
 
             List<String> list = request.getParametersLine();
 
@@ -131,16 +140,19 @@ public class ApiHandler {
                  *
                  */
 
-//                args[i] =
+                MethodParameter methodParameter = methodParameters[i];
+                if (ArgumentResolver.supportMethodParameter(ArgumentResolver.argumentResolvers,methodParameter)){
 
 
-//                args[i] = new SimpleConversion().convert(methodParameters[i], (String) list.get(i));
+
+
+                }
+
 
             }
 
-            return method.invoke(api.getHandler(),args);
+            return method.invoke(api.getHandler(), args);
         }
-
 
 
     }
@@ -151,21 +163,16 @@ public class ApiHandler {
 
     }
 
-
     private void loadMethodAndClass(ApiMethod apiMethod) {
 
         try {
 
 
-
-
-
             Class clzz = Class.forName(apiMethod.getClassName());
             Method method = Arrays.stream(clzz.getDeclaredMethods())
-                    .filter((t)->t.getName().equals(apiMethod.getMethodName()))
+                    .filter((t) -> t.getName().equals(apiMethod.getMethodName()))
                     .findFirst()
                     .get();
-
 
 
             apiMethod.setParameterNames(Stream.of(method.getParameters()).map(Parameter::getName).collect(Collectors.toList()));
@@ -177,7 +184,6 @@ public class ApiHandler {
             apiMethod.setParameters(methodParameters);
 
 
-
         } catch (Exception e) {
             logger.error(e.getMessage());
             e.printStackTrace();
@@ -186,4 +192,8 @@ public class ApiHandler {
 
 
     }
+
+
+
+
 }

@@ -26,10 +26,11 @@ public class SimpleValueArgumentResolver extends ArgumentResolver{
     private static final Logger log = LoggerFactory.getLogger(SimpleValueArgumentResolver.class);
 
 
-    private DataBinderFactory binderFactory;
+
 
     public SimpleValueArgumentResolver(DataBinderFactory binderFactory) {
-        this.binderFactory = binderFactory;
+        super(binderFactory);
+
     }
 
     @Override
@@ -65,8 +66,7 @@ public class SimpleValueArgumentResolver extends ArgumentResolver{
              * 获取对应的参数绑定器
              */
 
-
-            DataBinder dataBinder = binderFactory.getDataFactory(this,methodParameter);
+            DataBinder dataBinder = binderFactory.getFactoryData(this,methodParameter);
 
             /*
             * TODO 简单类型类型转换

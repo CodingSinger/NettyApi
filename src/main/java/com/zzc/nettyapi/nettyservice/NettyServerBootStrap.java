@@ -60,6 +60,7 @@ public class NettyServerBootStrap {
         ApiRegistry.init();
 
 
+
         //初始化缓存线程池
         int corePoolSize = ServerConfigLoader.getInt("corePoolSize");
         int maximumPoolSize = ServerConfigLoader.getInt("maximumPoolSize");
@@ -71,6 +72,9 @@ public class NettyServerBootStrap {
                                             TimeUnit.SECONDS,
                                             new LinkedBlockingQueue<Runnable>(),
                                             new RecycleThreadFactory("RecycleThread"));
+
+
+
 
 
     }
