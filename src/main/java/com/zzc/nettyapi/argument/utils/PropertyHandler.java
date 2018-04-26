@@ -17,7 +17,7 @@ public class PropertyHandler {
     private Class type;
 
     /** 属性名*/
-    private boolean propertyName;
+    private String propertyName;
 
     /** 是否基本类型*/
     private boolean primitive;
@@ -36,6 +36,11 @@ public class PropertyHandler {
     /** 读方法*/
     private Method readMethod;
 
+    public PropertyHandler(String name) {
+    }
+
+    public PropertyHandler() {
+    }
 
     public Method getWriteMethod() {
         return writeMethod;
@@ -69,11 +74,11 @@ public class PropertyHandler {
         this.type = type;
     }
 
-    public boolean isPropertyName() {
+    public String isPropertyName() {
         return propertyName;
     }
 
-    public void setPropertyName(boolean propertyName) {
+    public void setPropertyName(String propertyName) {
         this.propertyName = propertyName;
     }
 

@@ -4,6 +4,7 @@ import com.zzc.nettyapi.Exception.ConvertException;
 import com.zzc.nettyapi.argument.utils.BeanWrapper;
 import com.zzc.nettyapi.argument.utils.BeanWrapperFactory;
 import com.zzc.nettyapi.argument.utils.PropertyHandler;
+import com.zzc.nettyapi.argument.utils.ReflectionTool;
 import com.zzc.nettyapi.request.RequestDetail;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -59,6 +60,13 @@ public class ModelAttributeDataBinder implements DataBinder {
         PropertyHandler propertyHandler = beanWrapper.getPropertyHandler(name);
 
         if (Objects.isNull(propertyHandler)){
+
+            propertyHandler = ReflectionTool.resolveProperty(name,type,beanWrapper);
+            if (Objects.nonNull(propertyHandler)){
+
+                log.info("Class:{} no property for name: {}",type.getName(),name);
+                return;
+            }
 
         }
         if(propertyHandler.isWritable()){

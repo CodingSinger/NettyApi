@@ -25,6 +25,10 @@ public class BeanWrapper {
 
     private Map<String,PropertyHandler> propertyMap;
 
+    private Map<String,Method> writeMethodMap;
+
+    private Map<String,Method> readMethodMap;
+
 
     public BeanWrapper(Class targetClass) {
         this.targetClass = targetClass;
@@ -39,7 +43,22 @@ public class BeanWrapper {
         return propertyMap.get(name);
     }
 
+    public void putPropertyHandler(String name,PropertyHandler propertyHandler){
+        propertyMap.put(name,propertyHandler);
+    }
+    public Map<String, Method> getReadMethodMap() {
+        return readMethodMap;
+    }
 
+    public void setReadMethodMap(Map<String, Method> readMethodMap) {
+        this.readMethodMap = readMethodMap;
+    }
 
+    public Map<String, Method> getWriteMethodMap() {
+        return writeMethodMap;
+    }
 
+    public void setWriteMethodMap(Map<String, Method> writeMethodMap) {
+        this.writeMethodMap = writeMethodMap;
+    }
 }

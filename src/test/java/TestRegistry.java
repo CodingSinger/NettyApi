@@ -103,6 +103,12 @@ public class TestRegistry {
         System.out.println(Stream.of(1,2,3).map(Math::incrementExact));
     }
 
+    @Test
+    public void name9() throws Exception {
+        int[] is = new int[]{1,2,3};
+        Arrays.stream(is).map(i->i*i).forEach(System.out::println);
+    }
+
     public static void main(String[] args) {
 
 //        new TestRegistry();
