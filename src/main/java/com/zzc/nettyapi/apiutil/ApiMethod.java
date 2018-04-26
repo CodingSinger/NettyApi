@@ -1,6 +1,6 @@
 package com.zzc.nettyapi.apiutil;
 
-import com.zzc.nettyapi.argument.MethodParameter;
+import com.zzc.nettyapi.argument.utils.MethodParameter;
 
 import java.io.Serializable;
 import java.lang.reflect.Method;

@@ -1,13 +1,11 @@
 package com.zzc.nettyapi.argument.resolver;
 
-import com.zzc.nettyapi.Exception.ConvertException;
-import com.zzc.nettyapi.argument.MethodParameter;
+import com.zzc.nettyapi.argument.utils.MethodParameter;
 import com.zzc.nettyapi.argument.binder.DataBinder;
 import com.zzc.nettyapi.argument.binder.DataBinderFactory;
 import com.zzc.nettyapi.request.RequestDetail;
 
 import java.lang.reflect.Constructor;
-import java.util.Objects;
 
 /**
  * @author zhengzechao

@@ -1,4 +1,4 @@
-package com.zzc.nettyapi.argument;
+package com.zzc.nettyapi.argument.utils;
 
 import com.google.common.collect.Maps;
 
@@ -11,6 +11,7 @@ import java.util.Objects;
  * Email ooczzoo@gmail.com
  */
 public class BeanWrapperFactory {
+
 
 
 

@@ -2,9 +2,7 @@ package com.zzc.nettyapi.argument.resolver;
 
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
-import com.sun.deploy.util.ArrayUtil;
-import com.zzc.nettyapi.Exception.ConvertException;
-import com.zzc.nettyapi.argument.MethodParameter;
+import com.zzc.nettyapi.argument.utils.MethodParameter;
 import com.zzc.nettyapi.argument.binder.DataBinderFactory;
 import com.zzc.nettyapi.request.RequestDetail;
 import org.slf4j.Logger;

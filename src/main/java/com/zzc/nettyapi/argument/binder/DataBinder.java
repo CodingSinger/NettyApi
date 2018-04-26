@@ -1,10 +1,7 @@
 package com.zzc.nettyapi.argument.binder;
 
-import com.google.common.collect.Maps;
 import com.zzc.nettyapi.Exception.ConvertException;
-import java.util.Map;
 
-import com.zzc.nettyapi.argument.BeanWrapper;
 import com.zzc.nettyapi.request.RequestDetail;
 
 /**

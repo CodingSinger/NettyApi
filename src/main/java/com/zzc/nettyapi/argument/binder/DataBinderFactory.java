@@ -1,14 +1,12 @@
 package com.zzc.nettyapi.argument.binder;
 
 import com.google.common.collect.Maps;
-import com.zzc.nettyapi.Factory;
-import com.zzc.nettyapi.argument.MethodParameter;
+import com.zzc.nettyapi.argument.utils.MethodParameter;
 import com.zzc.nettyapi.argument.resolver.ArgumentResolver;
 import com.zzc.nettyapi.argument.resolver.SimpleValueArgumentResolver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import javax.sql.DataSource;
 import java.util.HashMap;
 import java.util.Objects;
 

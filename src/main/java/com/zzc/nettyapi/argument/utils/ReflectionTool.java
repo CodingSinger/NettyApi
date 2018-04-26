@@ -1,40 +1,30 @@
-package com.zzc.nettyapi.argument;
+package com.zzc.nettyapi.argument.utils;
 
 import com.google.common.base.Strings;
 import com.google.common.collect.Maps;
-import com.sun.javafx.collections.MappingChange;
 
-import java.lang.invoke.MethodHandle;
-import java.lang.reflect.Field;
+import javax.enterprise.inject.spi.Bean;
 import java.lang.reflect.Method;
-import java.util.Map;
-import java.util.Objects;
+import java.util.HashMap;
 
 /**
  * @author zhengzechao
- * @date 2018/4/25
+ * @date 2018/4/26
  * Email ooczzoo@gmail.com
  */
-public class BeanWrapper {
+public class ReflectionTool {
 
-
+    /** set方法前缀*/
     private static final String SET_PRE = "set";
+    /** get方法前缀*/
     private static final String GET_PRE = "get";
-    private Class targetClass;
-    private Method[] writeMethods;
-
-    private Method[] readMethods;
-
-    private Map<String,Method> methodMap;
 
 
-    public BeanWrapper(Class targetClass) {
-        this.targetClass = targetClass;
-        this.methodMap = Maps.newHashMap();
-        resolve();
-    }
+    private void resolveWriteMethod(Class targetClass) {
 
-    private void resolve() {
+
+        HashMap<String,Method> methodMap = Maps.newHashMap();
+
         Method[] allMethods = targetClass.getMethods();
         for (Method method : allMethods) {
             String methodName = method.getName();
@@ -43,7 +33,7 @@ public class BeanWrapper {
                 if (!Strings.isNullOrEmpty(propertyName)){
 
                     propertyName = propertyName.substring(0,1).toLowerCase()+
-                                   propertyName.substring(1);
+                            propertyName.substring(1);
                     methodMap.put(propertyName,method);
                 }
 
@@ -52,11 +42,11 @@ public class BeanWrapper {
         }
     }
 
+    //解析出对应的propertyHandler 并且将该propertyHandler放入到指定的BeanWrapper;
+    private PropertyHandler resolveProperty(){
 
-
-    public Method getWriteMethod(String property){
-        return methodMap.get(property);
+        PropertyHandler propertyHandler = new PropertyHandler();
+        return propertyHandler;
     }
-
 
 }

@@ -1,10 +1,9 @@
 package com.zzc.nettyapi.apiutil;
 
 import com.alibaba.fastjson.JSONObject;
-import com.google.common.collect.Lists;
 import com.zzc.nettyapi.Exception.HttpMethodNoSupportException;
-import com.zzc.nettyapi.argument.HandleMethodArgumentParser;
-import com.zzc.nettyapi.argument.MethodParameter;
+import com.zzc.nettyapi.argument.utils.HandleMethodArgumentParser;
+import com.zzc.nettyapi.argument.utils.MethodParameter;
 import com.zzc.nettyapi.argument.resolver.ArgumentResolver;
 import com.zzc.nettyapi.request.HttpRequestParser;
 import com.zzc.nettyapi.request.RequestDetail;

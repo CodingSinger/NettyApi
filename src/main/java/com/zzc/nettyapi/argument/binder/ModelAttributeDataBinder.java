@@ -1,13 +1,13 @@
 package com.zzc.nettyapi.argument.binder;
 
 import com.zzc.nettyapi.Exception.ConvertException;
-import com.zzc.nettyapi.argument.BeanWrapper;
-import com.zzc.nettyapi.argument.BeanWrapperFactory;
+import com.zzc.nettyapi.argument.utils.BeanWrapper;
+import com.zzc.nettyapi.argument.utils.BeanWrapperFactory;
+import com.zzc.nettyapi.argument.utils.PropertyHandler;
 import com.zzc.nettyapi.request.RequestDetail;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.List;
 import java.util.Map;
@@ -48,22 +48,25 @@ public class ModelAttributeDataBinder implements DataBinder {
 
     private void setProperty(String name, String sourceValue, Object attribute, Class type) {
 
-
-
-
+        /**
+         * TODO
+         */
         //获取attribute中对应该name的set方法
+        //如果beanWrapper中包括该name的propertyHandler,直接提取
+        //否则的话去该class类型解析得到该propertyHandler
+        //对其进行判断处理
         BeanWrapper beanWrapper = BeanWrapperFactory.getDataFactory(type);
-        Method writeMethod = beanWrapper.getWriteMethod(name);
-        if(Objects.nonNull(writeMethod)){
+        PropertyHandler propertyHandler = beanWrapper.getPropertyHandler(name);
 
-            // TODO 类型转换、注入
-
-
-        }else{
-            log.info("property name {} cant inject,because no set method",name);
+        if (Objects.isNull(propertyHandler)){
 
         }
-
+        if(propertyHandler.isWritable()){
+            // TODO 类型转换、注入
+            Method writeMethod = propertyHandler.getWriteMethod();
+        }else{
+            log.info("property name {} cant inject,because no set method",name);
+        }
     }
 
     @Override

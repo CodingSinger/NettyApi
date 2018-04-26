@@ -1,15 +1,13 @@
 package com.zzc.nettyapi.argument.resolver;
 
 import com.zzc.nettyapi.Exception.ConvertException;
-import com.zzc.nettyapi.argument.MethodParameter;
+import com.zzc.nettyapi.argument.utils.MethodParameter;
 import com.zzc.nettyapi.argument.binder.DataBinder;
 import com.zzc.nettyapi.argument.binder.DataBinderFactory;
-import com.zzc.nettyapi.argument.conversion.Conversion;
 import com.zzc.nettyapi.request.RequestDetail;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import javax.xml.crypto.Data;
 import java.util.Map;
 import java.util.List;
 import java.util.Objects;
