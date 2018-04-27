@@ -70,7 +70,7 @@ public class SimpleValueArgumentResolver extends ArgumentResolver{
             * TODO 简单类型类型转换
             * */
             try {
-                 arg = dataBinder.convertIfNecessary(type,value);
+                 arg = dataBinder.convertIfNecessary(String.class,type,value);
 
 
             } catch (ConvertException e) {
