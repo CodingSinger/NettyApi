@@ -77,6 +77,9 @@ public abstract class ArgumentResolver {
      * @return
      */
     abstract boolean supportsParameter(MethodParameter methodParameter);
+
+
+
     /**
      *
      * 将客户请求中传递的合适的参数解析到MethodParameter中去,其中对简单类型包括类型转换，对Pojo类型包括参数转换和属性注入

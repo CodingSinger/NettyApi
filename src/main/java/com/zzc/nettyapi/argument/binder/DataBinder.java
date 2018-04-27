@@ -12,7 +12,9 @@ import com.zzc.nettyapi.request.RequestDetail;
 public interface DataBinder {
 
 
-    void doBinder(Object attribute, RequestDetail requestDetail,Class Type);
+    void doBinder(Object attribute, RequestDetail requestDetail,Class Type) throws Exception;
 
-    Object convertIfNecessary(Class type, String value) throws ConvertException;
+    default Object convertIfNecessary(Class sourceClass,Class targetClass,Object value) throws ConvertException{
+        return null;
+    }
 }

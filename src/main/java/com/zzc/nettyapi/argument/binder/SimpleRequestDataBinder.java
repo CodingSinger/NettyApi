@@ -1,8 +1,7 @@
 package com.zzc.nettyapi.argument.binder;
 
 import com.zzc.nettyapi.Exception.ConvertException;
-import com.zzc.nettyapi.argument.conversion.SimpleConversion;
-import com.zzc.nettyapi.argument.resolver.SimpleValueArgumentResolver;
+import com.zzc.nettyapi.argument.conversion.DefaultConversion;
 import com.zzc.nettyapi.request.RequestDetail;
 
 import java.util.Objects;
@@ -17,11 +16,12 @@ public class SimpleRequestDataBinder implements DataBinder {
 
 
 
-    private SimpleConversion conversion;
+    private DefaultConversion conversion;
 
 
-    public SimpleRequestDataBinder() {
-        this.conversion = new SimpleConversion();
+    public SimpleRequestDataBinder(DefaultConversion conversion) {
+        this.conversion = conversion;
+
     }
 
     @Override
@@ -29,11 +29,11 @@ public class SimpleRequestDataBinder implements DataBinder {
     }
 
     @Override
-    public Object convertIfNecessary(Class type, String value) throws ConvertException {
+    public Object convertIfNecessary(Class sourceClass,Class targetClass, Object value ) throws ConvertException {
 
         Object obj = null;
-        if(!Objects.equals(type,String.class)){
-            obj = conversion.convert(type,value);
+        if(!Objects.equals(sourceClass,String.class)){
+            obj = conversion.convert(sourceClass,targetClass,value);
         }
         return obj;
     }

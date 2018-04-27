@@ -92,10 +92,10 @@ public class TestRegistry {
     @Test
 
     public void name8(){
-
         Integer i = new Integer(2);
         Integer i2 = 2;
         System.out.println(i == i2);
+        System.out.println(CharSequence.class.isAssignableFrom(String.class));
     }
 
     @Test

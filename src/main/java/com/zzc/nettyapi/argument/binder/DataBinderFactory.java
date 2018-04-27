@@ -1,6 +1,7 @@
 package com.zzc.nettyapi.argument.binder;
 
 import com.google.common.collect.Maps;
+import com.zzc.nettyapi.argument.conversion.DefaultConversion;
 import com.zzc.nettyapi.argument.utils.MethodParameter;
 import com.zzc.nettyapi.argument.resolver.ArgumentResolver;
 import com.zzc.nettyapi.argument.resolver.SimpleValueArgumentResolver;
@@ -34,8 +35,10 @@ public class DataBinderFactory {
          *              时也可以通过收集起来的Resolver进行添加
          *
          */
-        dataBinderEntry.put(SimpleValueArgumentResolver.class,new SimpleRequestDataBinder());
-        dataBinderEntry.put(ModelAttributeDataBinder.class,new ModelAttributeDataBinder());
+
+        DefaultConversion conversion = new DefaultConversion();
+        dataBinderEntry.put(SimpleValueArgumentResolver.class,new SimpleRequestDataBinder(conversion));
+        dataBinderEntry.put(ModelAttributeDataBinder.class,new ModelAttributeDataBinder(conversion));
     }
 
     

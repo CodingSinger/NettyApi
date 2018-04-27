@@ -28,14 +28,8 @@ public class ModelAttributeArgumentResolver extends ArgumentResolver {
         String name = methodParameter.name();
 
         Object attribute = createAttribute(methodParameter.getType(),requestDetail);
-
-
         DataBinder dataBinder = this.binderFactory.getFactoryData(this,methodParameter);
-
-
-
         dataBinder.doBinder(attribute,requestDetail,methodParameter.getType());
-
 
         return attribute;
 
