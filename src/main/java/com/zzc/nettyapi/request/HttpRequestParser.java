@@ -61,12 +61,16 @@ public class HttpRequestParser {
         log.info(builder.toString());
 
         LinkedList<ApiMethod> list = new LinkedList<>(ApiRegistry.urlRegistrys.values());
-
-
+        int index = uri.indexOf("?");
+        String temp = uri;
+        if (index != -1) {
+            temp = uri.substring(0, uri.indexOf("?"));
+        }
         for (ApiMethod m : list) {
 
             Pattern pattern = Pattern.compile("^" + m.getRegex() + "$");
-            Matcher matcher = pattern.matcher(uri.substring(0, uri.indexOf("?")));
+
+            Matcher matcher = pattern.matcher(temp);
 
             if (matcher.find()) {
                 request.setApi(m);
@@ -153,7 +157,7 @@ public class HttpRequestParser {
 
         }
 
-
+        request.setParamters(parameterMap);
     }
 
 

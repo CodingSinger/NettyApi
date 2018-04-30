@@ -34,6 +34,11 @@
                 <method>get</method>
                 <support>get</support>
             </node>
+            <node>
+                <url>/person</url>
+                <method>getPerson</method>
+                <support>get</support>
+            </node>
         </class-name>
     </resource>
 </resources>

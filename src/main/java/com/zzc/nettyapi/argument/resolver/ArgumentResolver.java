@@ -93,7 +93,6 @@ public abstract class ArgumentResolver {
         DataBinderFactory binderFactory = new DataBinderFactory();
         SimpleValueArgumentResolver simpleValueArgumentResolver = new SimpleValueArgumentResolver(binderFactory);
         argumentResolvers.add(simpleValueArgumentResolver);
-
         argumentResolvers.add(new ModelAttributeArgumentResolver(binderFactory));
 
     }
@@ -103,7 +102,7 @@ public abstract class ArgumentResolver {
 
         ArgumentResolver cachedResolver = cachedArgumentResolver.get(methodParameter);
 
-        if (Objects.nonNull(cachedResolver)){
+        if (Objects.isNull(cachedResolver)){
 
             for (ArgumentResolver argumentResolver : argumentResolvers) {
                 if (argumentResolver.supportsParameter(methodParameter)){

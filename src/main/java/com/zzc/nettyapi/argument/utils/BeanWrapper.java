@@ -30,16 +30,20 @@ public class BeanWrapper {
     private Map<String,Method> readMethodMap;
 
 
-    public BeanWrapper(Class targetClass) {
+    public BeanWrapper(Class targetClass)
+    {
+        this();
         this.targetClass = targetClass;
     }
 
     public BeanWrapper() {
+        propertyMap = Maps.newHashMap();
     }
 
 
 
     public PropertyHandler getPropertyHandler(String name){
+
         return propertyMap.get(name);
     }
 
@@ -56,6 +60,10 @@ public class BeanWrapper {
 
     public Map<String, Method> getWriteMethodMap() {
         return writeMethodMap;
+    }
+
+    public Class getTargetClass() {
+        return targetClass;
     }
 
     public void setWriteMethodMap(Map<String, Method> writeMethodMap) {

@@ -1,10 +1,12 @@
 package com.zzc.nettyapi.argument.conversion;
 
 import com.google.common.collect.Lists;
+import com.google.common.collect.Maps;
 import com.zzc.nettyapi.Exception.ConvertException;
 import com.zzc.nettyapi.argument.conversion.convert.Converter;
 import com.zzc.nettyapi.argument.conversion.convert.StringToNumberConverter;
 import com.zzc.nettyapi.argument.conversion.util.ConvertKeyPair;
+import java.util.Map;
 
 import java.util.List;
 import java.util.Objects;
@@ -29,20 +31,42 @@ public class DefaultConversion implements Conversion {
 
     private final NoMatchConvert NO_MATCH = new NoMatchConvert();
 
+
+    /**
+     * 当前可用已注册的转换器列表
+     */
     private List<Converter> convertersRegistry = Lists.newLinkedList();
+
+
+    private Map<Class,Class> primitiveToObjectMap = Maps.newHashMap();
 
     @Override
     public Boolean canCanvert(Class sourceClass, Class targetClass) {
+
+
         Converter converter = getConvert(sourceClass, targetClass);
 
         if (Objects.nonNull(converter)){
-            converterCache.put(new ConvertKeyPair(sourceClass,targetClass),converter);
+//            converterCache.put(new ConvertKeyPair(sourceClass,targetClass),converter);
             return true;
         }
         return false;
 
     }
 
+    private Class resolvePrimitiveClass(Class targetClass) {
+        if(targetClass.isPrimitive()){
+            return primitiveToObjectMap.get(targetClass);
+        }
+        return targetClass;
+    }
+
+    /**
+     * 从缓存中或者注册转换器中心中找
+     * @param sourceClass
+     * @param targetClass
+     * @return
+     */
     @Override
     public Converter getConvert(Class sourceClass, Class targetClass) {
 
@@ -65,12 +89,21 @@ public class DefaultConversion implements Conversion {
         return null;
     }
 
+    public Object convertIfNecessary(Class sourceClass,Class targetClass, Object value ) throws ConvertException {
+
+        Object obj = value;
+        if(!Objects.equals(targetClass,String.class)){
+            obj = convert(sourceClass,targetClass,value);
+        }
+        return obj;
+    }
+
     @Override
     public Object convert(Class sourceClass,Class targetClass, Object value) throws ConvertException {
         Converter converter = null;
-
+        targetClass = resolvePrimitiveClass(targetClass);
         if(canCanvert(sourceClass,targetClass)){
-            converter = getConvert(targetClass,sourceClass);
+            converter = getConvert(sourceClass,targetClass);
         }
 
         Object obj = converter.convert(value,targetClass);
@@ -81,14 +114,35 @@ public class DefaultConversion implements Conversion {
 
     public DefaultConversion() {
         initConvertersRegistry();
+        initPrimitiveObjectMap();
     }
 
+    /**
+     * 初始化基本类型和包装类型列表
+     */
+    private void initPrimitiveObjectMap() {
+        primitiveToObjectMap.put(int.class,Integer.class);
+        primitiveToObjectMap.put(float.class,Float.class);
+        primitiveToObjectMap.put(double.class,Double.class);
+        primitiveToObjectMap.put(char.class,Character.class);
+        primitiveToObjectMap.put(long.class,Long.class);
+        primitiveToObjectMap.put(short.class,Short.class);
+        primitiveToObjectMap.put(byte.class,Byte.class);
+        primitiveToObjectMap.put(boolean.class,Boolean.class);
+    }
+
+
+    /**
+     * 初始化转化器列表
+     */
     private void initConvertersRegistry() {
 
         /**
          * TODO 后续进行从配置中加载解析器，从而运行用户自己添加对应解析器，先写死
          */
         convertersRegistry.add(new StringToNumberConverter());
+
+
     }
 
 

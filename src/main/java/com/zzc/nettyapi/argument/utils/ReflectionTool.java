@@ -24,7 +24,7 @@ public class ReflectionTool {
 
 
     public static void resolveMethods(BeanWrapper beanWrapper) {
-        Class targetClass = beanWrapper.getClass();
+        Class targetClass = beanWrapper.getTargetClass();
         Map<String,Method> writeMethodMap = Maps.newHashMap();
         Map<String,Method> readMethodMap = Maps.newHashMap();
 
@@ -74,10 +74,9 @@ public class ReflectionTool {
 
             Class propertyType =field.getType();
 
+            propertyHandler.setType(propertyType);
             propertyHandler.setPrimitive(propertyType.isPrimitive());
             propertyHandler.setArray(propertyType.isArray());
-
-
             Map<String,Method> writeMethodMap = beanWrapper.getWriteMethodMap();
             Map<String,Method> readMethodMap = beanWrapper.getReadMethodMap();
             if (Objects.isNull(writeMethodMap)|| Objects.nonNull(readMethodMap)){
@@ -95,6 +94,8 @@ public class ReflectionTool {
             return null;
         }
 
+        //加入缓存
+        beanWrapper.putPropertyHandler(name,propertyHandler);
         return propertyHandler;
     }
 
@@ -119,4 +120,10 @@ public class ReflectionTool {
         return targetField;
     }
 
+
+
+    public static Boolean isPrimitiveTypeOrWrapped(Class clazz){
+        return clazz.isPrimitive() || Number.class.isAssignableFrom(clazz);
+
+    }
 }

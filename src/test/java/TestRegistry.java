@@ -2,6 +2,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.zzc.nettyapi.apiutil.ApiRegistry;
 import com.zzc.nettyapi.apiutil.Result;
 import com.zzc.test.Controller.UserController;
+import com.zzc.utils.Condition;
 import org.junit.Test;
 
 import java.lang.reflect.Method;
@@ -70,6 +71,16 @@ public class TestRegistry {
     public void test(Object ... args) throws Exception {
         System.out.println();
 
+
+    }
+
+    @Test
+    public void name10() throws Exception {
+        System.out.println(Number.class.isAssignableFrom(Integer.class));
+        Object obj = null;
+        System.out.println(Condition.and(1==1,obj == null,"asas"=="asas"));
+        System.out.println(Condition.or(1==2,obj!=null,"as"=="as"));
+        System.out.println(Condition.and(1==1,obj!=null));
 
     }
 

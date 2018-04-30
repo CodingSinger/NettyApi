@@ -73,6 +73,7 @@ public class ModelAttributeDataBinder implements DataBinder {
         if (Objects.isNull(propertyHandler)){
 
             propertyHandler = ReflectionTool.resolveProperty(name,attributeType,beanWrapper);
+
             if (Objects.isNull(propertyHandler)){
 
                 log.info("Class:{} no property for name: {}",attributeType.getName(),name);
@@ -85,9 +86,9 @@ public class ModelAttributeDataBinder implements DataBinder {
             Object targetValue = null;
             Method writeMethod = null;
             try {
-                targetValue = conversion.convert(String.class,propertyHandler.getClass(),sourceValue);
+                targetValue = conversion.convertIfNecessary(String.class,propertyHandler.getType(),sourceValue);
                 writeMethod = propertyHandler.getWriteMethod();
-                writeMethod.invoke(targetValue);
+                writeMethod.invoke(attribute,targetValue);
             } catch (Exception e) {
                 if(e instanceof ConvertException){
                     log.error("inject value:{} in Class:{}.{} error!,Cause:{}",sourceValue,attributeType.getName(),name, Throwables.getStackTraceAsString(e));

@@ -117,6 +117,7 @@ public class ApiMethod implements Serializable {
             }
             stringBuilder.append("/");
             if (strings[i].startsWith(":")) {
+                parameterNames.add(strings[i].substring(1)); //路径参数名
                 stringBuilder.append("([^/]+)");
             } else {
                 stringBuilder.append(strings[i]);

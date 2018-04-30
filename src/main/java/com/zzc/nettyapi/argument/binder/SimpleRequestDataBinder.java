@@ -30,12 +30,7 @@ public class SimpleRequestDataBinder implements DataBinder {
 
     @Override
     public Object convertIfNecessary(Class sourceClass,Class targetClass, Object value ) throws ConvertException {
-
-        Object obj = null;
-        if(!Objects.equals(sourceClass,String.class)){
-            obj = conversion.convert(sourceClass,targetClass,value);
-        }
-        return obj;
+        return conversion.convertIfNecessary(sourceClass, targetClass, value);
     }
 
 

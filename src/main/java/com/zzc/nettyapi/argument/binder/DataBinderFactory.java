@@ -2,6 +2,7 @@ package com.zzc.nettyapi.argument.binder;
 
 import com.google.common.collect.Maps;
 import com.zzc.nettyapi.argument.conversion.DefaultConversion;
+import com.zzc.nettyapi.argument.resolver.ModelAttributeArgumentResolver;
 import com.zzc.nettyapi.argument.utils.MethodParameter;
 import com.zzc.nettyapi.argument.resolver.ArgumentResolver;
 import com.zzc.nettyapi.argument.resolver.SimpleValueArgumentResolver;
@@ -25,7 +26,7 @@ public class DataBinderFactory {
 
     public DataBinderFactory() {
         dataBinderEntry = Maps.newHashMap();
-
+        initEntry();
 
     }
 
@@ -38,7 +39,7 @@ public class DataBinderFactory {
 
         DefaultConversion conversion = new DefaultConversion();
         dataBinderEntry.put(SimpleValueArgumentResolver.class,new SimpleRequestDataBinder(conversion));
-        dataBinderEntry.put(ModelAttributeDataBinder.class,new ModelAttributeDataBinder(conversion));
+        dataBinderEntry.put(ModelAttributeArgumentResolver.class,new ModelAttributeDataBinder(conversion));
     }
 
     

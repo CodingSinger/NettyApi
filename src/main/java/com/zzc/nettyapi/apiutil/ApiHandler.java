@@ -1,6 +1,7 @@
 package com.zzc.nettyapi.apiutil;
 
 import com.alibaba.fastjson.JSONObject;
+import com.google.common.base.Throwables;
 import com.zzc.nettyapi.Exception.HttpMethodNoSupportException;
 import com.zzc.nettyapi.argument.utils.HandleMethodArgumentParser;
 import com.zzc.nettyapi.argument.utils.MethodParameter;
@@ -43,12 +44,10 @@ public class ApiHandler {
     private HttpRequestParser requestParser = new HttpRequestParser();
 
 
-
     public ApiHandler() {
 
 
     }
-
 
 
     public byte[] handle(ChannelHandlerContext ctx, Object msg) {
@@ -133,21 +132,23 @@ public class ApiHandler {
             Object[] args = new Object[methodParameters.length];
 
 
-            for (int i = 0; i < methodParameters.length; i++) {
-                /**
-                 * TODO: 转化器应该根据原始类型和目标类型进行匹配，并且还需要对输入参数进行验证是否有效性
-                 *
-                 */
+            try {
+                for (int i = 0; i < methodParameters.length; i++) {
+                    /**
+                     * TODO: 转化器应该根据原始类型和目标类型进行匹配，并且还需要对输入参数进行验证是否有效性
+                     *
+                     */
 
-                MethodParameter methodParameter = methodParameters[i];
-                if (ArgumentResolver.supportMethodParameter(ArgumentResolver.argumentResolvers,methodParameter)){
+                    MethodParameter methodParameter = methodParameters[i];
+                    if (ArgumentResolver.supportMethodParameter(ArgumentResolver.argumentResolvers, methodParameter)) {
+                        args[i] = ArgumentResolver.resolveMethodParameter(methodParameter,request);
 
-
+                    }
 
 
                 }
-
-
+            } catch (Exception e) {
+                logger.error("resolve method crash ,cause:{}", Throwables.getStackTraceAsString(e));
             }
 
             return method.invoke(api.getHandler(), args);
@@ -191,8 +192,6 @@ public class ApiHandler {
 
 
     }
-
-
 
 
 }

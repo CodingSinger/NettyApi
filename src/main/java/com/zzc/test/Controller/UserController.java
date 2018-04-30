@@ -1,5 +1,7 @@
 package com.zzc.test.Controller;
 
+import com.zzc.test.entity.Person;
+
 /**
  * @author zhengzechao
  * @date 2018/3/31
@@ -11,4 +13,9 @@ public class UserController {
 
     }
 
+    public String getPerson(Person person){
+        System.out.println(person.getName());
+        return person.toString();
+
+    }
 }
