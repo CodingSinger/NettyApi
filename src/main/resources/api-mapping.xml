@@ -39,6 +39,12 @@
                 <method>getPerson</method>
                 <support>get</support>
             </node>
+            getPersonStrng
+            <node>
+                <url>/person1</url>
+                <method>getPersonStrng</method>
+                <support>post</support>
+            </node>
         </class-name>
     </resource>
 </resources>

@@ -1,0 +1,4 @@
+
+* HttpObjectAggregator是用来将HttpMessage和HttpContents进HttpRequest和HttpResponse变成FullHttpRequest和FullHttpResponse。
+HttpObjectAggregator必须加在管道中HttpRequest和HttpResponse的解码编码器之后。
+

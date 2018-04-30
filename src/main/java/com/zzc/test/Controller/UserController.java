@@ -18,4 +18,9 @@ public class UserController {
         return person.toString();
 
     }
+
+    public String getPersonStrng(Person person,Integer age){
+        return person.toString()+" "+age;
+
+    }
 }

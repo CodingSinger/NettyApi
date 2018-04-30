@@ -27,8 +27,8 @@ public class ServerHandler extends ChannelInboundHandlerAdapter {
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
 
 
-        if (msg instanceof HttpRequest) {
-            HttpRequest httpRequest = (HttpRequest) msg;
+        if (msg instanceof FullHttpRequest) {
+            FullHttpRequest httpRequest = (FullHttpRequest) msg;
 
 
             if (HttpUtil.is100ContinueExpected(httpRequest)) {

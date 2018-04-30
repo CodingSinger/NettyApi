@@ -4,6 +4,7 @@ import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.zzc.nettyapi.apiutil.ApiMethod;
 import com.zzc.nettyapi.apiutil.ApiRegistry;
+import io.netty.handler.codec.http.FullHttpRequest;
 import io.netty.handler.codec.http.HttpRequest;
 import io.netty.handler.codec.http.QueryStringDecoder;
 import io.netty.handler.codec.http.multipart.Attribute;
@@ -122,23 +123,16 @@ public class HttpRequestParser {
             parameterMap.putAll(stringListMap);
 
         } else if ("POST".equals(method)) {
-
-
             String contentType = httpRequest.headers().get("Content-Type");
-
             if (Constant.FORM.equals(contentType)) {
-
                 try {
                     HttpPostRequestDecoder decoder = new HttpPostRequestDecoder(httpRequest);
                     List<InterfaceHttpData> datas = decoder.getBodyHttpDatas();
-
                     for (InterfaceHttpData data : datas) {
                         if (data.getHttpDataType() == InterfaceHttpData.HttpDataType.Attribute) {
                             Attribute attribute = (Attribute) data;
                             List<String> list = Arrays.asList(attribute.getValue());
                             parameterMap.put(attribute.getName(), list);
-
-
                         }
                     }
                 } catch (IOException e) {
@@ -148,6 +142,9 @@ public class HttpRequestParser {
 
             } else if (Constant.APPLICATION_JSON.equals(contentType)) {
 
+                /**
+                 * TODO
+                 */
 
             } else if (Constant.MULTIPART.equals(contentType)) {
 
