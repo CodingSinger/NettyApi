@@ -1,4 +1,4 @@
-package com.zzc.nettyapi.Exception;
+package com.zzc.nettyapi.exception;
 
 /**
  * @author zhengzechao

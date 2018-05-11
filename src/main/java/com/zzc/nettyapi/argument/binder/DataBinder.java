@@ -1,6 +1,6 @@
 package com.zzc.nettyapi.argument.binder;
 
-import com.zzc.nettyapi.Exception.ConvertException;
+import com.zzc.nettyapi.exception.ConvertException;
 
 import com.zzc.nettyapi.request.RequestDetail;
 

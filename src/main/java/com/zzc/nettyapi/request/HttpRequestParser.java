@@ -1,5 +1,9 @@
 package com.zzc.nettyapi.request;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
+import com.google.common.base.Charsets;
+import com.google.common.base.Throwables;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.zzc.nettyapi.apiutil.ApiMethod;
@@ -7,12 +11,12 @@ import com.zzc.nettyapi.apiutil.ApiRegistry;
 import io.netty.handler.codec.http.FullHttpRequest;
 import io.netty.handler.codec.http.HttpRequest;
 import io.netty.handler.codec.http.QueryStringDecoder;
-import io.netty.handler.codec.http.multipart.Attribute;
-import io.netty.handler.codec.http.multipart.HttpPostRequestDecoder;
-import io.netty.handler.codec.http.multipart.InterfaceHttpData;
+import io.netty.handler.codec.http.multipart.*;
+import io.netty.util.CharsetUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.charset.Charset;
 import java.util.*;
@@ -34,7 +38,7 @@ public class HttpRequestParser {
 
 
         parseRequest(requestDetail, request);
-        parseParameterByMethod(requestDetail, request);
+        parseParameterByMethod(requestDetail, (FullHttpRequest)request);
 
 
     }
@@ -103,7 +107,7 @@ public class HttpRequestParser {
 
     }
 
-    public void parseParameterByMethod(RequestDetail request, HttpRequest httpRequest) {
+    public void parseParameterByMethod(RequestDetail request, FullHttpRequest httpRequest) {
 
 
         Map<String, List<String>> parameterMap = request.getParamters();
@@ -145,13 +149,36 @@ public class HttpRequestParser {
                 /**
                  * TODO
                  */
-
+                String jsonStr = httpRequest.content().toString(CharsetUtil.UTF_8);
+                JSONObject obj = JSON.parseObject(jsonStr);
+                for (Map.Entry<String, Object> item : obj.entrySet()) {
+                    System.out.println(item.getKey() + "=" + item.getValue().toString());
+                }
             } else if (Constant.MULTIPART.equals(contentType)) {
+                HttpDataFactory factory = new DefaultHttpDataFactory(DefaultHttpDataFactory.MAXSIZE); //16384L
+
+                DiskFileUpload.baseDirectory = "/Users/zhengzechao/Desktop";
+                HttpPostRequestDecoder decoder = new HttpPostRequestDecoder(factory, httpRequest);
+                List<InterfaceHttpData> datas = decoder.getBodyHttpDatas();
+                try {
+                    for (InterfaceHttpData data : datas) {
+                        if (data.getHttpDataType() == InterfaceHttpData.HttpDataType.FileUpload) {
+                            FileUpload fileUpload = (FileUpload) data;
+                            String fileName = fileUpload.getFilename();
+                            if (fileUpload.isCompleted()) {
+                                //保存到磁盘
+                                StringBuffer fileNameBuf = new StringBuffer();
+                                fileNameBuf.append(DiskFileUpload.baseDirectory).append(fileName);
+                                fileUpload.renameTo(new File(fileNameBuf.toString()));
+                            }
+                        }
+                    }
+                } catch (IOException e) {
+                    log.error("file.upload.fail,cause:{}", Throwables.getStackTraceAsString(e));
+                }
 
 
             }
-
-
         }
 
         request.setParamters(parameterMap);

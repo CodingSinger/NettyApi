@@ -3,10 +3,7 @@ package com.zzc.nettyapi.nettyservice;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.ChannelPipeline;
-import io.netty.handler.codec.http.HttpObjectAggregator;
-import io.netty.handler.codec.http.HttpRequestDecoder;
-import io.netty.handler.codec.http.HttpResponseEncoder;
-import io.netty.handler.codec.http.HttpServerCodec;
+import io.netty.handler.codec.http.*;
 
 /**
  * @author zhengzechao
@@ -20,6 +17,8 @@ public class ServerInitializer extends ChannelInitializer {
         final ChannelPipeline pipeline = channel.pipeline();
         pipeline.addLast("encoder",new HttpResponseEncoder());
         pipeline.addLast("decoder",new HttpRequestDecoder());
+        pipeline.addLast("compressor", new HttpContentCompressor());
+
         pipeline.addLast("aggregator", new HttpObjectAggregator(10*1024*1024));
 
         pipeline.addLast(new ServerHandler());

@@ -2,10 +2,11 @@ package com.zzc.nettyapi.apiutil;
 
 import com.alibaba.fastjson.JSONObject;
 import com.google.common.base.Throwables;
-import com.zzc.nettyapi.Exception.HttpMethodNoSupportException;
+import com.zzc.nettyapi.exception.HttpMethodNoSupportException;
 import com.zzc.nettyapi.argument.utils.HandleMethodArgumentParser;
 import com.zzc.nettyapi.argument.utils.MethodParameter;
 import com.zzc.nettyapi.argument.resolver.ArgumentResolver;
+import com.zzc.nettyapi.filter.MethodFilter;
 import com.zzc.nettyapi.request.HttpRequestParser;
 import com.zzc.nettyapi.request.RequestDetail;
 import io.netty.channel.ChannelHandlerContext;
@@ -16,9 +17,7 @@ import org.slf4j.LoggerFactory;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Parameter;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -43,6 +42,8 @@ public class ApiHandler {
 
     private HttpRequestParser requestParser = new HttpRequestParser();
 
+
+    private List<MethodFilter> filters = new LinkedList<MethodFilter>();
 
     public ApiHandler() {
 
@@ -116,6 +117,11 @@ public class ApiHandler {
 
     private Object invoke(RequestDetail request, ApiMethod api) throws HttpMethodNoSupportException, InvocationTargetException, IllegalAccessException {
 
+        //执行MethodFilter的before操作
+        Boolean before = doBefore(request, api);
+        if (Objects.equals(before,Boolean.FALSE)){
+            return null;
+        }
         String methodName = request.getMethod();
 
         Method method = api.getMethod();
@@ -151,9 +157,36 @@ public class ApiHandler {
                 logger.error("resolve method crash ,cause:{}", Throwables.getStackTraceAsString(e));
             }
 
-            return method.invoke(api.getHandler(), args);
+            //方法正式执行
+            Object result = null;
+
+
+            //进行方法前拦截器的执行
+            result = method.invoke(api.getHandler(), args);
+
+            //进行方法之后拦截器的执行 对结果进行处理
+            result = this.doAfter(result);
+
+            return result;
+
+
         }
 
+
+    }
+
+
+    private Boolean doBefore(RequestDetail requestDetail,ApiMethod apiMethod){
+        return filters.stream()
+                .map(methodFilter -> methodFilter.before(requestDetail))
+                .anyMatch(Boolean.FALSE::equals) == false;
+    }
+
+    private Object doAfter(Object result) {
+        for (MethodFilter filter : filters) {
+            result =filter.after(result);
+        }
+        return result;
 
     }
 

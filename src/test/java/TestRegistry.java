@@ -1,4 +1,5 @@
 import com.alibaba.fastjson.JSONObject;
+import com.google.common.collect.ImmutableMap;
 import com.zzc.nettyapi.apiutil.ApiRegistry;
 import com.zzc.nettyapi.apiutil.Result;
 import com.zzc.test.Controller.UserController;
@@ -6,8 +7,8 @@ import com.zzc.utils.Condition;
 import org.junit.Test;
 
 import java.lang.reflect.Method;
-import java.util.Arrays;
-import java.util.HashMap;
+import java.util.*;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 /**
@@ -19,6 +20,13 @@ public class TestRegistry {
     public A a = new A(10);
 //    public TestRegistry(int i) {
 //    }
+
+    @Test
+    public void name13() throws Exception {
+        Arrays.asList(1,2,3,4).stream().forEach(integer -> System.out.println(integer));
+        Arrays.asList(1,2,3,4).stream().forEach(System.out::println);
+
+    }
 
     @Test
     public void name() throws Exception {
@@ -46,6 +54,9 @@ public class TestRegistry {
     @Test
     public void name3() throws Exception {
         HashMap hs = new HashMap();
+        HashMap hs1 = new HashMap();
+        System.out.println(hs == hs1);
+        System.out.println(hs.getClass() == hs1.getClass());
         hs.put("1",1);
         hs.put("2",2);
         System.out.println(hs.values().getClass());
@@ -75,6 +86,22 @@ public class TestRegistry {
     }
 
     @Test
+    public void name11() throws Exception {
+        ImmutableMap.Builder<String,Object> builder = new ImmutableMap.Builder();
+        builder.put("as","sas");
+        builder.put("sas",1);
+        ImmutableMap<String, Object> build = builder.build();
+        System.out.println(build);
+        System.out.println(build.get("as"));
+        build.put("sa","sa");
+    }
+
+    @Test
+    public void name12() throws Exception {
+    }
+
+
+    @Test
     public void name10() throws Exception {
         System.out.println(Number.class.isAssignableFrom(Integer.class));
         Object obj = null;
@@ -99,6 +126,14 @@ public class TestRegistry {
 
     }
 
+    @Test
+    public void name15() throws Exception {
+        List<Integer> list1 = new LinkedList<>();
+        list1.add(1);
+        List<Integer> list = Arrays.asList(1,2,3,4);
+        final Map<String, Integer> collect = list.stream().collect(Collectors.toMap(String::valueOf, t -> t));
+        System.out.println(collect);
+    }
 
     @Test
 
