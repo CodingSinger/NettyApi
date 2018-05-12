@@ -14,16 +14,10 @@ public class ServerConfigLoader {
 
 
     public static final Logger logger = LoggerFactory.getLogger(ServerConfigLoader.class);
-
-
-
     //禁止继承和实例化
     private ServerConfigLoader(){}
-
     private static String config = "/config.properties";
-
     private static Properties properties;
-
     public static void init(){
         properties = new Properties();
         try {

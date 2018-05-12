@@ -43,31 +43,29 @@ public class ApiHandler {
     private HttpRequestParser requestParser = new HttpRequestParser();
 
 
-    private List<MethodFilter> filters = new LinkedList<MethodFilter>();
+    private List<MethodFilter> filters;
 
-    public ApiHandler() {
-
-
+    private CustomerConfiguration customerConfiguration = new CustomerConfiguration();
+    public ApiHandler() throws InstantiationException, IllegalAccessException {
+        init();
     }
-
-
+    public void init() throws IllegalAccessException, InstantiationException {
+        customerConfiguration.load();
+        filters = new LinkedList<MethodFilter>();
+        List<Class> filterClass = customerConfiguration.getMethodFilter();
+        for (Class aClass : filterClass) {
+            filters.add((MethodFilter) aClass.newInstance());
+        }
+    }
     public byte[] handle(ChannelHandlerContext ctx, Object msg) {
-
         final HttpRequest httpRequest = (HttpRequest) msg;
         //将本次请求进行包装
-
-
         RequestDetail request = new RequestDetail(ctx, httpRequest);
         /**
          * TODO: 去掉request缓存模块或者增加相同资源的request缓存模块
          */
-
-
         requestParser.parse(request);
-
         ApiMethod api = ApiRegistry.urlRegistrys.get(request.getUrl());
-
-
         if (api == null) {
             return encode(new Result(Constants.NOT_FOUND, null));
         }
@@ -169,7 +167,6 @@ public class ApiHandler {
 
             return result;
 
-
         }
 
 
@@ -206,8 +203,6 @@ public class ApiHandler {
                     .filter((t) -> t.getName().equals(apiMethod.getMethodName()))
                     .findFirst()
                     .get();
-
-
             apiMethod.setParameterNames(Stream.of(method.getParameters()).map(Parameter::getName).collect(Collectors.toList()));
             apiMethod.setParameterTypes(method.getParameterTypes());
             Object instance = clzz.newInstance();
@@ -215,8 +210,6 @@ public class ApiHandler {
             apiMethod.setHandler(instance);
             MethodParameter[] methodParameters = argumentParser.parse(method);
             apiMethod.setParameters(methodParameters);
-
-
         } catch (Exception e) {
             logger.error(e.getMessage());
             e.printStackTrace();

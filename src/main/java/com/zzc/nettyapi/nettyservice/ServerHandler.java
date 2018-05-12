@@ -21,7 +21,7 @@ import static io.netty.handler.codec.http.HttpVersion.HTTP_1_1;
  */
 public class ServerHandler extends ChannelInboundHandlerAdapter {
 
-    private static ApiHandler handler = new ApiHandler();
+    public static ApiHandler handler ;
     private static final Logger logger = LoggerFactory.getLogger(ServerHandler.class);
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {

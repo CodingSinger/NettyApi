@@ -1,8 +1,6 @@
 package com.zzc.nettyapi.nettyservice;
 
-import com.zzc.nettyapi.apiutil.ApiRegistry;
-import com.zzc.nettyapi.apiutil.RecycleThreadExecutor;
-import com.zzc.nettyapi.apiutil.RecycleThreadFactory;
+import com.zzc.nettyapi.apiutil.*;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.EventLoopGroup;
@@ -22,7 +20,7 @@ import java.util.concurrent.TimeUnit;
 public class NettyServerBootStrap {
     private static final Logger logger = LoggerFactory.getLogger(NettyServerBootStrap.class);
     private static Executor executor;
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InstantiationException, IllegalAccessException {
         EventLoopGroup mainLoop = new NioEventLoopGroup();
 
         EventLoopGroup workLoop = new NioEventLoopGroup();
@@ -51,16 +49,13 @@ public class NettyServerBootStrap {
 
     }
 
-    private static void initComponent() {
+    private static void initComponent() throws IllegalAccessException, InstantiationException {
         //读入配置文件
         ServerConfigLoader.init();
 
+        ServerHandler.handler = new ApiHandler();
         //解析api
-
         ApiRegistry.init();
-
-
-
         //初始化缓存线程池
         int corePoolSize = ServerConfigLoader.getInt("corePoolSize");
         int maximumPoolSize = ServerConfigLoader.getInt("maximumPoolSize");
