@@ -26,25 +26,16 @@ import java.util.stream.Stream;
  * @date 2018/3/30
  */
 public class ApiHandler {
-
-
     /**
      * 使用CAS操作的线程安全队列 高并发下建议使用Synchronized同步,因为CAS在高并发下会导致CAS操作失败过多而循环，而导致CPU工作大
      */
 //    private ConcurrentLinkedQueue<RequestDetail> requestCache = new ConcurrentLinkedQueue<RequestDetail>();
     private Logger logger = LoggerFactory.getLogger(ApiHandler.class);
-
-
     /*参数包装器*/
     private HandleMethodArgumentParser argumentParser = new HandleMethodArgumentParser();
-
     /*请求解析器*/
-
     private HttpRequestParser requestParser = new HttpRequestParser();
-
-
     private List<MethodFilter> filters;
-
     private CustomerConfiguration customerConfiguration = new CustomerConfiguration();
     public ApiHandler() throws InstantiationException, IllegalAccessException {
         init();
@@ -106,32 +97,23 @@ public class ApiHandler {
 //                executor.execute(recycleTask);
 //
 //            }
-
         }
-
         return encode(new Result(Constants.SUCCESS, result));
-
     }
-
     private Object invoke(RequestDetail request, ApiMethod api) throws HttpMethodNoSupportException, InvocationTargetException, IllegalAccessException {
-
         //执行MethodFilter的before操作
         Boolean before = doBefore(request, api);
         if (Objects.equals(before,Boolean.FALSE)){
             return null;
         }
         String methodName = request.getMethod();
-
         Method method = api.getMethod();
         Set<String> supportMethods = api.getSupportMethods();
-
         boolean supported = supportMethods.stream().anyMatch(methodName::equals);
         if (!supported) {
             throw new HttpMethodNoSupportException(api.getUrl() + " don't support this http method");
         } else {
-
             List<String> list = request.getParametersLine();
-
             MethodParameter[] methodParameters = api.getParameters();
             Object[] args = new Object[methodParameters.length];
 
@@ -154,45 +136,31 @@ public class ApiHandler {
             } catch (Exception e) {
                 logger.error("resolve method crash ,cause:{}", Throwables.getStackTraceAsString(e));
             }
-
             //方法正式执行
             Object result = null;
-
-
             //进行方法前拦截器的执行
             result = method.invoke(api.getHandler(), args);
-
             //进行方法之后拦截器的执行 对结果进行处理
             result = this.doAfter(result);
-
             return result;
-
         }
-
-
     }
-
-
     private Boolean doBefore(RequestDetail requestDetail,ApiMethod apiMethod){
         return filters.stream()
                 .map(methodFilter -> methodFilter.before(requestDetail))
                 .anyMatch(Boolean.FALSE::equals) == false;
     }
-
     private Object doAfter(Object result) {
         for (MethodFilter filter : filters) {
             result =filter.after(result);
         }
         return result;
-
     }
-
     private byte[] encode(Object result) {
         String json = JSONObject.toJSONString(result);
         return json.getBytes();
 
     }
-
     private void loadMethodAndClass(ApiMethod apiMethod) {
 
         try {
