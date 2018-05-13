@@ -9,14 +9,12 @@ import com.zzc.test.entity.Person;
 public class UserController {
 
     public String get(int uid,int noteid){
+        System.out.println(uid);
         return "uid"+uid+"--noteid"+noteid;
-
     }
-
     public String getPerson(Person person){
         System.out.println(person.getName());
         return person.toString();
-
     }
 
     public String getPersonStrng(Person person,Integer age){

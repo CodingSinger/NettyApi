@@ -1,6 +1,7 @@
 package com.zzc.nettyapi.nettyservice;
 
 import com.zzc.nettyapi.apiutil.ApiHandler;
+import com.zzc.nettyapi.apiutil.RequestTask;
 import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelFutureListener;
 import io.netty.channel.ChannelHandlerContext;
@@ -9,6 +10,10 @@ import io.netty.handler.codec.http.*;
 import io.netty.util.AsciiString;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 
 import static io.netty.handler.codec.http.HttpHeaderNames.*;
 import static io.netty.handler.codec.http.HttpResponseStatus.CONTINUE;
@@ -21,33 +26,32 @@ import static io.netty.handler.codec.http.HttpVersion.HTTP_1_1;
  */
 public class ServerHandler extends ChannelInboundHandlerAdapter {
 
-    public static ApiHandler handler ;
+
+    public final Boolean handleAsync;
+    public final ThreadPoolExecutor workExecutor ;
+    public ServerHandler(Boolean handleAsync,ThreadPoolExecutor workExecutor) {
+        this.handleAsync = handleAsync;
+        this.workExecutor = workExecutor;
+    }
+
+    public static ApiHandler handler  ;
     private static final Logger logger = LoggerFactory.getLogger(ServerHandler.class);
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
-
-
         if (msg instanceof FullHttpRequest) {
             FullHttpRequest httpRequest = (FullHttpRequest) msg;
-
-
             if (HttpUtil.is100ContinueExpected(httpRequest)) {
                 ctx.write(new DefaultFullHttpResponse(HTTP_1_1, CONTINUE));
             }
-            boolean keepAlive = HttpUtil.isKeepAlive(httpRequest);
+            //TODO :requestTask缓存
+            RequestTask requestTask = new RequestTask(ctx,httpRequest,handler);
 
-            FullHttpResponse response = new DefaultFullHttpResponse(HTTP_1_1, OK, Unpooled.wrappedBuffer(handler.handle(ctx,msg)));
-
-            response.headers().set(CONTENT_TYPE,new AsciiString("application/json; charset=utf-8"));
-            response.headers().set(TRANSFER_ENCODING, HttpHeaderValues.CHUNKED);
-
-            if (!keepAlive) {
-                ctx.write(response).addListener(ChannelFutureListener.CLOSE);
-            } else {
-                response.headers().set(CONNECTION, HttpHeaderValues.KEEP_ALIVE);
-                ctx.write(response);
+            if (handleAsync){
+                workExecutor.execute(requestTask);
+            }else{
+                requestTask.run();
             }
-            ctx.flush();
+
         }
     }
 }

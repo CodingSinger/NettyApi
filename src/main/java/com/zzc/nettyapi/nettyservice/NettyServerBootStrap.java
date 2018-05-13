@@ -11,6 +11,7 @@ import org.slf4j.LoggerFactory;
 
 import java.util.concurrent.Executor;
 import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -18,20 +19,22 @@ import java.util.concurrent.TimeUnit;
  * @date 2018/3/30
  */
 public class NettyServerBootStrap {
+
+    public static Boolean handleAsync = false;
     private static final Logger logger = LoggerFactory.getLogger(NettyServerBootStrap.class);
-    private static Executor executor;
+    private static Executor recyleExecutor;
+    private static ThreadPoolExecutor workExecutor;
+
     public static void main(String[] args) throws InstantiationException, IllegalAccessException {
         EventLoopGroup mainLoop = new NioEventLoopGroup();
-
         EventLoopGroup workLoop = new NioEventLoopGroup();
         ServerBootstrap serverBootstrap = new ServerBootstrap();
 
-        serverBootstrap.group(mainLoop,workLoop).channel(NioServerSocketChannel.class).childHandler(new ServerInitializer());
+        serverBootstrap.group(mainLoop, workLoop).channel(NioServerSocketChannel.class).childHandler(new ServerInitializer());
 
         initComponent();
 
-
-        int port = Integer.parseInt(ServerConfigLoader.getValue("port"));
+        int port = Integer.parseInt(ServerConfigLoader.getValue("port","8080"));
         try {
             ChannelFuture channelFuture = serverBootstrap.bind(port).sync();
             logger.info("Server bind successfully");
@@ -39,9 +42,9 @@ public class NettyServerBootStrap {
             channelFuture.channel().closeFuture().sync();
 
         } catch (InterruptedException e) {
-            logger.error("Server start error"+e.getMessage());
+            logger.error("Server start error" + e.getMessage());
             e.printStackTrace();
-        }finally {
+        } finally {
             mainLoop.shutdownGracefully();
             workLoop.shutdownGracefully();
 
@@ -57,24 +60,32 @@ public class NettyServerBootStrap {
         //解析api
         ApiRegistry.init();
         //初始化缓存线程池
-        int corePoolSize = ServerConfigLoader.getInt("corePoolSize");
-        int maximumPoolSize = ServerConfigLoader.getInt("maximumPoolSize");
-        int keepAliveTime = ServerConfigLoader.getInt("keepAliveTime");
-
-        executor = new RecycleThreadExecutor(corePoolSize,
-                                            maximumPoolSize,
-                                            keepAliveTime,
-                                            TimeUnit.SECONDS,
-                                            new LinkedBlockingQueue<Runnable>(),
-                                            new RecycleThreadFactory("RecycleThread"));
-
-
-
-
-
+        int corePoolSize = ServerConfigLoader.getInt("corePoolSize", 5);
+        int maximumPoolSize = ServerConfigLoader.getInt("maximumPoolSize", 20);
+        int keepAliveTime = ServerConfigLoader.getInt("keepAliveTime", 20000);
+        recyleExecutor = new RecycleThreadExecutor(corePoolSize,
+                maximumPoolSize,
+                keepAliveTime,
+                TimeUnit.SECONDS,
+                new LinkedBlockingQueue<Runnable>(),
+                new RecycleThreadFactory("RecycleThread"));
+        handleAsync = Boolean.parseBoolean(ServerConfigLoader.getValue("handleAnsyc", "false"));
+        if ( handleAsync ){ //如果允许异步
+            int coreWorkPoolSize = ServerConfigLoader.getInt("coreWorkPoolSize", 10);
+            int maximunWorkPoolSize = ServerConfigLoader.getInt("maximunWorkPoolSize", 200);
+            workExecutor = new ThreadPoolExecutor(coreWorkPoolSize, maximunWorkPoolSize,
+                    0L, TimeUnit.MILLISECONDS,
+                    new LinkedBlockingQueue<Runnable>(),
+                    new HandleRequestThreadFactory("handleThread"));
+        }
     }
 
+
     public static Executor getExecutor() {
-        return executor;
+        return recyleExecutor;
+    }
+
+    public static ThreadPoolExecutor getWorkExecutor() {
+        return workExecutor;
     }
 }

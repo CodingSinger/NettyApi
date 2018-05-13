@@ -12,15 +12,16 @@ import io.netty.handler.codec.http.*;
 public class ServerInitializer extends ChannelInitializer {
 
 
+
+
+
     @Override
     protected void initChannel(Channel channel) throws Exception {
         final ChannelPipeline pipeline = channel.pipeline();
         pipeline.addLast("encoder",new HttpResponseEncoder());
         pipeline.addLast("decoder",new HttpRequestDecoder());
         pipeline.addLast("compressor", new HttpContentCompressor());
-
         pipeline.addLast("aggregator", new HttpObjectAggregator(10*1024*1024));
-
-        pipeline.addLast(new ServerHandler());
+        pipeline.addLast(new ServerHandler(NettyServerBootStrap.handleAsync,NettyServerBootStrap.getWorkExecutor()));
     }
 }

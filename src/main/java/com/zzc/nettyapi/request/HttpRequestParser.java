@@ -33,16 +33,10 @@ public class HttpRequestParser {
     private static final Logger log = LoggerFactory.getLogger(HttpRequestParser.class);
 
     public void parse(RequestDetail requestDetail) {
-
         HttpRequest request = requestDetail.getHttpRequest();
-
-
         parseRequest(requestDetail, request);
         parseParameterByMethod(requestDetail, (FullHttpRequest)request);
-
-
     }
-
 
     /*根据request路径解析请求 包括url参数以及路径参数和请求体参数*/
     private void parseRequest(RequestDetail request, HttpRequest httpRequest) {
@@ -56,7 +50,6 @@ public class HttpRequestParser {
 
         Date date = new Date();
         request.setDate(date);
-
         request.setMethod(httpRequest.method().name());
         builder.append("date:");
         builder.append(date.toString());
@@ -108,24 +101,15 @@ public class HttpRequestParser {
     }
 
     public void parseParameterByMethod(RequestDetail request, FullHttpRequest httpRequest) {
-
-
         Map<String, List<String>> parameterMap = request.getParamters();
-
         if (Objects.isNull(parameterMap)) {
             parameterMap = Maps.newHashMap();
         }
-
-
         String method = request.getMethod();
         if ("GET".equals(method)) {
-
-
             QueryStringDecoder queryDecoder = new QueryStringDecoder(httpRequest.uri(), Charset.forName("UTF-8"));
             Map<String, List<String>> stringListMap = queryDecoder.parameters();
-
             parameterMap.putAll(stringListMap);
-
         } else if ("POST".equals(method)) {
             String contentType = httpRequest.headers().get("Content-Type");
             if (Constant.FORM.equals(contentType)) {
@@ -140,10 +124,8 @@ public class HttpRequestParser {
                         }
                     }
                 } catch (IOException e) {
-
                     log.error("post request parse error,{}" + e.getMessage());
                 }
-
             } else if (Constant.APPLICATION_JSON.equals(contentType)) {
 
                 /**
@@ -156,7 +138,6 @@ public class HttpRequestParser {
                 }
             } else if (Constant.MULTIPART.equals(contentType)) {
                 HttpDataFactory factory = new DefaultHttpDataFactory(DefaultHttpDataFactory.MAXSIZE); //16384L
-
                 DiskFileUpload.baseDirectory = "/Users/zhengzechao/Desktop";
                 HttpPostRequestDecoder decoder = new HttpPostRequestDecoder(factory, httpRequest);
                 List<InterfaceHttpData> datas = decoder.getBodyHttpDatas();
@@ -176,8 +157,6 @@ public class HttpRequestParser {
                 } catch (IOException e) {
                     log.error("file.upload.fail,cause:{}", Throwables.getStackTraceAsString(e));
                 }
-
-
             }
         }
 

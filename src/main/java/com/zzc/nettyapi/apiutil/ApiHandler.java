@@ -37,9 +37,11 @@ public class ApiHandler {
     private HttpRequestParser requestParser = new HttpRequestParser();
     private List<MethodFilter> filters;
     private CustomerConfiguration customerConfiguration = new CustomerConfiguration();
+
     public ApiHandler() throws InstantiationException, IllegalAccessException {
         init();
     }
+
     public void init() throws IllegalAccessException, InstantiationException {
         customerConfiguration.load();
         filters = new LinkedList<MethodFilter>();
@@ -48,6 +50,7 @@ public class ApiHandler {
             filters.add((MethodFilter) aClass.newInstance());
         }
     }
+
     public byte[] handle(ChannelHandlerContext ctx, Object msg) {
         final HttpRequest httpRequest = (HttpRequest) msg;
         //将本次请求进行包装
@@ -68,15 +71,10 @@ public class ApiHandler {
                     loadMethodAndClass(api);
                 }
             }
-
         }
-
-        Method method = api.getMethod();
         Object result = null;
         try {
-
             result = invoke(request, api);
-
         } catch (IllegalAccessException e) {
             logger.error(e.getMessage());
         } catch (InvocationTargetException e) {
@@ -100,10 +98,11 @@ public class ApiHandler {
         }
         return encode(new Result(Constants.SUCCESS, result));
     }
+
     private Object invoke(RequestDetail request, ApiMethod api) throws HttpMethodNoSupportException, InvocationTargetException, IllegalAccessException {
         //执行MethodFilter的before操作
         Boolean before = doBefore(request, api);
-        if (Objects.equals(before,Boolean.FALSE)){
+        if (Objects.equals(before, Boolean.FALSE)) {
             return null;
         }
         String methodName = request.getMethod();
@@ -124,14 +123,10 @@ public class ApiHandler {
                      * TODO: 转化器应该根据原始类型和目标类型进行匹配，并且还需要对输入参数进行验证是否有效性
                      *
                      */
-
                     MethodParameter methodParameter = methodParameters[i];
                     if (ArgumentResolver.supportMethodParameter(ArgumentResolver.argumentResolvers, methodParameter)) {
-                        args[i] = ArgumentResolver.resolveMethodParameter(methodParameter,request);
-
+                        args[i] = ArgumentResolver.resolveMethodParameter(methodParameter, request);
                     }
-
-
                 }
             } catch (Exception e) {
                 logger.error("resolve method crash ,cause:{}", Throwables.getStackTraceAsString(e));
@@ -145,22 +140,26 @@ public class ApiHandler {
             return result;
         }
     }
-    private Boolean doBefore(RequestDetail requestDetail,ApiMethod apiMethod){
+
+    private Boolean doBefore(RequestDetail requestDetail, ApiMethod apiMethod) {
         return filters.stream()
                 .map(methodFilter -> methodFilter.before(requestDetail))
                 .anyMatch(Boolean.FALSE::equals) == false;
     }
+
     private Object doAfter(Object result) {
         for (MethodFilter filter : filters) {
-            result =filter.after(result);
+            result = filter.after(result);
         }
         return result;
     }
+
     private byte[] encode(Object result) {
         String json = JSONObject.toJSONString(result);
         return json.getBytes();
 
     }
+
     private void loadMethodAndClass(ApiMethod apiMethod) {
 
         try {
