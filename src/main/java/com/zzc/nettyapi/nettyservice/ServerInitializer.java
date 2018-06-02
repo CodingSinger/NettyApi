@@ -12,9 +12,6 @@ import io.netty.handler.codec.http.*;
 public class ServerInitializer extends ChannelInitializer {
 
 
-
-
-
     @Override
     protected void initChannel(Channel channel) throws Exception {
         final ChannelPipeline pipeline = channel.pipeline();

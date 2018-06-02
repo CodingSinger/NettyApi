@@ -6,6 +6,8 @@ package com.zzc.nettyapi;
  */
 public class SynchronizedQueue<T> {
 
+
+
     public static final int DEFAULT_SIZE = 128;
 
     private Object[] queue;

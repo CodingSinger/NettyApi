@@ -63,11 +63,11 @@ public class ApiHandler {
         if (api == null) {
             return encode(new Result(Constants.NOT_FOUND, null));
         }
-        if (api.getMethod() == null) {
+        if (!api.getValid()){
             //第一次访问
             synchronized (api) {
                 //再次确认是否为空 有可能刚好别的线程实例化完成
-                if (api.getMethod() == null) {
+                if (!api.getValid()) {
                     loadMethodAndClass(api);
                 }
             }
@@ -164,19 +164,23 @@ public class ApiHandler {
 
         try {
 
-
-            Class clzz = Class.forName(apiMethod.getClassName());
-            Method method = Arrays.stream(clzz.getDeclaredMethods())
-                    .filter((t) -> t.getName().equals(apiMethod.getMethodName()))
-                    .findFirst()
-                    .get();
+            if (Objects.isNull(apiMethod.getMethod())){
+                Class clzz = Class.forName(apiMethod.getClassName());
+                apiMethod.setHandleClass(clzz);
+                Method method = Arrays.stream(clzz.getDeclaredMethods())
+                        .filter((t) -> t.getName().equals(apiMethod.getMethodName()))
+                        .findFirst()
+                        .get();
+                apiMethod.setMethod(method);
+                Object instance = clzz.newInstance();
+                apiMethod.setHandler(instance);
+            }
+            Method method = apiMethod.getMethod();
             apiMethod.setParameterNames(Stream.of(method.getParameters()).map(Parameter::getName).collect(Collectors.toList()));
             apiMethod.setParameterTypes(method.getParameterTypes());
-            Object instance = clzz.newInstance();
-            apiMethod.setMethod(method);
-            apiMethod.setHandler(instance);
             MethodParameter[] methodParameters = argumentParser.parse(method);
             apiMethod.setParameters(methodParameters);
+            apiMethod.setValid(true);
         } catch (Exception e) {
             logger.error(e.getMessage());
             e.printStackTrace();

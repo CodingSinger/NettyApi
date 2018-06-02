@@ -1,5 +1,6 @@
 package com.zzc.nettyapi.apiutil;
 
+import com.zzc.nettyapi.annotation.parser.AnnotationMappingConfiguration;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.w3c.dom.Document;
@@ -13,6 +14,8 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 /**
  * @author zhengzechao
@@ -21,16 +24,24 @@ import java.util.HashMap;
 public class ApiRegistry {
 
 
-    private static final Logger logger = LoggerFactory.getLogger(ApiRegistry.class);
+    private static final Logger log = LoggerFactory.getLogger(ApiRegistry.class);
     public static HashMap<String, ApiMethod> urlRegistrys = new HashMap<String, ApiMethod>();
 
     private static String mappingConfig = "/api-mapping.xml";
 
 
-    public static void init(){
+    public static void init(boolean scan, AnnotationMappingConfiguration configuration) throws IllegalAccessException, IOException, ParserConfigurationException {
+        if (scan) {
+            //扫描注解解析
+            Map<String, ApiMethod> methodMap = configuration.registerMapping();
+            urlRegistrys.putAll(methodMap);
+        }
         init(mappingConfig);
+
     }
-     private static void init(String configPath) {
+
+    private static void init(String configPath) throws IllegalAccessException, ParserConfigurationException, IOException {
+
 
         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
         try {
@@ -49,7 +60,7 @@ public class ApiRegistry {
 
                 NodeList nodes = clz.getElementsByTagName("node");
 
-
+                String methodName = null;
                 for (int j = 0; j < nodes.getLength(); j++) {
                     Element node = (Element) nodes.item(j);
                     ApiMethod api = new ApiMethod();
@@ -68,11 +79,12 @@ public class ApiRegistry {
                             } else if ("support".equals(name)) {
                                 api.getSupportMethods().add(value.toUpperCase());
 
-                            }else if("method".equals(name)){
-                                api.setMethodName(value);
+                            } else if ("method".equals(name)) {
+                                methodName = value;
+                                api.setMethodName(methodName);
 
                             } else {
-                                logger.info("无法解析node--" + name);
+                                log.info("cant parse node -" + name);
 
                             }
                         }
@@ -80,8 +92,11 @@ public class ApiRegistry {
 
                     }
 
-                    urlRegistrys.put(url, api);
-
+                    ApiMethod previous = urlRegistrys.put(url, api);
+                    if (Objects.nonNull(previous)) {
+                        throw new IllegalAccessException("mapping method conflict on the url:{}" + url);
+                    }
+                    log.info("mapping url:{} on the class:{} - method:{}", url, className, methodName);
 
                 }
 
@@ -90,11 +105,15 @@ public class ApiRegistry {
 
 
         } catch (ParserConfigurationException e) {
-            logger.error("解析api-mapping出错--" + e.getMessage());
+            log.error("解析api-mapping出错--" + e.getMessage());
+            throw e;
         } catch (SAXException e) {
-            logger.error(e.getMessage());
+            log.error(e.getMessage());
         } catch (IOException e) {
-            logger.error("读取文件出错--" + e.getMessage());
+            log.error("读取文件出错--" + e.getMessage());
+            throw e;
+        } catch (IllegalAccessException e) {
+            throw e;
         }
     }
 

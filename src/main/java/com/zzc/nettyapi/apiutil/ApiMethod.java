@@ -22,17 +22,28 @@ public class ApiMethod implements Serializable {
     private volatile Method method; //对应方法
     private Class handleClass;//对应类
     private String url; //对应url
-    private Set<String> supportMethods = new HashSet<String>(); //支持的方法
+    private Set<String> supportMethods = new HashSet<String>(); //支持的方法 GET POST
     private String className;
     private Object handler;//处理对象
     private String methodName; //方法名
     private String regex;
     private List<String> parameterNames = new LinkedList<>();
-
 //    private String[] parameterNames ;
     private Class[] parameterTypes ;
 
+    private Boolean valid;
 
+    public ApiMethod() {
+        valid = false;
+    }
+
+    public Boolean getValid() {
+        return valid;
+    }
+
+    public void setValid(Boolean valid) {
+        this.valid = valid;
+    }
 
     private MethodParameter[] parameters;
 

@@ -136,6 +136,15 @@ public class TestRegistry {
     }
 
     @Test
+    public void test16() {
+        Object[] obj = null;
+        Integer[] its = new Integer[]{1,2};
+        System.out.println(its );
+        obj = its;
+        System.out.println(Arrays.toString(obj));
+    }
+
+    @Test
 
     public void name8(){
         Integer i = new Integer(2);
