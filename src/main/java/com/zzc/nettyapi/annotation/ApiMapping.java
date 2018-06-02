@@ -30,6 +30,15 @@ public @interface ApiMapping {
         }
     }
 
+    /**
+     * 路径
+     * @return value
+     */
     String value() default "";
+
+    /**
+     * 请求方法
+     * @return RequestMethod
+     */
     RequestMethod method() default RequestMethod.Get;
 }
