@@ -7,6 +7,7 @@ import com.zzc.utils.Condition;
 import org.junit.Test;
 
 import java.lang.reflect.Method;
+import java.nio.channels.AlreadyBoundException;
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -142,6 +143,17 @@ public class TestRegistry {
         System.out.println(its );
         obj = its;
         System.out.println(Arrays.toString(obj));
+    }
+
+    @Test
+    public void test_exception() {
+        try{
+//            int i = 1/0;
+            throw new RuntimeException("sas");
+
+        }catch (AlreadyBoundException e){
+            System.out.println("catch - "+e.getMessage());
+        }
     }
 
     @Test
