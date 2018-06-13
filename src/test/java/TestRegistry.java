@@ -94,7 +94,7 @@ public class TestRegistry {
         ImmutableMap<String, Object> build = builder.build();
         System.out.println(build);
         System.out.println(build.get("as"));
-        build.put("sa","sa");
+//        build.put("sa","sa");
     }
 
     @Test
@@ -116,12 +116,12 @@ public class TestRegistry {
     public void name6() throws Exception {
         String[] s = new String[10];
         System.out.println(s.getClass());
-        try {
-            int i = 1/0;
-        } catch (Exception e) {
-            throw e;
-
-        }
+//        try {
+//            int i = 1/0;
+//        } catch (Exception e) {
+//            throw e;
+//
+//        }
         Object o = 1;
         System.out.println(o instanceof Number);
 
@@ -147,13 +147,13 @@ public class TestRegistry {
 
     @Test
     public void test_exception() {
-        try{
-//            int i = 1/0;
-            throw new RuntimeException("sas");
-
-        }catch (AlreadyBoundException e){
-            System.out.println("catch - "+e.getMessage());
-        }
+//        try{
+////            int i = 1/0;
+////            throw new RuntimeException("sas");
+//
+//        }catch (AlreadyBoundException e){
+//            System.out.println("catch - "+e.getMessage());
+//        }
     }
 
     @Test
