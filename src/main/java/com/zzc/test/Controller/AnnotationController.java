@@ -2,6 +2,7 @@ package com.zzc.test.Controller;
 
 import com.zzc.nettyapi.annotation.ApiMapping;
 import com.zzc.nettyapi.annotation.NameComponent;
+import com.zzc.nettyapi.hotload.basic.Controller;
 
 /**
  * @author zhengzechao
@@ -10,7 +11,7 @@ import com.zzc.nettyapi.annotation.NameComponent;
  */
 
 @NameComponent
-public class AnnotationController {
+public class AnnotationController implements Controller {
 
     @ApiMapping(value = "/test")
     public void test(){

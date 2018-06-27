@@ -74,7 +74,7 @@ public class AnnotationMappingConfiguration extends Configuration {
         try {
             for (Class<?> aClass : classes) {
                 //忽略继承的
-                Annotation[] annotations = aClass.getDeclaredAnnotations();
+                Annotation[] annotations = aClass.getAnnotations();
 
                 Class<? extends Annotation> annotation = Arrays.stream(annotations)
                         .map(Annotation::annotationType)
