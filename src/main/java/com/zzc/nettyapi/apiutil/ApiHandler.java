@@ -2,11 +2,14 @@ package com.zzc.nettyapi.apiutil;
 
 import com.alibaba.fastjson.JSONObject;
 import com.google.common.base.Throwables;
+import com.sun.org.apache.xpath.internal.operations.Bool;
 import com.zzc.nettyapi.exception.HttpMethodNoSupportException;
 import com.zzc.nettyapi.argument.utils.HandleMethodArgumentParser;
 import com.zzc.nettyapi.argument.utils.MethodParameter;
 import com.zzc.nettyapi.argument.resolver.ArgumentResolver;
 import com.zzc.nettyapi.filter.MethodFilter;
+import com.zzc.nettyapi.hotload.core.background.DetectModifyThread;
+import com.zzc.nettyapi.hotload.core.classloader.NettyServerClassLoader;
 import com.zzc.nettyapi.request.HttpRequestParser;
 import com.zzc.nettyapi.request.RequestDetail;
 import io.netty.channel.ChannelHandlerContext;
@@ -17,6 +20,7 @@ import org.slf4j.LoggerFactory;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Parameter;
+import java.rmi.registry.Registry;
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -31,6 +35,8 @@ public class ApiHandler {
      */
 //    private ConcurrentLinkedQueue<RequestDetail> requestCache = new ConcurrentLinkedQueue<RequestDetail>();
     private Logger logger = LoggerFactory.getLogger(ApiHandler.class);
+
+    private volatile NettyServerClassLoader classLoader;
     /*参数包装器*/
     private HandleMethodArgumentParser argumentParser = new HandleMethodArgumentParser();
     /*请求解析器*/
@@ -39,11 +45,17 @@ public class ApiHandler {
     private CustomerConfiguration customerConfiguration = new CustomerConfiguration();
 
     public ApiHandler() throws InstantiationException, IllegalAccessException {
+        classLoader = new NettyServerClassLoader(ClassLoader.getSystemClassLoader());
         init();
+    }
+
+    public void setClassLoader(NettyServerClassLoader classLoader) {
+        this.classLoader = classLoader;
     }
 
     public void init() throws IllegalAccessException, InstantiationException {
         customerConfiguration.load();
+        new Thread(new DetectModifyThread(classLoader,this)).start();
         filters = new LinkedList<MethodFilter>();
         List<Class> filterClass = customerConfiguration.getMethodFilter();
         for (Class aClass : filterClass) {
@@ -63,12 +75,13 @@ public class ApiHandler {
         if (api == null) {
             return encode(new Result(Constants.NOT_FOUND, null));
         }
-        if (!api.getValid()){
+        Boolean reload = ApiRegistry.reloadClass.get(api.getClassName());
+        if (!api.getValid()||reload){
             //第一次访问
             synchronized (api) {
                 //再次确认是否为空 有可能刚好别的线程实例化完成
-                if (!api.getValid()) {
-                    loadMethodAndClass(api);
+                if (!api.getValid()||reload) {
+                    loadMethodAndClass(api,reload);
                 }
             }
         }
@@ -160,12 +173,17 @@ public class ApiHandler {
 
     }
 
-    private void loadMethodAndClass(ApiMethod apiMethod) {
+    private void loadMethodAndClass(ApiMethod apiMethod, Boolean reload) {
 
         try {
+            if (Objects.isNull(apiMethod.getMethod())||reload){ //非注解加载的方式method会为空
 
-            if (Objects.isNull(apiMethod.getMethod())){
-                Class clzz = Class.forName(apiMethod.getClassName());
+
+                //加载class
+
+//                Class clzz = Class.forName(apiMethod.getClassName());
+                Class clzz = classLoader.loadClass(apiMethod.getClassName());
+                System.out.println("重新加载");
                 apiMethod.setHandleClass(clzz);
                 Method method = Arrays.stream(clzz.getDeclaredMethods())
                         .filter((t) -> t.getName().equals(apiMethod.getMethodName()))

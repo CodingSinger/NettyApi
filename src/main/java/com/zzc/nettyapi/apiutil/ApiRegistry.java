@@ -1,6 +1,7 @@
 package com.zzc.nettyapi.apiutil;
 
 import com.zzc.nettyapi.annotation.parser.AnnotationMappingConfiguration;
+import com.zzc.nettyapi.hotload.core.classloader.NettyServerClassLoader;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.w3c.dom.Document;
@@ -13,9 +14,11 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
+import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * @author zhengzechao
@@ -27,6 +30,7 @@ public class ApiRegistry {
     private static final Logger log = LoggerFactory.getLogger(ApiRegistry.class);
     public static HashMap<String, ApiMethod> urlRegistrys = new HashMap<String, ApiMethod>();
 
+    public static ConcurrentHashMap<String,Boolean> reloadClass = new ConcurrentHashMap<>();
     private static String mappingConfig = "/api-mapping.xml";
 
 
@@ -66,6 +70,8 @@ public class ApiRegistry {
                     ApiMethod api = new ApiMethod();
 
                     api.setClassName(className);
+
+
                     String url = null;
                     for (Node child = node.getFirstChild(); child != null; child = child.getNextSibling()) {
                         if (child.getNodeType() == Node.ELEMENT_NODE) {
@@ -93,6 +99,7 @@ public class ApiRegistry {
                     }
 
                     ApiMethod previous = urlRegistrys.put(url, api);
+                    reloadClass.put(className,false);
                     if (Objects.nonNull(previous)) {
                         throw new IllegalAccessException("mapping method conflict on the url:{}" + url);
                     }
@@ -116,5 +123,6 @@ public class ApiRegistry {
             throw e;
         }
     }
+
 
 }

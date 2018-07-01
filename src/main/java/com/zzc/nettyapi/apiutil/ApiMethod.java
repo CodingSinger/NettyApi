@@ -30,8 +30,16 @@ public class ApiMethod implements Serializable {
     private List<String> parameterNames = new LinkedList<>();
 //    private String[] parameterNames ;
     private Class[] parameterTypes ;
-
     private Boolean valid;
+    private volatile Boolean reload; //其class是否被重新加载
+
+    public Boolean getReload() {
+        return reload;
+    }
+
+    public void setReload(Boolean reload) {
+        this.reload = reload;
+    }
 
     public ApiMethod() {
         valid = false;

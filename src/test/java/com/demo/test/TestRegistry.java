@@ -1,3 +1,5 @@
+package com.demo.test;
+
 import com.alibaba.fastjson.JSONObject;
 import com.google.common.collect.ImmutableMap;
 import com.zzc.nettyapi.apiutil.ApiRegistry;
@@ -7,7 +9,6 @@ import com.zzc.utils.Condition;
 import org.junit.Test;
 
 import java.lang.reflect.Method;
-import java.nio.channels.AlreadyBoundException;
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -19,7 +20,7 @@ import java.util.stream.Stream;
 public class TestRegistry {
     int i =10;
     public A a = new A(10);
-//    public TestRegistry(int i) {
+//    public com.demo.test.TestRegistry(int i) {
 //    }
 
     @Test
@@ -42,6 +43,8 @@ public class TestRegistry {
 
 
     }
+
+
 
     @Test
     public void name2() throws Exception {
@@ -178,11 +181,11 @@ public class TestRegistry {
 
     public static void main(String[] args) {
 
-//        new TestRegistry();
+//        new com.demo.test.TestRegistry();
     }
 
 //
-//    public TestRegistry() {
+//    public com.demo.test.TestRegistry() {
 //        //此时会自动将实例变量实例化过程都放到TestRegistry过程中去。
 //        this(10);
 //    }
