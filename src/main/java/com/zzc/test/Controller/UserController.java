@@ -10,7 +10,7 @@ public class UserController {
 
     public String get(int uid,int noteid){
         System.out.println(uid);
-        System.out.println("change asasssfdddasas");
+        System.out.println("change");
         return "uid"+uid+"--noteid"+noteid;
     }
     public String getPerson(Person person){

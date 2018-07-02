@@ -3,6 +3,7 @@ package com.zzc.nettyapi.nettyservice;
 import com.google.common.base.Throwables;
 import com.zzc.nettyapi.annotation.parser.AnnotationMappingConfiguration;
 import com.zzc.nettyapi.apiutil.*;
+import com.zzc.nettyapi.hotload.core.classloader.NettyServerClassLoader;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.EventLoopGroup;
@@ -37,7 +38,7 @@ public class NettyServerBootStrap {
 
         serverBootstrap.group(mainLoop, workLoop).channel(NioServerSocketChannel.class).childHandler(new ServerInitializer());
 
-        AnnotationMappingConfiguration configuration = new AnnotationMappingConfiguration("com.zzc.test.Controller");
+        AnnotationMappingConfiguration configuration = new AnnotationMappingConfiguration(new NettyServerClassLoader(ClassLoader.getSystemClassLoader()), "com.zzc.test.Controller");
         try {
             if (Objects.isNull(configuration)) {
                 initComponent(false, null);
@@ -68,7 +69,13 @@ public class NettyServerBootStrap {
             //读入配置文件
             ServerConfigLoader.init();
 
-            ServerHandler.handler = new ApiHandler();
+
+            if (configuration != null){
+                ServerHandler.handler = new ApiHandler(configuration.getClassLoader());
+            }else{
+                ServerHandler.handler = new ApiHandler(new NettyServerClassLoader(ClassLoader.getSystemClassLoader()));
+            }
+
             //解析api
             ApiRegistry.init(scan, configuration);
             //初始化缓存线程池

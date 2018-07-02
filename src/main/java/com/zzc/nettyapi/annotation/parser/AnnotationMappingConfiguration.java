@@ -4,11 +4,13 @@ import com.google.common.base.Throwables;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
+import com.google.common.collect.Sets;
 import com.google.common.reflect.ClassPath;
 import com.zzc.nettyapi.Configuration;
 import com.zzc.nettyapi.annotation.ApiMapping;
 import com.zzc.nettyapi.annotation.NameComponent;
 import com.zzc.nettyapi.apiutil.ApiMethod;
+import com.zzc.nettyapi.hotload.core.classloader.NettyServerClassLoader;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -27,6 +29,7 @@ import java.util.stream.Collectors;
 
 public class AnnotationMappingConfiguration extends Configuration {
 
+    private NettyServerClassLoader classLoader;
     private static final Logger log = LoggerFactory.getLogger(AnnotationMappingConfiguration.class);
     /**
      *
@@ -35,9 +38,21 @@ public class AnnotationMappingConfiguration extends Configuration {
 
     public AnnotationMappingConfiguration() {
     }
-
-    public AnnotationMappingConfiguration(String scanPaths) {
+    public AnnotationMappingConfiguration(NettyServerClassLoader classLoader, String scanPaths) {
+        this.classLoader = classLoader;
         this.scanPaths = scanPaths;
+    }
+    public AnnotationMappingConfiguration(String scanPaths) {
+        this(null,scanPaths);
+    }
+
+
+    public NettyServerClassLoader getClassLoader() {
+        return classLoader;
+    }
+
+    public void setClassLoader(NettyServerClassLoader classLoader) {
+        this.classLoader = classLoader;
     }
 
     //TODO 考虑是否需要去掉stream +lambda 这么写性能好像比普通写慢
@@ -57,14 +72,25 @@ public class AnnotationMappingConfiguration extends Configuration {
                     })
                     .orElse(ImmutableSet.of());
 
-            return classInfos.stream()
-                    .map(ClassPath.ClassInfo::load)
-                    .collect(Collectors.toList());
 
-        } catch (IOException e) {
+            ClassLoader classLoader = this.classLoader;
+            if (classLoader == null){
+                classLoader = ClassLoader.getSystemClassLoader();
+            }
+            List<Class<?>> list = new ArrayList<>();
+
+            for (ClassPath.ClassInfo classInfo : classInfos) {
+                String name = classInfo.getName();
+                Class<?> aClass = classLoader.loadClass(name);
+                list.add(aClass);
+            }
+            return list;
+
+        } catch (Exception e) {
             log.error("load class error!cause:{}", Throwables.getStackTraceAsString(e));
             return null;
         }
+
     }
 
 
@@ -106,7 +132,7 @@ public class AnnotationMappingConfiguration extends Configuration {
                         apiMethod.getSupportMethods().add(apiMapping.method().getDesc());
                         String url = apiMapping.value();
                         apiMethod.setUrl(url);
-                        apiMethod.setMethodName(apiMapping.method().getDesc());
+                        apiMethod.setSupportMethods(Sets.newHashSet(apiMapping.method().getDesc()));
                         ApiMethod previous = annotationMappings.put(apiMapping.value(), apiMethod);
                         if (Objects.nonNull(previous)){
                             throw new IllegalAccessException("mapping method conflict on the url:{}"+url);

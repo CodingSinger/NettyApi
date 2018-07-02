@@ -4,6 +4,8 @@ import com.zzc.nettyapi.annotation.ApiMapping;
 import com.zzc.nettyapi.annotation.NameComponent;
 import com.zzc.nettyapi.hotload.basic.Controller;
 
+import java.util.Arrays;
+
 /**
  * @author zhengzechao
  * @date 2018/6/2
@@ -14,8 +16,9 @@ import com.zzc.nettyapi.hotload.basic.Controller;
 public class AnnotationController implements Controller {
 
     @ApiMapping(value = "/test")
-    public void test(){
-        System.out.println("hello");
+    public void test(String[] ss){
+        System.out.println(Arrays.toString(ss ));
+        System.out.println("hello13");
     }
 
 

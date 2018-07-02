@@ -58,7 +58,7 @@ public class SimpleValueArgumentResolver extends ArgumentResolver{
         List<String> valueLists = parametersMaps.get(parameterName);
 
         if(Objects.nonNull(valueLists) && !valueLists.isEmpty()){
-            String value = valueLists.get(0);
+            String value =  valueLists.get(0);
 
             /**
              * 获取对应的参数绑定器

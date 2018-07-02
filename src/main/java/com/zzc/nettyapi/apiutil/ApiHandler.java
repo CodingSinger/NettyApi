@@ -44,8 +44,8 @@ public class ApiHandler {
     private List<MethodFilter> filters;
     private CustomerConfiguration customerConfiguration = new CustomerConfiguration();
 
-    public ApiHandler() throws InstantiationException, IllegalAccessException {
-        classLoader = new NettyServerClassLoader(ClassLoader.getSystemClassLoader());
+    public ApiHandler(NettyServerClassLoader loader) throws InstantiationException, IllegalAccessException {
+        classLoader = loader;
         init();
     }
 
@@ -55,7 +55,7 @@ public class ApiHandler {
 
     public void init() throws IllegalAccessException, InstantiationException {
         customerConfiguration.load();
-        new Thread(new DetectModifyThread(classLoader,this)).start();
+        new Thread(new DetectModifyThread(classLoader, this)).start();
         filters = new LinkedList<MethodFilter>();
         List<Class> filterClass = customerConfiguration.getMethodFilter();
         for (Class aClass : filterClass) {
@@ -75,13 +75,13 @@ public class ApiHandler {
         if (api == null) {
             return encode(new Result(Constants.NOT_FOUND, null));
         }
-        Boolean reload = ApiRegistry.reloadClass.get(api.getClassName());
-        if (!api.getValid()||reload){
+        Boolean reload = ApiRegistry.reloadClass.getOrDefault(api.getClassName(), Boolean.FALSE);
+        if (!api.getValid() || reload) {
             //第一次访问
             synchronized (api) {
                 //再次确认是否为空 有可能刚好别的线程实例化完成
-                if (!api.getValid()||reload) {
-                    loadMethodAndClass(api,reload);
+                if (!api.getValid() || reload) {
+                    loadMethodAndClass(api, reload);
                 }
             }
         }
@@ -138,6 +138,7 @@ public class ApiHandler {
                      */
                     MethodParameter methodParameter = methodParameters[i];
                     if (ArgumentResolver.supportMethodParameter(ArgumentResolver.argumentResolvers, methodParameter)) {
+                        //
                         args[i] = ArgumentResolver.resolveMethodParameter(methodParameter, request);
                     }
                 }
@@ -176,7 +177,7 @@ public class ApiHandler {
     private void loadMethodAndClass(ApiMethod apiMethod, Boolean reload) {
 
         try {
-            if (Objects.isNull(apiMethod.getMethod())||reload){ //非注解加载的方式method会为空
+            if (Objects.isNull(apiMethod.getMethod()) || reload) { //非注解加载的方式method会为空
 
 
                 //加载class
@@ -188,7 +189,7 @@ public class ApiHandler {
                 Method method = Arrays.stream(clzz.getDeclaredMethods())
                         .filter((t) -> t.getName().equals(apiMethod.getMethodName()))
                         .findFirst()
-                        .get();
+                        .orElseThrow(NoSuchMethodError::new);
                 apiMethod.setMethod(method);
                 Object instance = clzz.newInstance();
                 apiMethod.setHandler(instance);
@@ -204,9 +205,8 @@ public class ApiHandler {
             e.printStackTrace();
         } finally {
         }
-
-
     }
+
 
 
 }
