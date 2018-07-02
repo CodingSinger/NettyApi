@@ -24,6 +24,17 @@ public class TestRegistry {
 //    }
 
     @Test
+    public void test15() {
+        Integer[] integers = new Integer[10];
+        System.out.println(integers.getClass().getComponentType()); //getComponentType获得数组的类型，不是数组则返回null
+        List<Integer> list = new ArrayList<>();
+        System.out.println(list.getClass());
+        System.out.println(list.getClass().getComponentType());
+        System.out.println(integers.getClass());
+        System.out.println(integers.getClass().isPrimitive());
+    }
+
+    @Test
     public void name13() throws Exception {
         Arrays.asList(1,2,3,4).stream().forEach(integer -> System.out.println(integer));
         Arrays.asList(1,2,3,4).stream().forEach(System.out::println);
@@ -181,6 +192,16 @@ public class TestRegistry {
 
     public static void main(String[] args) {
 
+        Runnable r = System.out::println;
+        Integer[] i = new Integer[]{1,2};
+        Object[] o = (Object[])i;
+        System.out.println(o.getClass().getName());
+
+        A a = null;
+        B b = new B();
+        a = b;
+        System.out.println( a.i);
+
 //        new com.demo.test.TestRegistry();
     }
 
@@ -199,7 +220,7 @@ class A{
     }
 }
 
-class B extends A{
+class B extends A implements Runnable{
 
     int i = 10;
     public B() {
@@ -211,4 +232,8 @@ class B extends A{
         super(i);
     }
 
+    @Override
+    public void run() {
+
+    }
 }

@@ -19,10 +19,7 @@ import java.util.Objects;
  */
 public class SimpleValueArgumentResolver extends ArgumentResolver{
 
-
-
     private static final Logger log = LoggerFactory.getLogger(SimpleValueArgumentResolver.class);
-
 
 
 
@@ -33,16 +30,11 @@ public class SimpleValueArgumentResolver extends ArgumentResolver{
 
     @Override
     boolean supportsParameter(MethodParameter methodParameter) {
-
-
-
         Class type = methodParameter.getType();
-
         return type.isPrimitive()||
                 Number.class.isAssignableFrom(type)||
                 CharSequence.class.isAssignableFrom(type);
     }
-
 
 
     @Override

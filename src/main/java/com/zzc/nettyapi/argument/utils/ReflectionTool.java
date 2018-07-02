@@ -3,6 +3,7 @@ package com.zzc.nettyapi.argument.utils;
 import com.google.common.base.Strings;
 import com.google.common.collect.Maps;
 
+import java.lang.reflect.Array;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.Arrays;
@@ -125,5 +126,27 @@ public class ReflectionTool {
     public static Boolean isPrimitiveTypeOrWrapped(Class clazz){
         return clazz.isPrimitive() || Number.class.isAssignableFrom(clazz);
 
+    }
+    public static Object[] toObjectArray(Object source) {
+        if (source instanceof Object[]) {
+            return (Object[]) source;
+        }
+        if (source == null) {
+            return new Object[0];
+        }
+        if (!source.getClass().isArray()) {
+            throw new IllegalArgumentException("Source is not an array: " + source);
+        }
+        int length = Array.getLength(source);
+        if (length == 0) {
+            return new Object[0];
+        }
+        //该方法会返回Object形式的元素
+        Class<?> wrapperType = Array.get(source, 0).getClass();
+        Object[] newArray = (Object[]) Array.newInstance(wrapperType, length);
+        for (int i = 0; i < length; i++) {
+            newArray[i] = Array.get(source, i);
+        }
+        return newArray;
     }
 }
