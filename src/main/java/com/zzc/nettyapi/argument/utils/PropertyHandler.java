@@ -30,6 +30,10 @@ public class PropertyHandler {
     /** 是否可写*/
     private boolean isWritable;
 
+    /**是否可读**/
+    private boolean isReadable;
+
+
     /** 写方法*/
     private Method writeMethod;
 
@@ -40,6 +44,14 @@ public class PropertyHandler {
     }
 
     public PropertyHandler() {
+    }
+
+    public boolean isReadable() {
+        return isReadable;
+    }
+
+    public void setReadable(boolean readable) {
+        isReadable = readable;
     }
 
     public Method getWriteMethod() {

@@ -8,6 +8,10 @@ import com.zzc.nettyapi.exception.ConvertException;
 import com.zzc.nettyapi.argument.conversion.convert.Converter;
 import com.zzc.nettyapi.argument.conversion.convert.StringToNumberConverter;
 import com.zzc.nettyapi.argument.conversion.util.ConvertKeyPair;
+import lombok.extern.log4j.Log4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.util.Map;
 
 import java.util.List;
@@ -19,9 +23,11 @@ import java.util.concurrent.ConcurrentHashMap;
  * @date 2018/4/27
  * Email ooczzoo@gmail.com
  */
+
 public class DefaultConversion implements Conversion {
 
 
+    private static final Logger log = LoggerFactory.getLogger(DefaultConversion.class);
     /**
      * 已经解析的缓存
      */
@@ -109,6 +115,7 @@ public class DefaultConversion implements Conversion {
         if(canCanvert(sourceClass,targetClass)){
             converter = getConvert(sourceClass,targetClass);
         }else{
+            log.info("can't find the convert which math type:{} and type:{}",sourceClass,targetClass);
             throw new ConvertException("can't find convert");
         }
         Object obj = converter.convert(value,targetClass);

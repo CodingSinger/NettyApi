@@ -6,10 +6,9 @@ import com.google.common.collect.Maps;
 import java.lang.reflect.Array;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Objects;
-import java.util.Map;
+import java.net.URI;
+import java.net.URL;
+import java.util.*;
 
 /**
  * @author zhengzechao
@@ -109,6 +108,7 @@ public class ReflectionTool {
                 propertyHandler.setWritable(Objects.nonNull(writeMethod));
                 propertyHandler.setWriteMethod(writeMethod);
                 propertyHandler.setReadMethod(readMethod);
+                propertyHandler.setReadable(Objects.nonNull(readMethod));
             }
         } else {
             return null;
@@ -127,7 +127,7 @@ public class ReflectionTool {
         while (queryClass != null) {
             fields = queryClass.getDeclaredFields();
             targetField = Arrays.stream(fields)
-                    .filter(t -> name.equals(t.getName()))
+                    .filter(t->t.getName().equals(name))
                     .findFirst()
                     .orElse(null);
             if (Objects.nonNull(targetField)) {
@@ -146,6 +146,25 @@ public class ReflectionTool {
 
     }
 
+
+    /**
+     * 判断是否是简单类型
+     * @param clazz
+     * @return true 简单
+     */
+    public static boolean isSimpleProperty(Class<?> clazz) {
+        return isSimpleValueType(clazz) || (clazz.isArray() && isSimpleValueType(clazz.getComponentType()));
+    }
+
+    public static boolean isSimpleValueType(Class<?> clazz) {
+        return (ReflectionTool.isPrimitiveTypeOrWrapped(clazz)||
+                Enum.class.isAssignableFrom(clazz) ||
+                CharSequence.class.isAssignableFrom(clazz) ||
+                Number.class.isAssignableFrom(clazz) ||
+                Date.class.isAssignableFrom(clazz) ||
+                URI.class == clazz || URL.class == clazz ||
+                Locale.class == clazz || Class.class == clazz);
+    }
     public static Object[] toObjectArray(Object source) {
         if (source instanceof Object[]) {
             return (Object[]) source;

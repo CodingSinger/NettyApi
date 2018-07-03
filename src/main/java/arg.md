@@ -13,4 +13,18 @@ ArgumentResolver：
 绑定器 :主要是将值进行注入或者简单的赋值
 - 如SimpleRequestDataBinder只负责简单类型的转换
 - ModelAttributeDataBinder则负责对Model对象的注入
+    doBinder:是对每一个MethodParameter调用一次，解析出所有请求中的key-value形式，然后从该
+    Bean中寻找匹配的key,注入
+    伪代码：
+    def doBind(model):
+        for k,v in requestMaps:
+            property = model[property]
+            set(property,v)
+             
+如果是多层Bean的嵌套格式 也采用SpringMVC中的`p1.p2.p3 = value` 格式来表示某一个Bean的嵌套关系注入
+注入方法的需要加一个递归实现：
+即首先获取(生成)Bean中p1属性的对象，然后再用该对象Bean去获取(生成)p2属性对象，直到最后一层调用实际的setProperty方法
+进行注入。
+
+和SpringMVC一样，注入值也需要属性提供set方法，并且对于嵌套的注入，还需要中间Bean提供set、get方法
   
