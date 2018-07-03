@@ -1868,3 +1868,175 @@
 2018-07-03  10:56:05.096 [main] DEBUG io.netty.buffer.ByteBufUtil - -Dio.netty.threadLocalDirectBufferSize: 65536
 2018-07-03  10:56:05.107 [main] DEBUG io.netty.buffer.ByteBufUtil - -Dio.netty.maxThreadLocalCharBufferSize: 16384
 2018-07-03  10:56:05.610 [main] INFO  com.zzc.nettyapi.nettyservice.NettyServerBootStrap - Server bind successfully
+2018-07-03  10:57:04.662 [nioEventLoopGroup-3-1] DEBUG io.netty.buffer.AbstractByteBuf - -Dio.netty.buffer.bytebuf.checkAccessible: true
+2018-07-03  10:57:04.709 [nioEventLoopGroup-3-1] DEBUG io.netty.util.ResourceLeakDetectorFactory - Loaded default ResourceLeakDetector: io.netty.util.ResourceLeakDetector@77ec02f4
+2018-07-03  10:57:06.155 [nioEventLoopGroup-3-1] DEBUG io.netty.util.Recycler - -Dio.netty.recycler.maxCapacityPerThread: 32768
+2018-07-03  10:57:06.164 [nioEventLoopGroup-3-1] DEBUG io.netty.util.Recycler - -Dio.netty.recycler.maxSharedCapacityFactor: 2
+2018-07-03  10:57:06.174 [nioEventLoopGroup-3-1] DEBUG io.netty.util.Recycler - -Dio.netty.recycler.linkCapacity: 16
+2018-07-03  10:57:06.183 [nioEventLoopGroup-3-1] DEBUG io.netty.util.Recycler - -Dio.netty.recycler.ratio: 8
+2018-07-03  10:57:07.974 [handleThread--1] INFO  com.zzc.nettyapi.request.HttpRequestParser - date:Tue Jul 03 10:57:07 CST 2018---uri:/test?ss=12&ss=13&is=7&is=8
+2018-07-03  10:57:16.665 [handleThread--1] DEBUG com.zzc.nettyapi.argument.binder.DataBinderFactory - type:[Ljava.lang.String; ------> dataBinder:com.zzc.nettyapi.argument.binder.SimpleRequestDataBinder
+2018-07-03  10:57:43.535 [handleThread--1] DEBUG com.zzc.nettyapi.argument.binder.DataBinderFactory - type:[Ljava.lang.String; ------> dataBinder:com.zzc.nettyapi.argument.binder.SimpleRequestDataBinder
+2018-07-03  10:58:39.839 [handleThread--1] DEBUG com.zzc.nettyapi.hotload.core.classloader.NettyServerClassLoader - loadClass(java.lang.System, false)
+2018-07-03  10:58:39.839 [handleThread--1] DEBUG com.zzc.nettyapi.hotload.core.classloader.NettyServerClassLoader - loadClass(java.util.Arrays, false)
+2018-07-03  10:58:39.840 [handleThread--1] DEBUG com.zzc.nettyapi.hotload.core.classloader.NettyServerClassLoader - loadClass(java.io.PrintStream, false)
+2018-07-03  11:00:19.710 [main] DEBUG io.netty.util.internal.logging.InternalLoggerFactory - Using SLF4J as the default logging framework
+2018-07-03  11:00:19.713 [main] DEBUG io.netty.channel.MultithreadEventLoopGroup - -Dio.netty.eventLoopThreads: 16
+2018-07-03  11:00:19.737 [main] DEBUG io.netty.util.internal.PlatformDependent - Platform: MacOS
+2018-07-03  11:00:19.740 [main] DEBUG io.netty.util.internal.PlatformDependent0 - -Dio.netty.noUnsafe: false
+2018-07-03  11:00:19.740 [main] DEBUG io.netty.util.internal.PlatformDependent0 - Java version: 8
+2018-07-03  11:00:19.742 [main] DEBUG io.netty.util.internal.PlatformDependent0 - sun.misc.Unsafe.theUnsafe: available
+2018-07-03  11:00:19.742 [main] DEBUG io.netty.util.internal.PlatformDependent0 - sun.misc.Unsafe.copyMemory: available
+2018-07-03  11:00:19.743 [main] DEBUG io.netty.util.internal.PlatformDependent0 - java.nio.Buffer.address: available
+2018-07-03  11:00:19.743 [main] DEBUG io.netty.util.internal.PlatformDependent0 - direct buffer constructor: available
+2018-07-03  11:00:19.744 [main] DEBUG io.netty.util.internal.PlatformDependent0 - java.nio.Bits.unaligned: available, true
+2018-07-03  11:00:19.744 [main] DEBUG io.netty.util.internal.PlatformDependent0 - jdk.internal.misc.Unsafe.allocateUninitializedArray(int): unavailable prior to Java9
+2018-07-03  11:00:19.744 [main] DEBUG io.netty.util.internal.PlatformDependent0 - java.nio.DirectByteBuffer.<init>(long, int): available
+2018-07-03  11:00:19.744 [main] DEBUG io.netty.util.internal.PlatformDependent - sun.misc.Unsafe: available
+2018-07-03  11:00:19.745 [main] DEBUG io.netty.util.internal.PlatformDependent - -Dio.netty.tmpdir: /var/folders/60/p56nn12s5sq59wz96nlpdfcc0000gn/T (java.io.tmpdir)
+2018-07-03  11:00:19.745 [main] DEBUG io.netty.util.internal.PlatformDependent - -Dio.netty.bitMode: 64 (sun.arch.data.model)
+2018-07-03  11:00:19.746 [main] DEBUG io.netty.util.internal.PlatformDependent - -Dio.netty.noPreferDirect: false
+2018-07-03  11:00:19.746 [main] DEBUG io.netty.util.internal.PlatformDependent - -Dio.netty.maxDirectMemory: 3817865216 bytes
+2018-07-03  11:00:19.746 [main] DEBUG io.netty.util.internal.PlatformDependent - -Dio.netty.uninitializedArrayAllocationThreshold: -1
+2018-07-03  11:00:19.747 [main] DEBUG io.netty.util.internal.CleanerJava6 - java.nio.ByteBuffer.cleaner(): available
+2018-07-03  11:00:19.761 [main] DEBUG io.netty.channel.nio.NioEventLoop - -Dio.netty.noKeySetOptimization: false
+2018-07-03  11:00:19.762 [main] DEBUG io.netty.channel.nio.NioEventLoop - -Dio.netty.selectorAutoRebuildThreshold: 512
+2018-07-03  11:00:19.775 [main] DEBUG io.netty.util.internal.PlatformDependent - org.jctools-core.MpscChunkedArrayQueue: available
+2018-07-03  11:00:19.863 [main] INFO  com.zzc.nettyapi.nettyservice.ServerConfigLoader - load server config from /config.properties successfully!
+2018-07-03  11:00:20.271 [main] DEBUG com.zzc.nettyapi.hotload.core.classloader.NettyServerClassLoader - loadClass(com.zzc.test.Controller.AnnotationController, false)
+2018-07-03  11:00:20.280 [main] DEBUG com.zzc.nettyapi.hotload.core.classloader.NettyServerClassLoader - loadClass(com.zzc.nettyapi.hotload.basic.Controller, false)
+2018-07-03  11:00:20.281 [main] DEBUG com.zzc.nettyapi.hotload.core.classloader.NettyServerClassLoader - loadClass(java.lang.Object, false)
+2018-07-03  11:00:20.281 [main] DEBUG com.zzc.nettyapi.hotload.core.classloader.NettyServerClassLoader - loadClass(com.zzc.test.Controller.AnnotationController2, false)
+2018-07-03  11:00:20.282 [main] DEBUG com.zzc.nettyapi.hotload.core.classloader.NettyServerClassLoader - loadClass(com.zzc.test.Controller.UserController, false)
+2018-07-03  11:00:20.284 [main] DEBUG com.zzc.nettyapi.hotload.core.classloader.NettyServerClassLoader - loadClass(com.zzc.nettyapi.annotation.NameComponent, false)
+2018-07-03  11:00:20.359 [main] DEBUG com.zzc.nettyapi.hotload.core.classloader.NettyServerClassLoader - loadClass(java.lang.String, false)
+2018-07-03  11:00:20.359 [main] DEBUG com.zzc.nettyapi.hotload.core.classloader.NettyServerClassLoader - loadClass(java.lang.Integer, false)
+2018-07-03  11:00:20.363 [main] DEBUG com.zzc.nettyapi.hotload.core.classloader.NettyServerClassLoader - loadClass(com.zzc.nettyapi.annotation.ApiMapping, false)
+2018-07-03  11:00:20.366 [main] DEBUG com.zzc.nettyapi.hotload.core.classloader.NettyServerClassLoader - loadClass(com.zzc.nettyapi.annotation.ApiMapping$RequestMethod, false)
+2018-07-03  11:00:20.370 [main] INFO  com.zzc.nettyapi.annotation.parser.AnnotationMappingConfiguration - mapping url:/todo on the class:com.zzc.test.Controller.AnnotationController - method:todo
+2018-07-03  11:00:20.370 [main] INFO  com.zzc.nettyapi.annotation.parser.AnnotationMappingConfiguration - mapping url:/test on the class:com.zzc.test.Controller.AnnotationController - method:test
+2018-07-03  11:00:20.371 [main] INFO  com.zzc.nettyapi.annotation.parser.AnnotationMappingConfiguration - mapping url:/run on the class:com.zzc.test.Controller.AnnotationController2 - method:run
+2018-07-03  11:00:20.373 [main] INFO  com.zzc.nettyapi.apiutil.ApiRegistry - mapping url:/user/:uid/note/:noteid on the class:com.zzc.test.Controller.UserController - method:get
+2018-07-03  11:00:20.374 [main] INFO  com.zzc.nettyapi.apiutil.ApiRegistry - mapping url:/person on the class:com.zzc.test.Controller.UserController - method:getPerson
+2018-07-03  11:00:20.374 [main] INFO  com.zzc.nettyapi.apiutil.ApiRegistry - mapping url:/person1 on the class:com.zzc.test.Controller.UserController - method:getPersonStrng
+2018-07-03  11:00:20.526 [main] DEBUG io.netty.channel.DefaultChannelId - -Dio.netty.processId: 10184 (auto-detected)
+2018-07-03  11:00:20.529 [main] DEBUG io.netty.util.NetUtil - -Djava.net.preferIPv4Stack: false
+2018-07-03  11:00:20.529 [main] DEBUG io.netty.util.NetUtil - -Djava.net.preferIPv6Addresses: false
+2018-07-03  11:00:20.531 [main] DEBUG io.netty.util.NetUtil - Loopback interface: lo0 (lo0, 0:0:0:0:0:0:0:1)
+2018-07-03  11:00:20.532 [main] DEBUG io.netty.util.NetUtil - Failed to get SOMAXCONN from sysctl and file /proc/sys/net/core/somaxconn. Default: 128
+2018-07-03  11:00:20.536 [main] DEBUG io.netty.channel.DefaultChannelId - -Dio.netty.machineId: ac:de:48:ff:fe:00:11:22 (auto-detected)
+2018-07-03  11:00:20.541 [main] DEBUG io.netty.util.internal.InternalThreadLocalMap - -Dio.netty.threadLocalMap.stringBuilder.initialSize: 1024
+2018-07-03  11:00:20.541 [main] DEBUG io.netty.util.internal.InternalThreadLocalMap - -Dio.netty.threadLocalMap.stringBuilder.maxSize: 4096
+2018-07-03  11:00:20.550 [main] DEBUG io.netty.util.ResourceLeakDetector - -Dio.netty.leakDetection.level: simple
+2018-07-03  11:00:20.550 [main] DEBUG io.netty.util.ResourceLeakDetector - -Dio.netty.leakDetection.maxRecords: 4
+2018-07-03  11:00:20.550 [main] DEBUG io.netty.util.ResourceLeakDetector - -Dio.netty.leakDetection.maxSampledRecords: 40
+2018-07-03  11:00:20.577 [main] DEBUG io.netty.buffer.PooledByteBufAllocator - -Dio.netty.allocator.numHeapArenas: 16
+2018-07-03  11:00:20.577 [main] DEBUG io.netty.buffer.PooledByteBufAllocator - -Dio.netty.allocator.numDirectArenas: 16
+2018-07-03  11:00:20.577 [main] DEBUG io.netty.buffer.PooledByteBufAllocator - -Dio.netty.allocator.pageSize: 8192
+2018-07-03  11:00:20.577 [main] DEBUG io.netty.buffer.PooledByteBufAllocator - -Dio.netty.allocator.maxOrder: 11
+2018-07-03  11:00:20.577 [main] DEBUG io.netty.buffer.PooledByteBufAllocator - -Dio.netty.allocator.chunkSize: 16777216
+2018-07-03  11:00:20.577 [main] DEBUG io.netty.buffer.PooledByteBufAllocator - -Dio.netty.allocator.tinyCacheSize: 512
+2018-07-03  11:00:20.577 [main] DEBUG io.netty.buffer.PooledByteBufAllocator - -Dio.netty.allocator.smallCacheSize: 256
+2018-07-03  11:00:20.577 [main] DEBUG io.netty.buffer.PooledByteBufAllocator - -Dio.netty.allocator.normalCacheSize: 64
+2018-07-03  11:00:20.577 [main] DEBUG io.netty.buffer.PooledByteBufAllocator - -Dio.netty.allocator.maxCachedBufferCapacity: 32768
+2018-07-03  11:00:20.577 [main] DEBUG io.netty.buffer.PooledByteBufAllocator - -Dio.netty.allocator.cacheTrimInterval: 8192
+2018-07-03  11:00:20.577 [main] DEBUG io.netty.buffer.PooledByteBufAllocator - -Dio.netty.allocator.useCacheForAllThreads: true
+2018-07-03  11:00:20.585 [main] DEBUG io.netty.buffer.ByteBufUtil - -Dio.netty.allocator.type: pooled
+2018-07-03  11:00:20.585 [main] DEBUG io.netty.buffer.ByteBufUtil - -Dio.netty.threadLocalDirectBufferSize: 65536
+2018-07-03  11:00:20.585 [main] DEBUG io.netty.buffer.ByteBufUtil - -Dio.netty.maxThreadLocalCharBufferSize: 16384
+2018-07-03  11:00:20.599 [main] INFO  com.zzc.nettyapi.nettyservice.NettyServerBootStrap - Server bind successfully
+2018-07-03  11:00:21.632 [nioEventLoopGroup-3-1] DEBUG io.netty.buffer.AbstractByteBuf - -Dio.netty.buffer.bytebuf.checkAccessible: true
+2018-07-03  11:00:21.634 [nioEventLoopGroup-3-1] DEBUG io.netty.util.ResourceLeakDetectorFactory - Loaded default ResourceLeakDetector: io.netty.util.ResourceLeakDetector@660f6738
+2018-07-03  11:00:21.670 [nioEventLoopGroup-3-1] DEBUG io.netty.util.Recycler - -Dio.netty.recycler.maxCapacityPerThread: 32768
+2018-07-03  11:00:21.670 [nioEventLoopGroup-3-1] DEBUG io.netty.util.Recycler - -Dio.netty.recycler.maxSharedCapacityFactor: 2
+2018-07-03  11:00:21.670 [nioEventLoopGroup-3-1] DEBUG io.netty.util.Recycler - -Dio.netty.recycler.linkCapacity: 16
+2018-07-03  11:00:21.670 [nioEventLoopGroup-3-1] DEBUG io.netty.util.Recycler - -Dio.netty.recycler.ratio: 8
+2018-07-03  11:00:21.686 [handleThread--1] INFO  com.zzc.nettyapi.request.HttpRequestParser - date:Tue Jul 03 11:00:21 CST 2018---uri:/test?ss=12&ss=13&is=7&is=8
+2018-07-03  11:00:21.698 [handleThread--1] DEBUG com.zzc.nettyapi.argument.binder.DataBinderFactory - type:[Ljava.lang.String; ------> dataBinder:com.zzc.nettyapi.argument.binder.SimpleRequestDataBinder
+2018-07-03  11:00:21.698 [handleThread--1] DEBUG com.zzc.nettyapi.argument.binder.DataBinderFactory - type:[Ljava.lang.Integer; ------> dataBinder:com.zzc.nettyapi.argument.binder.SimpleRequestDataBinder
+2018-07-03  11:00:21.705 [handleThread--1] DEBUG com.zzc.nettyapi.hotload.core.classloader.NettyServerClassLoader - loadClass(java.lang.System, false)
+2018-07-03  11:00:21.706 [handleThread--1] DEBUG com.zzc.nettyapi.hotload.core.classloader.NettyServerClassLoader - loadClass(java.util.Arrays, false)
+2018-07-03  11:00:21.706 [handleThread--1] DEBUG com.zzc.nettyapi.hotload.core.classloader.NettyServerClassLoader - loadClass(java.io.PrintStream, false)
+2018-07-03  11:00:21.841 [nioEventLoopGroup-3-1] DEBUG io.netty.handler.codec.compression.ZlibCodecFactory - -Dio.netty.noJdkZlibDecoder: false
+2018-07-03  11:00:21.841 [nioEventLoopGroup-3-1] DEBUG io.netty.handler.codec.compression.ZlibCodecFactory - -Dio.netty.noJdkZlibEncoder: false
+2018-07-03  11:00:21.978 [handleThread--2] INFO  com.zzc.nettyapi.request.HttpRequestParser - date:Tue Jul 03 11:00:21 CST 2018---uri:/favicon.ico
+2018-07-03  11:06:06.170 [main] DEBUG io.netty.util.internal.logging.InternalLoggerFactory - Using SLF4J as the default logging framework
+2018-07-03  11:06:06.175 [main] DEBUG io.netty.channel.MultithreadEventLoopGroup - -Dio.netty.eventLoopThreads: 16
+2018-07-03  11:06:06.203 [main] DEBUG io.netty.util.internal.PlatformDependent - Platform: MacOS
+2018-07-03  11:06:06.207 [main] DEBUG io.netty.util.internal.PlatformDependent0 - -Dio.netty.noUnsafe: false
+2018-07-03  11:06:06.207 [main] DEBUG io.netty.util.internal.PlatformDependent0 - Java version: 8
+2018-07-03  11:06:06.208 [main] DEBUG io.netty.util.internal.PlatformDependent0 - sun.misc.Unsafe.theUnsafe: available
+2018-07-03  11:06:06.209 [main] DEBUG io.netty.util.internal.PlatformDependent0 - sun.misc.Unsafe.copyMemory: available
+2018-07-03  11:06:06.210 [main] DEBUG io.netty.util.internal.PlatformDependent0 - java.nio.Buffer.address: available
+2018-07-03  11:06:06.210 [main] DEBUG io.netty.util.internal.PlatformDependent0 - direct buffer constructor: available
+2018-07-03  11:06:06.211 [main] DEBUG io.netty.util.internal.PlatformDependent0 - java.nio.Bits.unaligned: available, true
+2018-07-03  11:06:06.211 [main] DEBUG io.netty.util.internal.PlatformDependent0 - jdk.internal.misc.Unsafe.allocateUninitializedArray(int): unavailable prior to Java9
+2018-07-03  11:06:06.211 [main] DEBUG io.netty.util.internal.PlatformDependent0 - java.nio.DirectByteBuffer.<init>(long, int): available
+2018-07-03  11:06:06.211 [main] DEBUG io.netty.util.internal.PlatformDependent - sun.misc.Unsafe: available
+2018-07-03  11:06:06.211 [main] DEBUG io.netty.util.internal.PlatformDependent - -Dio.netty.tmpdir: /var/folders/60/p56nn12s5sq59wz96nlpdfcc0000gn/T (java.io.tmpdir)
+2018-07-03  11:06:06.211 [main] DEBUG io.netty.util.internal.PlatformDependent - -Dio.netty.bitMode: 64 (sun.arch.data.model)
+2018-07-03  11:06:06.212 [main] DEBUG io.netty.util.internal.PlatformDependent - -Dio.netty.noPreferDirect: false
+2018-07-03  11:06:06.212 [main] DEBUG io.netty.util.internal.PlatformDependent - -Dio.netty.maxDirectMemory: 3817865216 bytes
+2018-07-03  11:06:06.213 [main] DEBUG io.netty.util.internal.PlatformDependent - -Dio.netty.uninitializedArrayAllocationThreshold: -1
+2018-07-03  11:06:06.213 [main] DEBUG io.netty.util.internal.CleanerJava6 - java.nio.ByteBuffer.cleaner(): available
+2018-07-03  11:06:06.228 [main] DEBUG io.netty.channel.nio.NioEventLoop - -Dio.netty.noKeySetOptimization: false
+2018-07-03  11:06:06.228 [main] DEBUG io.netty.channel.nio.NioEventLoop - -Dio.netty.selectorAutoRebuildThreshold: 512
+2018-07-03  11:06:06.235 [main] DEBUG io.netty.util.internal.PlatformDependent - org.jctools-core.MpscChunkedArrayQueue: available
+2018-07-03  11:06:06.259 [main] INFO  com.zzc.nettyapi.nettyservice.ServerConfigLoader - load server config from /config.properties successfully!
+2018-07-03  11:06:06.573 [main] DEBUG com.zzc.nettyapi.hotload.core.classloader.NettyServerClassLoader - loadClass(com.zzc.test.Controller.AnnotationController, false)
+2018-07-03  11:06:06.586 [main] DEBUG com.zzc.nettyapi.hotload.core.classloader.NettyServerClassLoader - loadClass(com.zzc.nettyapi.hotload.basic.Controller, false)
+2018-07-03  11:06:06.588 [main] DEBUG com.zzc.nettyapi.hotload.core.classloader.NettyServerClassLoader - loadClass(java.lang.Object, false)
+2018-07-03  11:06:06.589 [main] DEBUG com.zzc.nettyapi.hotload.core.classloader.NettyServerClassLoader - loadClass(com.zzc.test.Controller.AnnotationController2, false)
+2018-07-03  11:06:06.590 [main] DEBUG com.zzc.nettyapi.hotload.core.classloader.NettyServerClassLoader - loadClass(com.zzc.test.Controller.UserController, false)
+2018-07-03  11:06:06.593 [main] DEBUG com.zzc.nettyapi.hotload.core.classloader.NettyServerClassLoader - loadClass(com.zzc.nettyapi.annotation.NameComponent, false)
+2018-07-03  11:06:06.678 [main] DEBUG com.zzc.nettyapi.hotload.core.classloader.NettyServerClassLoader - loadClass(java.lang.String, false)
+2018-07-03  11:06:06.678 [main] DEBUG com.zzc.nettyapi.hotload.core.classloader.NettyServerClassLoader - loadClass(java.lang.Integer, false)
+2018-07-03  11:06:06.686 [main] DEBUG com.zzc.nettyapi.hotload.core.classloader.NettyServerClassLoader - loadClass(com.zzc.nettyapi.annotation.ApiMapping, false)
+2018-07-03  11:06:06.689 [main] DEBUG com.zzc.nettyapi.hotload.core.classloader.NettyServerClassLoader - loadClass(com.zzc.nettyapi.annotation.ApiMapping$RequestMethod, false)
+2018-07-03  11:06:06.698 [main] INFO  com.zzc.nettyapi.annotation.parser.AnnotationMappingConfiguration - mapping url:/todo on the class:com.zzc.test.Controller.AnnotationController - method:todo
+2018-07-03  11:06:06.698 [main] INFO  com.zzc.nettyapi.annotation.parser.AnnotationMappingConfiguration - mapping url:/test on the class:com.zzc.test.Controller.AnnotationController - method:test
+2018-07-03  11:06:06.699 [main] INFO  com.zzc.nettyapi.annotation.parser.AnnotationMappingConfiguration - mapping url:/run on the class:com.zzc.test.Controller.AnnotationController2 - method:run
+2018-07-03  11:06:06.702 [main] INFO  com.zzc.nettyapi.apiutil.ApiRegistry - mapping url:/user/:uid/note/:noteid on the class:com.zzc.test.Controller.UserController - method:get
+2018-07-03  11:06:06.702 [main] INFO  com.zzc.nettyapi.apiutil.ApiRegistry - mapping url:/person on the class:com.zzc.test.Controller.UserController - method:getPerson
+2018-07-03  11:06:06.703 [main] INFO  com.zzc.nettyapi.apiutil.ApiRegistry - mapping url:/person1 on the class:com.zzc.test.Controller.UserController - method:getPersonStrng
+2018-07-03  11:06:06.899 [main] DEBUG io.netty.channel.DefaultChannelId - -Dio.netty.processId: 10276 (auto-detected)
+2018-07-03  11:06:06.901 [main] DEBUG io.netty.util.NetUtil - -Djava.net.preferIPv4Stack: false
+2018-07-03  11:06:06.901 [main] DEBUG io.netty.util.NetUtil - -Djava.net.preferIPv6Addresses: false
+2018-07-03  11:06:06.903 [main] DEBUG io.netty.util.NetUtil - Loopback interface: lo0 (lo0, 0:0:0:0:0:0:0:1)
+2018-07-03  11:06:06.904 [main] DEBUG io.netty.util.NetUtil - Failed to get SOMAXCONN from sysctl and file /proc/sys/net/core/somaxconn. Default: 128
+2018-07-03  11:06:06.909 [main] DEBUG io.netty.channel.DefaultChannelId - -Dio.netty.machineId: ac:de:48:ff:fe:00:11:22 (auto-detected)
+2018-07-03  11:06:06.914 [main] DEBUG io.netty.util.internal.InternalThreadLocalMap - -Dio.netty.threadLocalMap.stringBuilder.initialSize: 1024
+2018-07-03  11:06:06.914 [main] DEBUG io.netty.util.internal.InternalThreadLocalMap - -Dio.netty.threadLocalMap.stringBuilder.maxSize: 4096
+2018-07-03  11:06:06.922 [main] DEBUG io.netty.util.ResourceLeakDetector - -Dio.netty.leakDetection.level: simple
+2018-07-03  11:06:06.922 [main] DEBUG io.netty.util.ResourceLeakDetector - -Dio.netty.leakDetection.maxRecords: 4
+2018-07-03  11:06:06.922 [main] DEBUG io.netty.util.ResourceLeakDetector - -Dio.netty.leakDetection.maxSampledRecords: 40
+2018-07-03  11:06:06.941 [main] DEBUG io.netty.buffer.PooledByteBufAllocator - -Dio.netty.allocator.numHeapArenas: 16
+2018-07-03  11:06:06.941 [main] DEBUG io.netty.buffer.PooledByteBufAllocator - -Dio.netty.allocator.numDirectArenas: 16
+2018-07-03  11:06:06.941 [main] DEBUG io.netty.buffer.PooledByteBufAllocator - -Dio.netty.allocator.pageSize: 8192
+2018-07-03  11:06:06.941 [main] DEBUG io.netty.buffer.PooledByteBufAllocator - -Dio.netty.allocator.maxOrder: 11
+2018-07-03  11:06:06.941 [main] DEBUG io.netty.buffer.PooledByteBufAllocator - -Dio.netty.allocator.chunkSize: 16777216
+2018-07-03  11:06:06.942 [main] DEBUG io.netty.buffer.PooledByteBufAllocator - -Dio.netty.allocator.tinyCacheSize: 512
+2018-07-03  11:06:06.942 [main] DEBUG io.netty.buffer.PooledByteBufAllocator - -Dio.netty.allocator.smallCacheSize: 256
+2018-07-03  11:06:06.942 [main] DEBUG io.netty.buffer.PooledByteBufAllocator - -Dio.netty.allocator.normalCacheSize: 64
+2018-07-03  11:06:06.942 [main] DEBUG io.netty.buffer.PooledByteBufAllocator - -Dio.netty.allocator.maxCachedBufferCapacity: 32768
+2018-07-03  11:06:06.942 [main] DEBUG io.netty.buffer.PooledByteBufAllocator - -Dio.netty.allocator.cacheTrimInterval: 8192
+2018-07-03  11:06:06.942 [main] DEBUG io.netty.buffer.PooledByteBufAllocator - -Dio.netty.allocator.useCacheForAllThreads: true
+2018-07-03  11:06:06.949 [main] DEBUG io.netty.buffer.ByteBufUtil - -Dio.netty.allocator.type: pooled
+2018-07-03  11:06:06.949 [main] DEBUG io.netty.buffer.ByteBufUtil - -Dio.netty.threadLocalDirectBufferSize: 65536
+2018-07-03  11:06:06.949 [main] DEBUG io.netty.buffer.ByteBufUtil - -Dio.netty.maxThreadLocalCharBufferSize: 16384
+2018-07-03  11:06:06.959 [main] INFO  com.zzc.nettyapi.nettyservice.NettyServerBootStrap - Server bind successfully
+2018-07-03  11:06:51.067 [nioEventLoopGroup-3-1] DEBUG io.netty.buffer.AbstractByteBuf - -Dio.netty.buffer.bytebuf.checkAccessible: true
+2018-07-03  11:06:51.068 [nioEventLoopGroup-3-1] DEBUG io.netty.util.ResourceLeakDetectorFactory - Loaded default ResourceLeakDetector: io.netty.util.ResourceLeakDetector@1d4d010f
+2018-07-03  11:06:51.099 [nioEventLoopGroup-3-1] DEBUG io.netty.util.Recycler - -Dio.netty.recycler.maxCapacityPerThread: 32768
+2018-07-03  11:06:51.099 [nioEventLoopGroup-3-1] DEBUG io.netty.util.Recycler - -Dio.netty.recycler.maxSharedCapacityFactor: 2
+2018-07-03  11:06:51.099 [nioEventLoopGroup-3-1] DEBUG io.netty.util.Recycler - -Dio.netty.recycler.linkCapacity: 16
+2018-07-03  11:06:51.099 [nioEventLoopGroup-3-1] DEBUG io.netty.util.Recycler - -Dio.netty.recycler.ratio: 8
+2018-07-03  11:06:51.112 [handleThread--1] INFO  com.zzc.nettyapi.request.HttpRequestParser - date:Tue Jul 03 11:06:51 CST 2018---uri:/test?ss=12&ss=13&is=7&is=8
+2018-07-03  11:06:51.121 [handleThread--1] DEBUG com.zzc.nettyapi.argument.binder.DataBinderFactory - type:[Ljava.lang.String; ------> dataBinder:com.zzc.nettyapi.argument.binder.SimpleRequestDataBinder
+2018-07-03  11:06:51.121 [handleThread--1] DEBUG com.zzc.nettyapi.argument.binder.DataBinderFactory - type:[Ljava.lang.Integer; ------> dataBinder:com.zzc.nettyapi.argument.binder.SimpleRequestDataBinder
+2018-07-03  11:06:51.122 [handleThread--1] DEBUG com.zzc.nettyapi.hotload.core.classloader.NettyServerClassLoader - loadClass(java.lang.System, false)
+2018-07-03  11:06:51.122 [handleThread--1] DEBUG com.zzc.nettyapi.hotload.core.classloader.NettyServerClassLoader - loadClass(java.util.Arrays, false)
+2018-07-03  11:06:51.122 [handleThread--1] DEBUG com.zzc.nettyapi.hotload.core.classloader.NettyServerClassLoader - loadClass(java.io.PrintStream, false)
+2018-07-03  11:06:51.189 [nioEventLoopGroup-3-1] DEBUG io.netty.handler.codec.compression.ZlibCodecFactory - -Dio.netty.noJdkZlibDecoder: false
+2018-07-03  11:06:51.189 [nioEventLoopGroup-3-1] DEBUG io.netty.handler.codec.compression.ZlibCodecFactory - -Dio.netty.noJdkZlibEncoder: false
+2018-07-03  11:06:51.248 [handleThread--2] INFO  com.zzc.nettyapi.request.HttpRequestParser - date:Tue Jul 03 11:06:51 CST 2018---uri:/favicon.ico
