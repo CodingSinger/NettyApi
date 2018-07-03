@@ -30,6 +30,8 @@ public interface Conversion {
     Converter getConvert(Class sourceClass, Class targetClass);
 
 
+    Object convertIfNecessary(Class sourceClass, Class targetClass, Object value) throws ConvertException;
+
     /**
      * 获取转换器转换
      * @param sourceClass

@@ -1,3 +1,5 @@
+package com.demo.test;
+
 import com.alibaba.fastjson.JSONObject;
 import com.google.common.collect.ImmutableMap;
 import com.zzc.nettyapi.apiutil.ApiRegistry;
@@ -7,7 +9,6 @@ import com.zzc.utils.Condition;
 import org.junit.Test;
 
 import java.lang.reflect.Method;
-import java.nio.channels.AlreadyBoundException;
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -19,8 +20,19 @@ import java.util.stream.Stream;
 public class TestRegistry {
     int i =10;
     public A a = new A(10);
-//    public TestRegistry(int i) {
+//    public com.demo.test.TestRegistry(int i) {
 //    }
+
+    @Test
+    public void test15() {
+        Integer[] integers = new Integer[10];
+        System.out.println(integers.getClass().getComponentType()); //getComponentType获得数组的类型，不是数组则返回null
+        List<Integer> list = new ArrayList<>();
+        System.out.println(list.getClass());
+        System.out.println(list.getClass().getComponentType());
+        System.out.println(integers.getClass());
+        System.out.println(integers.getClass().isPrimitive());
+    }
 
     @Test
     public void name13() throws Exception {
@@ -42,6 +54,8 @@ public class TestRegistry {
 
 
     }
+
+
 
     @Test
     public void name2() throws Exception {
@@ -178,11 +192,21 @@ public class TestRegistry {
 
     public static void main(String[] args) {
 
-//        new TestRegistry();
+        Runnable r = System.out::println;
+        Integer[] i = new Integer[]{1,2};
+        Object[] o = (Object[])i;
+        System.out.println(o.getClass().getName());
+
+        A a = null;
+        B b = new B();
+        a = b;
+        System.out.println( a.i);
+
+//        new com.demo.test.TestRegistry();
     }
 
 //
-//    public TestRegistry() {
+//    public com.demo.test.TestRegistry() {
 //        //此时会自动将实例变量实例化过程都放到TestRegistry过程中去。
 //        this(10);
 //    }
@@ -196,7 +220,7 @@ class A{
     }
 }
 
-class B extends A{
+class B extends A implements Runnable{
 
     int i = 10;
     public B() {
@@ -208,4 +232,8 @@ class B extends A{
         super(i);
     }
 
+    @Override
+    public void run() {
+
+    }
 }

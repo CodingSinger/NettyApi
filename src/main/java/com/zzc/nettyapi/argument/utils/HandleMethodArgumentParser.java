@@ -15,14 +15,14 @@ public class HandleMethodArgumentParser {
     }
 
 
-    public MethodParameter[] parse(Method apiMethod){
+    public MethodParameter[] parse(Method apiMethod) {
 
         Parameter[] parameters = apiMethod.getParameters();
         MethodParameter[] methodParameters = new MethodParameter[parameters.length];
 
         for (int i = 0; i < parameters.length; i++) {
 
-            methodParameters[i] = new MethodParameter(parameters[i],i);
+            methodParameters[i] = new MethodParameter(parameters[i], i);
 
         }
 

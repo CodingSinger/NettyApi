@@ -12,7 +12,7 @@ import java.lang.reflect.Parameter;
 public class MethodParameter {
 
 
-    public MethodParameter(Parameter parameter,int index) {
+    public MethodParameter(Parameter parameter, int index) {
         this.parameter = parameter;
         this.index = index;
 
@@ -21,7 +21,7 @@ public class MethodParameter {
 
     private Parameter parameter;
 
-   //所属方法
+    //所属方法
 
     private Method method;
 
@@ -32,14 +32,15 @@ public class MethodParameter {
     private int index;
 
 
-    public Class getType(){
+    public Class getType() {
         return parameter.getType();
     }
 
-    public String name(){
+    public String name() {
         return parameter.getName();
     }
-    public Annotation[] getAnnotations(){
+
+    public Annotation[] getAnnotations() {
         return parameter.getDeclaredAnnotations();
     }
 

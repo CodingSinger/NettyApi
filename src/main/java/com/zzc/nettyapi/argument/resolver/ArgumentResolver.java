@@ -104,6 +104,7 @@ public abstract class ArgumentResolver {
 
         if (Objects.isNull(cachedResolver)){
 
+            //所有解析器
             for (ArgumentResolver argumentResolver : argumentResolvers) {
                 if (argumentResolver.supportsParameter(methodParameter)){
                     cachedArgumentResolver.put(methodParameter,argumentResolver);
@@ -112,16 +113,12 @@ public abstract class ArgumentResolver {
             }
 
         }
-
-
-
         return cachedResolver != null;
 
     }
 
     public static Object resolveMethodParameter(MethodParameter methodParameter,RequestDetail requestDetail) throws Exception {
         ArgumentResolver argumentResolver = cachedArgumentResolver.get(methodParameter);
-
         return argumentResolver.resolve(methodParameter,requestDetail);
 
     }
