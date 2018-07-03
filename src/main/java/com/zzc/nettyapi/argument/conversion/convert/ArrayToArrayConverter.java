@@ -17,7 +17,7 @@ public class ArrayToArrayConverter implements Converter<Object, Object> {
     private Conversion conversion = null;
 
     public ArrayToArrayConverter(Conversion conversion) {
-
+        this.conversion = conversion;
     }
 
     @Override
@@ -35,11 +35,13 @@ public class ArrayToArrayConverter implements Converter<Object, Object> {
             return null;
         } else {
             Object o = Array.newInstance(targetType, sourceArray.length);
-            for (Object o1 : sourceArray) {
-                final Object target = conversion.convert(sourceType, targetType, o1);
-                Array.set(o,1,target);
-
+            for (int i = 0; i < sourceArray.length; i++) {
+                Object o1 = sourceArray[i];
+                //将该参数转换成适当的类型
+                final Object target = conversion.convertIfNecessary(sourceType, targetType, o1);
+                Array.set(o,i,target);
             }
+
             return o;
         }
     }
@@ -47,6 +49,7 @@ public class ArrayToArrayConverter implements Converter<Object, Object> {
     @Override
     public boolean match(Class targetClass, Class sourceClass) {
         if (targetClass.isArray() && sourceClass.isArray()) {
+            return true;
         }
         return false;
     }

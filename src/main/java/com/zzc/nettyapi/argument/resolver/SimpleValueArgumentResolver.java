@@ -33,7 +33,8 @@ public class SimpleValueArgumentResolver extends ArgumentResolver{
         Class type = methodParameter.getType();
         return type.isPrimitive()||
                 Number.class.isAssignableFrom(type)||
-                CharSequence.class.isAssignableFrom(type);
+                CharSequence.class.isAssignableFrom(type) ||
+                (type.isArray() && (type.getComponentType().isPrimitive() || CharSequence.class.isAssignableFrom(type.getComponentType())));
     }
 
 
@@ -50,8 +51,7 @@ public class SimpleValueArgumentResolver extends ArgumentResolver{
         List<String> valueLists = parametersMaps.get(parameterName);
 
         if(Objects.nonNull(valueLists) && !valueLists.isEmpty()){
-            String value =  valueLists.get(0);
-
+            Object value = null;
             /**
              * 获取对应的参数绑定器
              */
@@ -62,8 +62,15 @@ public class SimpleValueArgumentResolver extends ArgumentResolver{
             * TODO 简单类型类型转换
             * */
             try {
-                 arg = dataBinder.convertIfNecessary(String.class,type,value);
-
+                 if (!type.isArray()){
+                     value = valueLists.get(0);
+                     arg = dataBinder.convertIfNecessary(String.class,type,value);
+                 }else{
+                     String[] strings = new String[valueLists.size()];
+                     strings = valueLists.toArray(strings);
+                     value = strings;
+                     arg = dataBinder.convertIfNecessary(value.getClass(),type,value);
+                 }
 
             } catch (ConvertException e) {
                 log.error("convert error! excepted:{},but {}",type,value);

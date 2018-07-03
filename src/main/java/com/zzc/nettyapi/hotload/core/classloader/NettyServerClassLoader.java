@@ -85,6 +85,8 @@ public class NettyServerClassLoader extends URLClassLoader {
 
                     if (filter(name)){
                         clazz = findClass(name);
+                        //set reload false
+                        ApiRegistry.reloadClass.put(name,Boolean.FALSE);
                         return clazz;
                     }else{//无条件地从父类AppClassLoader加载类
                         return parent.loadClass(name);

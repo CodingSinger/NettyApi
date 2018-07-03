@@ -16,8 +16,10 @@ import java.util.Arrays;
 public class AnnotationController implements Controller {
 
     @ApiMapping(value = "/test")
-    public void test(String[] ss){
-        System.out.println(Arrays.toString(ss ));
+    public void test(String[] ss,Integer[] is){
+//        System.out.println(ss);
+        System.out.println(Arrays.toString(is));
+        System.out.println(Arrays.toString(ss));
         System.out.println("hello13");
     }
 

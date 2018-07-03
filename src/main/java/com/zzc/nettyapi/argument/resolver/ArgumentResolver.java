@@ -119,7 +119,6 @@ public abstract class ArgumentResolver {
 
     public static Object resolveMethodParameter(MethodParameter methodParameter,RequestDetail requestDetail) throws Exception {
         ArgumentResolver argumentResolver = cachedArgumentResolver.get(methodParameter);
-
         return argumentResolver.resolve(methodParameter,requestDetail);
 
     }

@@ -3,6 +3,7 @@ package com.zzc.nettyapi.argument.conversion;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.zzc.nettyapi.argument.conversion.convert.ArrayToArrayConverter;
+import com.zzc.nettyapi.argument.conversion.convert.ObjectToStringConverter;
 import com.zzc.nettyapi.exception.ConvertException;
 import com.zzc.nettyapi.argument.conversion.convert.Converter;
 import com.zzc.nettyapi.argument.conversion.convert.StringToNumberConverter;
@@ -94,7 +95,7 @@ public class DefaultConversion implements Conversion {
     public Object convertIfNecessary(Class sourceClass,Class targetClass, Object value ) throws ConvertException {
 
         Object obj = value;
-        if(!Objects.equals(targetClass,String.class)){
+        if(!Objects.equals(targetClass,sourceClass)){
             obj = convert(sourceClass,targetClass,value);
         }
         return obj;
@@ -102,14 +103,15 @@ public class DefaultConversion implements Conversion {
 
     @Override
     public Object convert(Class sourceClass,Class targetClass, Object value) throws ConvertException {
+
         Converter converter = null;
         targetClass = resolvePrimitiveClass(targetClass);
         if(canCanvert(sourceClass,targetClass)){
             converter = getConvert(sourceClass,targetClass);
+        }else{
+            throw new ConvertException("can't find convert");
         }
-
         Object obj = converter.convert(value,targetClass);
-
         return obj;
 
     }
@@ -144,6 +146,7 @@ public class DefaultConversion implements Conversion {
          */
         convertersRegistry.add(new StringToNumberConverter());
         convertersRegistry.add(new ArrayToArrayConverter(this));
+        convertersRegistry.add(new ObjectToStringConverter());
 
 
     }

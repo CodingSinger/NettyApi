@@ -5,23 +5,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="80f99a17-1684-4e42-b1dd-bd25914cc919" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/zzc/nettyapi/argument/conversion/convert/ArrayToArrayConverter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/basic.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/demo/test/TestArrayToArrayConvert.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/zzc/nettyapi/argument/conversion/convert/ObjectToStringConverter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zzc/nettyapi/argument/conversion/Conversion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zzc/nettyapi/argument/conversion/Conversion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/NettyApi/output.2018-07-02.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/NettyApi/output.2018-07-02.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zzc/nettyapi/annotation/parser/AnnotationMappingConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zzc/nettyapi/annotation/parser/AnnotationMappingConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zzc/nettyapi/apiutil/ApiHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zzc/nettyapi/apiutil/ApiHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zzc/nettyapi/apiutil/ApiRegistry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zzc/nettyapi/apiutil/ApiRegistry.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zzc/nettyapi/argument/arg.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/arg.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/zzc/nettyapi/argument/conversion/DefaultConversion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zzc/nettyapi/argument/conversion/DefaultConversion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zzc/nettyapi/argument/conversion/convert/ArrayToArrayConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zzc/nettyapi/argument/conversion/convert/ArrayToArrayConverter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/zzc/nettyapi/argument/resolver/ArgumentResolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zzc/nettyapi/argument/resolver/ArgumentResolver.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/zzc/nettyapi/argument/resolver/SimpleValueArgumentResolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zzc/nettyapi/argument/resolver/SimpleValueArgumentResolver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zzc/nettyapi/argument/utils/ReflectionTool.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zzc/nettyapi/argument/utils/ReflectionTool.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/read.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/read.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/demo/test/TestRegistry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/demo/test/TestRegistry.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/zzc/nettyapi/argument/resolver/ArgumentResolver.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/zzc/nettyapi/argument/resolver/ArgumentResolver.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zzc/nettyapi/hotload/core/classloader/NettyServerClassLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zzc/nettyapi/hotload/core/classloader/NettyServerClassLoader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zzc/test/Controller/AnnotationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zzc/test/Controller/AnnotationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zzc/nettyapi/annotation/parser/AnnotationMappingConfiguration.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/zzc/nettyapi/annotation/parser/AnnotationMappingConfiguration.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zzc/nettyapi/apiutil/ApiHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/zzc/nettyapi/apiutil/ApiHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zzc/nettyapi/apiutil/ApiRegistry.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/zzc/nettyapi/apiutil/ApiRegistry.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zzc/nettyapi/argument/conversion/DefaultConversion$NoMatchConvert.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/zzc/nettyapi/argument/conversion/DefaultConversion$NoMatchConvert.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zzc/nettyapi/argument/conversion/DefaultConversion.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/zzc/nettyapi/argument/conversion/DefaultConversion.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zzc/nettyapi/argument/conversion/convert/ArrayToArrayConverter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/zzc/nettyapi/argument/conversion/convert/ArrayToArrayConverter.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/zzc/nettyapi/argument/resolver/SimpleValueArgumentResolver.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/zzc/nettyapi/argument/resolver/SimpleValueArgumentResolver.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/zzc/nettyapi/argument/utils/ReflectionTool.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/zzc/nettyapi/argument/utils/ReflectionTool.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/demo/test/A.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/demo/test/A.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/demo/test/B.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/demo/test/B.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/demo/test/TestRegistry.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/demo/test/TestRegistry.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zzc/nettyapi/hotload/core/classloader/NettyServerClassLoader.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/zzc/nettyapi/hotload/core/classloader/NettyServerClassLoader.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zzc/test/Controller/AnnotationController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/zzc/test/Controller/AnnotationController.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -40,50 +46,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ArrayToArrayConverter.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/zzc/nettyapi/argument/conversion/convert/ArrayToArrayConverter.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="397">
-              <caret line="36" column="19" selection-start-line="36" selection-start-column="19" selection-end-line="36" selection-end-column="19" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SimpleValueArgumentResolver.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="SimpleValueArgumentResolver.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/zzc/nettyapi/argument/resolver/SimpleValueArgumentResolver.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="23" selection-start-line="23" selection-end-line="23" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ReflectionTool.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/zzc/nettyapi/argument/utils/ReflectionTool.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2040">
-              <caret line="129" column="27" selection-start-line="129" selection-start-column="27" selection-end-line="129" selection-end-column="27" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="HttpRequestParser.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/zzc/nettyapi/request/HttpRequestParser.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="30" column="13" selection-start-line="30" selection-start-column="13" selection-end-line="30" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RequestDetail.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/zzc/nettyapi/request/RequestDetail.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="24" column="13" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
+            <state relative-caret-position="588">
+              <caret line="70" column="37" selection-start-line="70" selection-start-column="37" selection-end-line="70" selection-end-column="37" />
             </state>
           </provider>
         </entry>
@@ -91,53 +58,87 @@
       <file leaf-file-name="DefaultConversion.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/zzc/nettyapi/argument/conversion/DefaultConversion.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="261">
-              <caret line="92" column="12" selection-start-line="92" selection-start-column="12" selection-end-line="92" selection-end-column="12" />
+            <state relative-caret-position="426">
+              <caret line="100" selection-start-line="100" selection-end-line="100" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Array.java" pinned="false" current-in-tab="false">
-        <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home/src.zip!/java/lang/reflect/Array.java">
+      <file leaf-file-name="ArrayToArrayConverter.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/zzc/nettyapi/argument/conversion/convert/ArrayToArrayConverter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="38" column="6" selection-start-line="38" selection-start-column="6" selection-end-line="38" selection-end-column="6" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TestArrayToArrayConvert.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/com/demo/test/TestArrayToArrayConvert.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="438">
-              <caret line="36" column="27" selection-start-line="36" selection-start-column="27" selection-end-line="36" selection-end-column="27" />
+            <state relative-caret-position="520">
+              <caret line="40" column="55" selection-start-line="40" selection-start-column="55" selection-end-line="40" selection-end-column="55" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#565#566#0" expanded="true" />
+                <element signature="e#609#610#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="read.md" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/read.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="85">
-                <caret line="5" selection-start-line="5" selection-end-line="5" />
-              </first_editor>
-              <second_editor />
+      <file leaf-file-name="ModelAttributeArgumentResolver.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/zzc/nettyapi/argument/resolver/ModelAttributeArgumentResolver.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="253">
+              <caret line="51" column="34" selection-start-line="51" selection-start-column="34" selection-end-line="51" selection-end-column="34" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="basic.md" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/basic.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="765">
-                <caret line="45" column="78" selection-start-line="45" selection-start-column="78" selection-end-line="45" selection-end-column="78" />
-              </first_editor>
-              <second_editor />
+      <file leaf-file-name="List.java" pinned="false" current-in-tab="false">
+        <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home/src.zip!/java/util/List.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="677">
+              <caret line="210" column="12" selection-start-line="210" selection-start-column="12" selection-end-line="210" selection-end-column="12" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Conversion.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/zzc/nettyapi/argument/conversion/Conversion.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="527">
+              <caret line="32" column="11" selection-start-line="32" selection-start-column="11" selection-end-line="32" selection-end-column="11" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ArgumentResolver.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/zzc/nettyapi/argument/resolver/ArgumentResolver.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="758">
+              <caret line="121" selection-start-line="121" selection-end-line="121" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ModelAttributeDataBinder.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/zzc/nettyapi/argument/binder/ModelAttributeDataBinder.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="57">
+              <caret line="24" column="13" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MethodFilter.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/zzc/nettyapi/filter/MethodFilter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="153">
+              <caret line="9" column="17" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ApiHandler.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/zzc/nettyapi/apiutil/ApiHandler.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="529">
+              <caret line="141" column="60" selection-start-line="141" selection-start-column="60" selection-end-line="141" selection-end-column="60" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -175,8 +176,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/zzc/test/filter/FirstMethodFilter.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/zzc/test/filter/SecondMethodFilter.java" />
         <option value="$PROJECT_DIR$/src/main/resources/custom-conf.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/zzc/nettyapi/apiutil/HandleRequestThreadFactory.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/zzc/nettyapi/apiutil/RequestTask.java" />
@@ -190,42 +189,44 @@
         <option value="$PROJECT_DIR$/src/main/java/com/zzc/test/Controller/AnnotationController2.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/zzc/nettyapi/annotation/ApiMapping.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/zzc/nettyapi/apiutil/CustomerConfiguration.java" />
-        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/src/main/java/com/zzc/nettyapi/hotload/basic/BasicController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/zzc/nettyapi/hotload/basic/Controller.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/zzc/nettyapi/hotload/core/classloader/ControllerResource.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/zzc/nettyapi/apiutil/ApiMethod.java" />
         <option value="$PROJECT_DIR$/src/main/resources/api-mapping.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/zzc/nettyapi/apiutil/ApiRegistry.java" />
         <option value="$PROJECT_DIR$/src/test/java/TestRegistry.java" />
         <option value="$PROJECT_DIR$/src/test/java/TestClassLoader.java" />
         <option value="$PROJECT_DIR$/src/test/java/Main.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/zzc/nettyapi/hotload/core/classloader/UrlClassLoaderTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/zzc/nettyapi/hotload/core/classloader/ClassTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/zzc/nettyapi/hotload/core/background/DetectModifyThread.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/zzc/nettyapi/hotload/core/classloader/NettyServerClassLoader.java" />
         <option value="$PROJECT_DIR$/src/test/java/UrlClassLoaderTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/ClassTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/demo/test/ClassTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/zzc/nettyapi/argument/utils/HandleMethodArgumentParser.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/zzc/nettyapi/argument/utils/MethodParameter.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/zzc/nettyapi/argument/arg.md" />
         <option value="$PROJECT_DIR$/src/main/java/com/zzc/nettyapi/nettyservice/NettyServerBootStrap.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/zzc/test/Controller/UserController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/zzc/nettyapi/apiutil/ApiHandler.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/zzc/nettyapi/annotation/parser/AnnotationMappingConfiguration.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/zzc/test/Controller/AnnotationController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/zzc/nettyapi/argument/resolver/ArgumentResolver.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/zzc/nettyapi/argument/resolver/SimpleValueArgumentResolver.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/zzc/nettyapi/request/Main.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/demo/test/TestRegistry.java" />
         <option value="$PROJECT_DIR$/src/main/java/read.md" />
         <option value="$PROJECT_DIR$/src/test/java/basic.md" />
         <option value="$PROJECT_DIR$/src/main/java/com/zzc/nettyapi/argument/utils/ReflectionTool.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/zzc/nettyapi/argument/conversion/DefaultConversion.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/demo/test/TestArrayToArrayConvert.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zzc/nettyapi/argument/arg.md" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zzc/nettyapi/apiutil/ApiHandler.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zzc/nettyapi/hotload/core/classloader/NettyServerClassLoader.java" />
+        <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zzc/nettyapi/annotation/parser/AnnotationMappingConfiguration.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zzc/nettyapi/apiutil/ApiRegistry.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zzc/nettyapi/argument/conversion/convert/ObjectToStringConverter.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zzc/nettyapi/argument/conversion/DefaultConversion.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/zzc/nettyapi/argument/conversion/convert/ArrayToArrayConverter.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zzc/test/Controller/AnnotationController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/arg.md" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zzc/nettyapi/argument/resolver/ArgumentResolver.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zzc/nettyapi/argument/resolver/SimpleValueArgumentResolver.java" />
       </list>
     </option>
   </component>
@@ -373,6 +374,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -449,16 +452,6 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="zzc" type="462c0819:PsiDirectoryNode" />
               <item name="nettyapi" type="462c0819:PsiDirectoryNode" />
-              <item name="apiutil" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="NettyApi" type="b2602c69:ProjectViewProjectNode" />
-              <item name="NettyApi" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="zzc" type="462c0819:PsiDirectoryNode" />
-              <item name="nettyapi" type="462c0819:PsiDirectoryNode" />
               <item name="argument" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -504,18 +497,6 @@
               <item name="zzc" type="462c0819:PsiDirectoryNode" />
               <item name="nettyapi" type="462c0819:PsiDirectoryNode" />
               <item name="argument" type="462c0819:PsiDirectoryNode" />
-              <item name="conversion" type="462c0819:PsiDirectoryNode" />
-              <item name="util" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="NettyApi" type="b2602c69:ProjectViewProjectNode" />
-              <item name="NettyApi" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="zzc" type="462c0819:PsiDirectoryNode" />
-              <item name="nettyapi" type="462c0819:PsiDirectoryNode" />
-              <item name="argument" type="462c0819:PsiDirectoryNode" />
               <item name="resolver" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -526,8 +507,7 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="zzc" type="462c0819:PsiDirectoryNode" />
               <item name="nettyapi" type="462c0819:PsiDirectoryNode" />
-              <item name="argument" type="462c0819:PsiDirectoryNode" />
-              <item name="utils" type="462c0819:PsiDirectoryNode" />
+              <item name="exception" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="NettyApi" type="b2602c69:ProjectViewProjectNode" />
@@ -548,52 +528,6 @@
               <item name="zzc" type="462c0819:PsiDirectoryNode" />
               <item name="nettyapi" type="462c0819:PsiDirectoryNode" />
               <item name="hotload" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="NettyApi" type="b2602c69:ProjectViewProjectNode" />
-              <item name="NettyApi" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="zzc" type="462c0819:PsiDirectoryNode" />
-              <item name="nettyapi" type="462c0819:PsiDirectoryNode" />
-              <item name="hotload" type="462c0819:PsiDirectoryNode" />
-              <item name="basic" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="NettyApi" type="b2602c69:ProjectViewProjectNode" />
-              <item name="NettyApi" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="zzc" type="462c0819:PsiDirectoryNode" />
-              <item name="nettyapi" type="462c0819:PsiDirectoryNode" />
-              <item name="hotload" type="462c0819:PsiDirectoryNode" />
-              <item name="core" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="NettyApi" type="b2602c69:ProjectViewProjectNode" />
-              <item name="NettyApi" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="zzc" type="462c0819:PsiDirectoryNode" />
-              <item name="nettyapi" type="462c0819:PsiDirectoryNode" />
-              <item name="hotload" type="462c0819:PsiDirectoryNode" />
-              <item name="core" type="462c0819:PsiDirectoryNode" />
-              <item name="background" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="NettyApi" type="b2602c69:ProjectViewProjectNode" />
-              <item name="NettyApi" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="zzc" type="462c0819:PsiDirectoryNode" />
-              <item name="nettyapi" type="462c0819:PsiDirectoryNode" />
-              <item name="hotload" type="462c0819:PsiDirectoryNode" />
-              <item name="core" type="462c0819:PsiDirectoryNode" />
-              <item name="classloader" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="NettyApi" type="b2602c69:ProjectViewProjectNode" />
@@ -658,6 +592,15 @@
               <item name="NettyApi" type="b2602c69:ProjectViewProjectNode" />
               <item name="NettyApi" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="zzc" type="462c0819:PsiDirectoryNode" />
+              <item name="utils" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="NettyApi" type="b2602c69:ProjectViewProjectNode" />
+              <item name="NettyApi" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="test" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -674,15 +617,6 @@
               <item name="test" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="test" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="NettyApi" type="b2602c69:ProjectViewProjectNode" />
-              <item name="NettyApi" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="TestRegistry.java" type="529ef68f:ClassesTreeStructureProvider$PsiClassOwnerTreeNode" />
             </path>
             <path>
               <item name="NettyApi" type="b2602c69:ProjectViewProjectNode" />
@@ -692,8 +626,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="AndroidView" />
     </panes>
   </component>
@@ -709,22 +641,25 @@
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RecentsManager">
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="com.zzc.nettyapi.argument.resolver" />
-      <recent name="com.zzc.nettyapi" />
-      <recent name="com.zzc.nettyapi.apiutil" />
-      <recent name="com.zzc.nettyapi.nettyservice" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/java" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/test/java" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="" />
       <recent name="com.zzc.nettyapi.apiutil" />
       <recent name="com.zzc.nettyapi.request" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/test/java" />
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.zzc.nettyapi.argument.resolver" />
+      <recent name="com.zzc.nettyapi" />
+      <recent name="com.zzc.nettyapi.apiutil" />
+      <recent name="com.zzc.nettyapi.nettyservice" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -739,7 +674,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.TestArrayToArrayConvert.testArrayReflect">
+  <component name="RunManager" selected="Application.NettyServerBootStrap">
     <configuration name="TestArrayToArrayConvert.testPrimitive" type="AndroidJUnit" factoryName="Android JUnit" temporary="true" nameIsGenerated="true">
       <module name="NettyApi" />
       <extension name="coverage">
@@ -891,13 +826,11 @@
       <item itemvalue="Application.TestRegistry" />
       <item itemvalue="Application.Main" />
       <item itemvalue="JUnit.TestRegistry.test15" />
-      <item itemvalue="Android JUnit.TestArrayToArrayConvert.testPrimitive" />
       <item itemvalue="JUnit.TestArrayToArrayConvert.testArrayReflect" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.TestArrayToArrayConvert.testArrayReflect" />
-        <item itemvalue="Android JUnit.TestArrayToArrayConvert.testPrimitive" />
         <item itemvalue="JUnit.TestRegistry.test15" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.TestRegistry" />
@@ -1037,7 +970,12 @@
       <workItem from="1530534030052" duration="5342000" />
       <workItem from="1530543018537" duration="184000" />
       <workItem from="1530543420703" duration="1634000" />
-      <workItem from="1530545421989" duration="665000" />
+      <workItem from="1530545421989" duration="2111000" />
+      <workItem from="1530548265795" duration="486000" />
+      <workItem from="1530580915855" duration="1033000" />
+      <workItem from="1530582889542" duration="2104000" />
+      <workItem from="1530585276612" duration="815000" />
+      <workItem from="1530586150091" duration="268000" />
     </task>
     <task id="LOCAL-00001" summary="2018-4-1 整体框架">
       <created>1522566486801</created>
@@ -1120,9 +1058,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="TestRegistry_test15 - 2018.07.02 at 21h 59m 03s.xml">
-      <configuration name="TestRegistry.test15" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="TestArrayToArrayConvert_testPrimitive - 2018.07.02 at 23h 00m 04s.xml">
       <configuration name="TestArrayToArrayConvert.testPrimitive" configurationId="AndroidJUnit" />
     </history-entry>
@@ -1150,9 +1085,12 @@
     <history-entry file="TestArrayToArrayConvert_testArrayReflect - 2018.07.02 at 23h 41m 07s.xml">
       <configuration name="TestArrayToArrayConvert.testArrayReflect" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="TestArrayToArrayConvert_testArrayReflect - 2018.07.02 at 23h 53m 01s.xml">
+      <configuration name="TestArrayToArrayConvert.testArrayReflect" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="180418000" />
+    <option name="totallyTimeSpent" value="186570000" />
   </component>
   <component name="TodoView" selected-index="2">
     <todo-panel id="selected-file">
@@ -1168,37 +1106,37 @@
     <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.3285568" />
+      <window_info anchor="right" id="Palette&#9;" order="3" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="right" id="Maven Projects" order="3" weight="0.20818071" />
       <window_info anchor="right" id="CDI" order="4" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
-      <window_info id="Capture Tool" order="2" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32820514" />
+      <window_info anchor="bottom" id="Version Control" order="7" weight="0.32958034" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.35897437" />
       <window_info id="Designer" order="2" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2796093" />
+      <window_info anchor="bottom" id="Problems" order="9" />
+      <window_info anchor="right" id="Bean Validation" order="4" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="right" id="JSF" order="4" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.24969475" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="2" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3220513" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.3285568" />
-      <window_info anchor="bottom" id="Messages" order="7" weight="0.32820514" />
-      <window_info anchor="right" id="Palette&#9;" order="3" />
-      <window_info id="Image Layers" order="2" />
-      <window_info anchor="right" id="Capture Analysis" order="3" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32820514" />
-      <window_info anchor="bottom" id="Version Control" order="7" weight="0.32958034" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.35897437" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2735043" />
-      <window_info anchor="bottom" id="Problems" order="9" />
-      <window_info anchor="right" id="Bean Validation" order="4" />
-      <window_info anchor="right" id="Theme Preview" order="3" />
       <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="right" id="Capture Analysis" order="3" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info anchor="bottom" id="Messages" order="7" weight="0.32820514" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info id="Image Layers" order="2" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32923076" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info id="Capture Tool" order="2" />
       <window_info anchor="right" id="Coverage" order="5" side_tool="true" weight="0.32967034" />
       <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="right" id="Theme Preview" order="3" />
       <window_info active="true" anchor="right" content_ui="combo" id="Hierarchy" order="2" visible="true" weight="0.22527473" />
       <window_info anchor="bottom" id="Inspection Results" order="8" />
     </layout>
@@ -1208,12 +1146,12 @@
       <window_info anchor="right" id="Capture Analysis" order="7" />
       <window_info anchor="bottom" id="Run" order="3" visible="true" weight="0.32958034" />
       <window_info anchor="right" id="Theme Preview" order="8" />
+      <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26190478" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="7" />
-      <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" />
       <window_info id="Image Layers" order="5" />
       <window_info id="Designer" order="3" />
       <window_info id="UI Designer" order="4" />
@@ -1223,7 +1161,7 @@
       <window_info anchor="bottom" id="Terminal" order="10" />
       <window_info anchor="bottom" id="Debug" order="4" weight="0.39918116" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
+      <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
       <window_info id="Capture Tool" order="2" />
       <window_info anchor="bottom" id="Message" order="1" />
@@ -1334,18 +1272,6 @@
           <option name="timeStamp" value="44" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/zzc/nettyapi/annotation/parser/AnnotationMappingConfiguration.java</url>
-          <line>59</line>
-          <properties />
-          <option name="timeStamp" value="49" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/zzc/nettyapi/annotation/parser/AnnotationMappingConfiguration.java</url>
-          <line>98</line>
-          <properties />
-          <option name="timeStamp" value="54" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home/src.zip!/java/util/Arrays.java</url>
           <line>3867</line>
           <properties />
@@ -1359,7 +1285,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/zzc/nettyapi/apiutil/ApiHandler.java</url>
-          <line>179</line>
+          <line>182</line>
           <properties />
           <option name="timeStamp" value="64" />
         </line-breakpoint>
@@ -1380,24 +1306,6 @@
           <line>1135</line>
           <properties />
           <option name="timeStamp" value="71" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/zzc/nettyapi/hotload/core/classloader/NettyServerClassLoader.java</url>
-          <line>86</line>
-          <properties />
-          <option name="timeStamp" value="78" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/zzc/nettyapi/hotload/core/classloader/NettyServerClassLoader.java</url>
-          <line>109</line>
-          <properties />
-          <option name="timeStamp" value="79" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/zzc/nettyapi/hotload/core/classloader/NettyServerClassLoader.java</url>
-          <line>157</line>
-          <properties />
-          <option name="timeStamp" value="80" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/com/demo/test/Main.java</url>
@@ -1430,22 +1338,10 @@
           <option name="timeStamp" value="97" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/zzc/nettyapi/hotload/core/background/DetectModifyThread.java</url>
-          <line>68</line>
-          <properties />
-          <option name="timeStamp" value="99" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home/src.zip!/java/lang/invoke/LambdaMetafactory.java</url>
           <line>430</line>
           <properties />
           <option name="timeStamp" value="102" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home/src.zip!/java/lang/invoke/LambdaMetafactory.java</url>
-          <line>302</line>
-          <properties />
-          <option name="timeStamp" value="103" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/zzc/nettyapi/argument/utils/ReflectionTool.java</url>
@@ -1458,6 +1354,30 @@
           <line>36</line>
           <properties />
           <option name="timeStamp" value="110" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/zzc/nettyapi/argument/conversion/DefaultConversion.java</url>
+          <line>81</line>
+          <properties />
+          <option name="timeStamp" value="112" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/zzc/nettyapi/nettyservice/ServerConfigLoader.java</url>
+          <line>24</line>
+          <properties />
+          <option name="timeStamp" value="114" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/zzc/nettyapi/apiutil/ApiRegistry.java</url>
+          <line>39</line>
+          <properties />
+          <option name="timeStamp" value="115" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/zzc/nettyapi/argument/resolver/SimpleValueArgumentResolver.java</url>
+          <line>46</line>
+          <properties />
+          <option name="timeStamp" value="122" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home/src.zip!/java/lang/invoke/MethodHandle.java</url>
@@ -1487,7 +1407,7 @@
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="111" />
+      <option name="time" value="123" />
     </breakpoint-manager>
   </component>
   <component name="debuggerHistoryManager">
@@ -1549,295 +1469,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zzc/nettyapi/apiutil/ApiRegistry.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="232">
-          <caret line="36" column="23" selection-start-line="36" selection-start-column="23" selection-end-line="36" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home/src.zip!/java/util/function/Function.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="48" column="6" selection-start-line="48" selection-start-column="6" selection-end-line="48" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zzc/test/Controller/UserController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="34" selection-start-line="12" selection-start-column="34" selection-end-line="12" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zzc/nettyapi/nettyservice/NettyServerBootStrap.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="32" lean-forward="true" selection-start-line="32" selection-end-line="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/google/guava/guava/24.1-jre/guava-24.1-jre-sources.jar!/com/google/common/base/Supplier.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="39" column="17" selection-start-line="39" selection-start-column="17" selection-end-line="39" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home/src.zip!/java/lang/ClassLoader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="403" selection-start-line="403" selection-end-line="403" />
-          <folding>
-            <element signature="e#11991#11992#0" expanded="true" />
-            <element signature="e#12045#12046#0" expanded="true" />
-            <element signature="e#37807#37808#0" expanded="true" />
-            <element signature="e#37839#37840#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zzc/nettyapi/hotload/core/classloader/NettyServerClassLoader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="132" selection-start-line="132" selection-end-line="132" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home/src.zip!/java/util/stream/ReferencePipeline.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
-          <caret line="173" selection-start-line="173" selection-end-line="173" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home/src.zip!/java/util/concurrent/ConcurrentHashMap.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
-          <caret line="3605" selection-start-line="3605" selection-end-line="3605" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/io/netty/netty-all/4.1.16.Final/netty-all-4.1.16.Final-sources.jar!/io/netty/channel/nio/AbstractNioMessageChannel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="74" selection-start-line="74" selection-end-line="74" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zzc/nettyapi/hotload/core/background/DetectModifyThread.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="274">
-          <caret line="68" selection-start-line="68" selection-end-line="68" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zzc/nettyapi/nettyservice/ServerHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="48" selection-start-line="48" selection-end-line="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zzc/nettyapi/argument/utils/HandleMethodArgumentParser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="19" selection-start-line="19" selection-end-line="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zzc/nettyapi/argument/utils/BeanWrapperFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zzc/nettyapi/argument/utils/BeanWrapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zzc/nettyapi/annotation/ApiMapping.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="116">
-          <caret line="15" column="18" selection-start-line="15" selection-start-column="18" selection-end-line="15" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zzc/nettyapi/apiutil/ApiHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="580">
-          <caret line="189" column="74" selection-start-line="189" selection-start-column="74" selection-end-line="189" selection-end-column="74" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2089#2090#0" expanded="true" />
-            <element signature="e#2135#2136#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zzc/nettyapi/argument/utils/MethodParameter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-          <folding>
-            <element signature="e#604#605#0" expanded="true" />
-            <element signature="e#646#647#0" expanded="true" />
-            <element signature="e#690#691#0" expanded="true" />
-            <element signature="e#747#748#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zzc/nettyapi/apiutil/ApiMethod.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1751">
-          <caret line="152" column="16" selection-start-line="152" selection-start-column="16" selection-end-line="152" selection-end-column="16" />
-          <folding>
-            <element signature="e#575#583#0" expanded="true" />
-            <element signature="e#2083#2084#0" expanded="true" />
-            <element signature="e#2116#2117#0" expanded="true" />
-            <element signature="e#3564#3565#0" expanded="true" />
-            <element signature="e#3616#3617#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zzc/nettyapi/annotation/parser/AnnotationMappingConfiguration.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2193">
-          <caret line="135" column="60" selection-start-line="135" selection-start-column="60" selection-end-line="135" selection-end-column="60" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zzc/test/Controller/AnnotationController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="19" column="36" selection-start-line="19" selection-start-column="36" selection-end-line="19" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zzc/nettyapi/argument/binder/SimpleRequestDataBinder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zzc/nettyapi/argument/binder/ModelAttributeDataBinder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="24" column="13" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zzc/nettyapi/argument/resolver/ArgumentResolver.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1632">
-          <caret line="106" column="19" selection-start-line="106" selection-start-column="19" selection-end-line="106" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zzc/nettyapi/argument/resolver/ModelAttributeArgumentResolver.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="663">
-          <caret line="51" column="34" selection-start-line="51" selection-start-column="34" selection-end-line="51" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home/src.zip!/java/lang/invoke/MethodHandles.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="2266" column="17" selection-start-line="2266" selection-start-column="17" selection-end-line="2266" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home/src.zip!/java/lang/invoke/CallSite.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="343" selection-start-line="343" selection-end-line="343" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home/src.zip!/java/lang/invoke/MethodHandleNatives.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="42">
-          <caret line="296" selection-start-line="296" selection-end-line="296" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home/src.zip!/java/lang/invoke/LambdaForm.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home/src.zip!/java/lang/invoke/MethodHandle.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1279">
-          <caret line="512" column="37" selection-start-line="512" selection-start-column="37" selection-end-line="512" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home/src.zip!/java/lang/invoke/LambdaMetafactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="302" selection-start-line="302" selection-end-line="302" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home/src.zip!/java/util/function/Supplier.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="40" column="17" selection-start-line="40" selection-start-column="17" selection-end-line="40" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home/src.zip!/java/util/function/Consumer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="41" column="17" selection-start-line="41" selection-start-column="17" selection-end-line="41" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zzc/nettyapi/request/Main.java" />
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home/src.zip!/java/lang/String.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1275">
-          <caret line="110" column="19" selection-start-line="110" selection-start-column="19" selection-end-line="110" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home/src.zip!/java/util/stream/Stream.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7667">
-          <caret line="497" column="20" selection-start-line="497" selection-start-column="20" selection-end-line="497" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zzc/nettyapi/argument/conversion/convert/StringToNumberConverter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="816">
-          <caret line="51" selection-start-line="51" selection-end-line="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zzc/nettyapi/argument/conversion/convert/Converter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="17" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home/src.zip!/java/lang/Class.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="14467">
@@ -1859,26 +1490,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/read.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="85">
-            <caret line="5" selection-start-line="5" selection-end-line="5" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/basic.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="765">
-            <caret line="45" column="78" selection-start-line="45" selection-start-column="78" selection-end-line="45" selection-end-column="78" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/zzc/nettyapi/request/HttpRequestParser.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
@@ -1890,27 +1501,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
           <caret line="24" column="13" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zzc/nettyapi/argument/resolver/SimpleValueArgumentResolver.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="23" selection-start-line="23" selection-end-line="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zzc/nettyapi/argument/utils/ReflectionTool.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2040">
-          <caret line="129" column="27" selection-start-line="129" selection-start-column="27" selection-end-line="129" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zzc/nettyapi/argument/conversion/DefaultConversion.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="261">
-          <caret line="92" column="12" selection-start-line="92" selection-start-column="12" selection-end-line="92" selection-end-column="12" />
         </state>
       </provider>
     </entry>
@@ -1931,13 +1521,343 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zzc/nettyapi/argument/conversion/convert/ArrayToArrayConverter.java">
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home/src.zip!/java/lang/invoke/LambdaMetafactory.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="397">
-          <caret line="36" column="19" selection-start-line="36" selection-start-column="19" selection-end-line="36" selection-end-column="19" />
+        <state relative-caret-position="4811">
+          <caret line="307" column="33" selection-start-line="307" selection-start-column="33" selection-end-line="307" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zzc/nettyapi/nettyservice/NettyServerBootStrap.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1037">
+          <caret line="79" column="26" selection-start-line="79" selection-start-column="26" selection-end-line="79" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zzc/nettyapi/argument/utils/HandleMethodArgumentParser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="19" selection-start-line="19" selection-end-line="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zzc/nettyapi/apiutil/CustomerConfiguration.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="24" column="13" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zzc/nettyapi/apiutil/HandleRequestThreadFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zzc/nettyapi/apiutil/ApiMethod.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="47" column="27" lean-forward="true" selection-start-line="47" selection-start-column="27" selection-end-line="47" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zzc/nettyapi/hotload/core/background/DetectModifyThread.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="765">
+          <caret line="45" selection-start-line="45" selection-end-line="45" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zzc/nettyapi/argument/utils/PropertyHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home/src.zip!/java/lang/reflect/Method.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="483" column="18" selection-start-line="483" selection-start-column="18" selection-end-line="483" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/com/google/guava/guava/24.1-jre/guava-24.1-jre-sources.jar!/com/google/common/reflect/ClassPath.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="212">
+          <caret line="145" column="33" selection-start-line="145" selection-start-column="33" selection-end-line="145" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home/src.zip!/java/util/AbstractCollection.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="602">
+          <caret line="60" column="22" selection-start-line="60" selection-start-column="22" selection-end-line="60" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/com/google/guava/guava/24.1-jre/guava-24.1-jre-sources.jar!/com/google/common/collect/ImmutableCollection.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="212">
+          <caret line="164" column="65" selection-start-line="164" selection-start-column="65" selection-end-line="164" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/com/google/guava/guava/24.1-jre/guava-24.1-jre-sources.jar!/com/google/common/collect/ImmutableSet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="52" column="51" selection-start-line="52" selection-start-column="51" selection-end-line="52" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zzc/nettyapi/annotation/parser/AnnotationMappingConfiguration.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="406">
+          <caret line="80" selection-start-line="80" selection-end-line="80" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zzc/nettyapi/argument/conversion/convert/StringToNumberConverter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="602">
+          <caret line="51" selection-start-line="51" selection-end-line="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home/src.zip!/java/util/Arrays.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="52853">
+          <caret line="3180" column="25" selection-start-line="3180" selection-start-column="25" selection-end-line="3180" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home/src.zip!/java/util/ArrayList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5814">
+          <caret line="375" column="24" selection-start-line="375" selection-start-column="24" selection-end-line="375" selection-end-column="24" />
+          <folding>
+            <element signature="e#13541#13542#0" expanded="true" />
+            <element signature="e#13596#13597#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zzc/nettyapi/argument/conversion/convert/ObjectToStringConverter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="33" selection-start-line="12" selection-start-column="33" selection-end-line="12" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/basic.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="468">
+            <caret line="45" column="78" selection-start-line="45" selection-start-column="78" selection-end-line="45" selection-end-column="78" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/read.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="85">
+            <caret line="5" selection-start-line="5" selection-end-line="5" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="187">
+            <caret line="11" column="12" selection-start-line="11" selection-start-column="12" selection-end-line="11" selection-end-column="12" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/demo/test/UrlClassLoaderTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zzc/test/Controller/AnnotationController2.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zzc/test/Controller/AnnotationController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="21" column="45" selection-start-line="21" selection-start-column="45" selection-end-line="21" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/arg.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="221">
+            <caret line="13" selection-start-line="13" selection-end-line="13" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zzc/nettyapi/argument/binder/DataBinder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="16" column="19" selection-start-line="16" selection-start-column="19" selection-end-line="16" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zzc/nettyapi/argument/binder/DataBinderFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zzc/nettyapi/argument/binder/SimpleRequestDataBinder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="361">
+          <caret line="25" column="16" selection-start-line="25" selection-start-column="16" selection-end-line="25" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zzc/nettyapi/nettyservice/ServerConfigLoader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="24" selection-start-line="24" selection-end-line="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zzc/nettyapi/apiutil/ApiRegistry.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="39" selection-start-line="39" selection-end-line="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zzc/nettyapi/hotload/core/classloader/NettyServerClassLoader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1462">
+          <caret line="86" selection-start-line="86" selection-end-line="86" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/io/netty/netty-all/4.1.16.Final/netty-all-4.1.16.Final-sources.jar!/io/netty/channel/nio/AbstractNioMessageChannel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="782">
+          <caret line="74" selection-start-line="74" selection-end-line="74" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zzc/nettyapi/nettyservice/ServerHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="48" selection-start-line="48" selection-end-line="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zzc/nettyapi/argument/utils/ReflectionTool.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2074">
+          <caret line="131" selection-start-line="131" selection-end-line="131" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zzc/nettyapi/apiutil/ApiHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="529">
+          <caret line="141" column="60" selection-start-line="141" selection-start-column="60" selection-end-line="141" selection-end-column="60" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zzc/nettyapi/argument/binder/ModelAttributeDataBinder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="57">
+          <caret line="24" column="13" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zzc/nettyapi/filter/MethodFilter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="17" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zzc/nettyapi/argument/conversion/Conversion.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="527">
+          <caret line="32" column="11" selection-start-line="32" selection-start-column="11" selection-end-line="32" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zzc/nettyapi/argument/conversion/DefaultConversion.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="426">
+          <caret line="100" selection-start-line="100" selection-end-line="100" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zzc/nettyapi/argument/conversion/convert/ArrayToArrayConverter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="520">
+          <caret line="40" column="55" selection-start-line="40" selection-start-column="55" selection-end-line="40" selection-end-column="55" />
+          <folding>
+            <element signature="e#565#566#0" expanded="true" />
+            <element signature="e#609#610#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zzc/nettyapi/argument/resolver/ArgumentResolver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="758">
+          <caret line="121" selection-start-line="121" selection-end-line="121" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zzc/nettyapi/argument/resolver/ModelAttributeArgumentResolver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="51" column="34" selection-start-line="51" selection-start-column="34" selection-end-line="51" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home/src.zip!/java/util/List.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="677">
+          <caret line="210" column="12" selection-start-line="210" selection-start-column="12" selection-end-line="210" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zzc/nettyapi/argument/resolver/SimpleValueArgumentResolver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="588">
+          <caret line="70" column="37" selection-start-line="70" selection-start-column="37" selection-end-line="70" selection-end-column="37" />
         </state>
       </provider>
     </entry>

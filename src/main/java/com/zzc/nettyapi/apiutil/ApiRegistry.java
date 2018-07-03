@@ -45,72 +45,48 @@ public class ApiRegistry {
     }
 
     private static void init(String configPath) throws IllegalAccessException, ParserConfigurationException, IOException {
-
-
         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
         try {
             DocumentBuilder db = dbf.newDocumentBuilder();
             Document doc = db.parse(ApiRegistry.class.getResourceAsStream(configPath));
-
             NodeList resources = doc.getElementsByTagName("resource");
-
             for (int i = 0; i < resources.getLength(); i++) {
                 Element resource = (Element) resources.item(i);
                 NodeList classs = resource.getElementsByTagName("class-name");
                 Element clz = (Element) classs.item(0);
-
                 String className = clz.getAttribute("class");
-
-
                 NodeList nodes = clz.getElementsByTagName("node");
-
                 String methodName = null;
                 for (int j = 0; j < nodes.getLength(); j++) {
                     Element node = (Element) nodes.item(j);
                     ApiMethod api = new ApiMethod();
-
                     api.setClassName(className);
-
-
                     String url = null;
                     for (Node child = node.getFirstChild(); child != null; child = child.getNextSibling()) {
                         if (child.getNodeType() == Node.ELEMENT_NODE) {
-
                             String name = child.getNodeName();
                             String value = child.getFirstChild().getNodeValue();
                             if ("url".equals(name)) {
                                 url = value;
                                 api.setUrl(url);
-
                             } else if ("support".equals(name)) {
                                 api.getSupportMethods().add(value.toUpperCase());
-
                             } else if ("method".equals(name)) {
                                 methodName = value;
                                 api.setMethodName(methodName);
-
                             } else {
                                 log.info("cant parse node -" + name);
-
                             }
                         }
-
-
                     }
-
                     ApiMethod previous = urlRegistrys.put(url, api);
                     reloadClass.put(className,false);
                     if (Objects.nonNull(previous)) {
                         throw new IllegalAccessException("mapping method conflict on the url:{}" + url);
                     }
                     log.info("mapping url:{} on the class:{} - method:{}", url, className, methodName);
-
                 }
-
-
             }
-
-
         } catch (ParserConfigurationException e) {
             log.error("解析api-mapping出错--" + e.getMessage());
             throw e;

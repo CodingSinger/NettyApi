@@ -177,7 +177,10 @@ public class ApiHandler {
     private void loadMethodAndClass(ApiMethod apiMethod, Boolean reload) {
 
         try {
-            if (Objects.isNull(apiMethod.getMethod()) || reload) { //非注解加载的方式method会为空
+
+            //1. 非注解加载的方式,所有元数据都只是符号引用即 class method会为空，需要加载 class method
+            //2. 需要reload的情况下也要重新加载类和method
+            if (Objects.isNull(apiMethod.getMethod()) || reload) {
 
 
                 //加载class
@@ -206,7 +209,6 @@ public class ApiHandler {
         } finally {
         }
     }
-
 
 
 }

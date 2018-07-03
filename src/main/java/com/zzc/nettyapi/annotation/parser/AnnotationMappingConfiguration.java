@@ -57,21 +57,26 @@ public class AnnotationMappingConfiguration extends Configuration {
 
     //TODO 考虑是否需要去掉stream +lambda 这么写性能好像比普通写慢
     public List<Class<?>> getScanPackageAllClass() {
-        ImmutableSet<ClassPath.ClassInfo> classInfos = null;
+//        ImmutableSet<ClassPath.ClassInfo> classInfos = null;
         try {
 
 
             ClassPath classpath = ClassPath.from(AnnotationMappingConfiguration.class.getClassLoader());
             String[] paths = scanPaths.split(",");
-            classInfos = Arrays.stream(paths)
-                    .map(classpath::getTopLevelClasses)
-                    .reduce((t, r) -> {
-                        ArrayList<ClassPath.ClassInfo> arrayList = Lists.newArrayList((ClassPath.ClassInfo[]) t.toArray());
-                        arrayList.addAll(Lists.newArrayList((ClassPath.ClassInfo[]) r.toArray()));
-                        return ImmutableSet.copyOf(arrayList);
-                    })
-                    .orElse(ImmutableSet.of());
+//            classInfos = Arrays.stream(paths)
+//                    .map(classpath::getTopLevelClasses)
+//                    .reduce((t, r) -> {
+//                        ArrayList<ClassPath.ClassInfo> arrayList = Lists.newArrayList((ClassPath.ClassInfo[]) t.toArray());
+//                        arrayList.addAll(Lists.newArrayList((ClassPath.ClassInfo[]) r.toArray()));
+//                        return ImmutableSet.copyOf(arrayList);
+//                    })
+//                    .orElse(ImmutableSet.of());
 
+            List<ClassPath.ClassInfo> classInfos = new LinkedList<>();
+            for (String path : paths) {
+                ImmutableSet<ClassPath.ClassInfo> temp = classpath.getTopLevelClassesRecursive(path);
+                classInfos.addAll(temp);
+            }
 
             ClassLoader classLoader = this.classLoader;
             if (classLoader == null){
@@ -109,6 +114,7 @@ public class AnnotationMappingConfiguration extends Configuration {
                         .orElse(null);
                 //该类含有NameComponent注解
 
+                //TODO 注解加载的Method参数未解析
                 if (Objects.nonNull(annotation)) {
                     //解析方法
                     Method[] methods = aClass.getDeclaredMethods();
