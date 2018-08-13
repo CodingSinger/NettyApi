@@ -27,4 +27,50 @@ ArgumentResolver：
 进行注入。
 
 和SpringMVC一样，注入值也需要属性提供set方法，并且对于嵌套的注入，还需要中间Bean提供set、get方法
+
+
+```java
+	@Override
+	public void setPropertyValue(PropertyValue pv) throws BeansException {
+		PropertyTokenHolder tokens = (PropertyTokenHolder) pv.resolvedTokens;
+		if (tokens == null) {
+			String propertyName = pv.getName();
+			AbstractNestablePropertyAccessor nestedPa;
+			try {
+                //获取实际要注入的对象的包装,例如p1.p2.p3实际要注入的为p3的包装
+				nestedPa = getPropertyAccessorForPropertyPath(propertyName);
+			}
+			catch (NotReadablePropertyException ex) {
+				throw new NotWritablePropertyException(getRootClass(), this.nestedPath + propertyName,
+						"Nested property in path '" + propertyName + "' does not exist", ex);
+			}
+			tokens = getPropertyNameTokens(getFinalPath(nestedPa, propertyName));
+			if (nestedPa == this) {
+				pv.getOriginalPropertyValue().resolvedTokens = tokens;
+			}
+			nestedPa.setPropertyValue(tokens, pv); //实际的执行属性注入方法
+		}
+		else {
+			setPropertyValue(tokens, pv); //实际的执行属性注入方法
+		}
+	}
+
+```
   
+AbstractNestablePropertyAccessor#getPropertyAccessorForPropertyPath方法如下：
+
+```java
+
+	protected AbstractNestablePropertyAccessor getPropertyAccessorForPropertyPath(String propertyPath) {
+		int pos = PropertyAccessorUtils.getFirstNestedPropertySeparatorIndex(propertyPath);
+		// Handle nested properties recursively.
+		if (pos > -1) {
+			String nestedProperty = propertyPath.substring(0, pos);//当前nestedPa中需要获取的属性名称
+			String nestedPath = propertyPath.substring(pos + 1); //获取下一层的属性名称
+			AbstractNestablePropertyAccessor nestedPa = getNestedPropertyAccessor(nestedProperty); //获取该属性名称在当前nestedPa对象中的包装nestedPa对象,如在p1中获得p2的nestedPa
+			return nestedPa.getPropertyAccessorForPropertyPath(nestedPath);
+		}
+		else {
+			return this; //已经到最底层了 返回该对象包装
+		
+```

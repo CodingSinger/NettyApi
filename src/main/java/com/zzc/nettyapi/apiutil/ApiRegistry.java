@@ -35,11 +35,11 @@ public class ApiRegistry {
 
 
     public static void init(boolean scan, AnnotationMappingConfiguration configuration) throws IllegalAccessException, IOException, ParserConfigurationException {
-        if (scan) {
-            //扫描注解解析
-            Map<String, ApiMethod> methodMap = configuration.registerMapping();
-            urlRegistrys.putAll(methodMap);
-        }
+//        if (scan) {
+//            //扫描注解解析
+//            Map<String, ApiMethod> methodMap = configuration.registerMapping();
+//            urlRegistrys.putAll(methodMap);
+//        }
         init(mappingConfig);
 
     }

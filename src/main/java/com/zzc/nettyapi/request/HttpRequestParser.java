@@ -34,7 +34,7 @@ public class HttpRequestParser {
 
     public void parse(RequestDetail requestDetail) {
         HttpRequest request = requestDetail.getHttpRequest();
-        parseRequest(requestDetail, request);
+//        parseRequest(requestDetail, request);
         parseParameterByMethod(requestDetail, (FullHttpRequest)request);
     }
 

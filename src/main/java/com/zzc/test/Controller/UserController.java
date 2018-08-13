@@ -8,7 +8,7 @@ import com.zzc.test.entity.Person;
  */
 public class UserController {
 
-    public String get(int uid,int noteid){
+    public String get(int noteid,int uid){
         System.out.println(uid);
         System.out.println("change");
         return "uid"+uid+"--noteid"+noteid;

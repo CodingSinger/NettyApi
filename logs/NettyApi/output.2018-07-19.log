@@ -1,0 +1,32 @@
+2018-07-19  22:07:03.780 [main] DEBUG io.netty.util.internal.logging.InternalLoggerFactory - Using SLF4J as the default logging framework
+2018-07-19  22:07:03.910 [main] DEBUG io.netty.channel.MultithreadEventLoopGroup - -Dio.netty.eventLoopThreads: 16
+2018-07-19  22:07:04.763 [main] DEBUG io.netty.util.internal.PlatformDependent - Platform: MacOS
+2018-07-19  22:07:04.792 [main] DEBUG io.netty.util.internal.PlatformDependent0 - -Dio.netty.noUnsafe: false
+2018-07-19  22:07:04.813 [main] DEBUG io.netty.util.internal.PlatformDependent0 - Java version: 8
+2018-07-19  22:07:04.866 [main] DEBUG io.netty.util.internal.PlatformDependent0 - sun.misc.Unsafe.theUnsafe: available
+2018-07-19  22:07:04.893 [main] DEBUG io.netty.util.internal.PlatformDependent0 - sun.misc.Unsafe.copyMemory: available
+2018-07-19  22:07:04.918 [main] DEBUG io.netty.util.internal.PlatformDependent0 - java.nio.Buffer.address: available
+2018-07-19  22:07:04.945 [main] DEBUG io.netty.util.internal.PlatformDependent0 - direct buffer constructor: available
+2018-07-19  22:07:04.971 [main] DEBUG io.netty.util.internal.PlatformDependent0 - java.nio.Bits.unaligned: available, true
+2018-07-19  22:07:04.981 [main] DEBUG io.netty.util.internal.PlatformDependent0 - jdk.internal.misc.Unsafe.allocateUninitializedArray(int): unavailable prior to Java9
+2018-07-19  22:07:04.991 [main] DEBUG io.netty.util.internal.PlatformDependent0 - java.nio.DirectByteBuffer.<init>(long, int): available
+2018-07-19  22:07:05.005 [main] DEBUG io.netty.util.internal.PlatformDependent - sun.misc.Unsafe: available
+2018-07-19  22:07:05.020 [main] DEBUG io.netty.util.internal.PlatformDependent - -Dio.netty.tmpdir: /var/folders/60/p56nn12s5sq59wz96nlpdfcc0000gn/T (java.io.tmpdir)
+2018-07-19  22:07:05.031 [main] DEBUG io.netty.util.internal.PlatformDependent - -Dio.netty.bitMode: 64 (sun.arch.data.model)
+2018-07-19  22:07:05.077 [main] DEBUG io.netty.util.internal.PlatformDependent - -Dio.netty.noPreferDirect: false
+2018-07-19  22:07:05.089 [main] DEBUG io.netty.util.internal.PlatformDependent - -Dio.netty.maxDirectMemory: 3817865216 bytes
+2018-07-19  22:07:05.099 [main] DEBUG io.netty.util.internal.PlatformDependent - -Dio.netty.uninitializedArrayAllocationThreshold: -1
+2018-07-19  22:07:05.133 [main] DEBUG io.netty.util.internal.CleanerJava6 - java.nio.ByteBuffer.cleaner(): available
+2018-07-19  22:07:06.099 [main] DEBUG io.netty.channel.nio.NioEventLoop - -Dio.netty.noKeySetOptimization: false
+2018-07-19  22:07:06.110 [main] DEBUG io.netty.channel.nio.NioEventLoop - -Dio.netty.selectorAutoRebuildThreshold: 512
+2018-07-19  22:07:06.507 [main] DEBUG io.netty.util.internal.PlatformDependent - org.jctools-core.MpscChunkedArrayQueue: available
+2018-07-19  22:07:09.043 [main] INFO  com.zzc.nettyapi.nettyservice.ServerConfigLoader - load server config from /config.properties successfully!
+2018-07-19  22:08:39.800 [main] DEBUG com.zzc.nettyapi.hotload.core.classloader.NettyServerClassLoader - loadClass(com.zzc.test.Controller.AnnotationController, false)
+2018-07-19  22:09:53.752 [main] DEBUG com.zzc.nettyapi.hotload.core.classloader.NettyServerClassLoader - loadClass(com.zzc.nettyapi.hotload.basic.Controller, false)
+2018-07-19  22:09:53.760 [main] DEBUG com.zzc.nettyapi.hotload.core.classloader.NettyServerClassLoader - loadClass(java.lang.Object, false)
+2018-07-19  22:09:53.762 [main] DEBUG com.zzc.nettyapi.hotload.core.classloader.NettyServerClassLoader - loadClass(com.zzc.test.Controller.AnnotationController2, false)
+2018-07-19  22:09:53.763 [main] DEBUG com.zzc.nettyapi.hotload.core.classloader.NettyServerClassLoader - loadClass(com.zzc.test.Controller.UserController, false)
+2018-07-19  22:09:53.766 [main] DEBUG com.zzc.nettyapi.hotload.core.classloader.NettyServerClassLoader - loadClass(com.zzc.nettyapi.annotation.NameComponent, false)
+2018-07-19  22:09:53.795 [main] DEBUG com.zzc.nettyapi.hotload.core.classloader.NettyServerClassLoader - loadClass(java.lang.String, false)
+2018-07-19  22:09:53.795 [main] DEBUG com.zzc.nettyapi.hotload.core.classloader.NettyServerClassLoader - loadClass(java.lang.Integer, false)
+2018-07-19  22:09:53.795 [main] DEBUG com.zzc.nettyapi.hotload.core.classloader.NettyServerClassLoader - loadClass(com.zzc.test.entity.Person, false)

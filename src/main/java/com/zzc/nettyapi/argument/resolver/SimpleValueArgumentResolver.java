@@ -48,11 +48,12 @@ public class SimpleValueArgumentResolver extends ArgumentResolver {
 
         //获取参数名
         String parameterName = methodParameter.name();
-
+        System.out.println("name--"+parameterName);
         Class type = methodParameter.getType();
 
         List<String> valueLists = parametersMaps.get(parameterName);
-
+        System.out.println(parametersMaps);
+        System.out.println("valueLists--"+valueLists);
         if (Objects.nonNull(valueLists) && !valueLists.isEmpty()) {
             Object value = null;
             /**
