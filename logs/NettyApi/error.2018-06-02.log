@@ -1,7 +1,0 @@
-2018-06-02  18:45:11.893 [handleThread--1] ERROR com.zzc.nettyapi.apiutil.ApiHandler - Test
-2018-06-02  18:47:25.020 [handleThread--1] ERROR com.zzc.nettyapi.apiutil.ApiHandler - Test
-2018-06-02  18:48:01.647 [handleThread--1] ERROR com.zzc.nettyapi.apiutil.ApiHandler - Test
-2018-06-02  18:48:44.883 [handleThread--3] ERROR com.zzc.nettyapi.apiutil.ApiHandler - /test don't support this http method
-2018-06-02  18:54:32.388 [handleThread--1] ERROR com.zzc.nettyapi.apiutil.ApiHandler - /test don't support this http method
-2018-06-02  18:59:43.163 [handleThread--3] ERROR com.zzc.nettyapi.apiutil.ApiHandler - /todo don't support this http method
-2018-06-02  19:20:47.727 [handleThread--1] ERROR com.zzc.nettyapi.apiutil.ApiHandler - /todo don't support this http method
